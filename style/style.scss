@@ -1,0 +1,24 @@
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');; // IBM Plex Mono R400 & M500
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap'); // IBM Plex Sans R400, M500 & SB600
+
+/* ---------- Variables ---------- */
+@import "./partials/utils/vars";
+
+/* ---------- Mixins ---------- */
+@import "./partials/utils/mixins";
+
+/* ---------- Global and Body ---------- */
+@import "./partials/body/global";
+
+/* ---------- Header ---------- */
+@import "./partials/body/header";
+
+/* ---------- Main ---------- */
+@import "./partials/body/main";
+
+/* ---------- Footer ---------- */
+@import "./partials/body/footer";
+
+/* ---------- Media queries ---------- */
+@import "./partials/utils/media-queries";
