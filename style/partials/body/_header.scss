@@ -1,0 +1,154 @@
+header {
+    .topnav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 95px;
+        background-color: $white-color;
+        width: 100%;
+        position: fixed;
+        z-index: 99;
+
+        .violet-top-line {
+            border: 2.5px solid $violet-color;
+            background-color: $violet-color;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        .logo-container {
+            width: 48.8px;
+            height: 48.8px;
+            margin-top: 15px;
+            margin-left: 22px;
+            text-decoration: none;
+
+            .logo-img {
+                width: 100%;
+            }
+        }
+
+        nav {
+            padding-right: 30px;
+
+            input {
+                position: absolute;
+                width: 15px;
+                height: 15px;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 50;
+
+                &:checked ~ div {
+                    &:first-of-type {
+                        -webkit-transform: rotate(-45deg) translate(-3.5px, 3.5px);
+                        transform: rotate(-45deg) translate(-3.5px, 3.5px);
+                    }
+
+                    &:nth-of-type(2) {
+                        opacity: 0;
+                    }
+
+                    &:nth-of-type(3) {
+                        -webkit-transform: rotate(45deg) translate(-3.5px, -3.5px);
+                        transform: rotate(45deg) translate(-3.5px, -3.5px);
+                    }
+                }
+
+                // checkbox hack
+                &:checked ~ ul {
+                    max-height: 1000px; // show the navbar items from 0px -> 1000px with a transition
+                    height: 10000px;
+                    transition: all 0.5s;
+                }
+            }
+
+            .bar1, .bar2, .bar3 {
+                width: 15px;
+                height: 2.5px;
+                background-color: $violet-color;
+                margin: 2.25px 0;
+                transition: 0.4s;
+            }
+
+            ul {                
+                position: absolute;
+                top: 95px; // move 95px from the top (which is the height of the navbar)
+                left: 0;
+                width: 100%;
+                background-color: $violet-color;
+                opacity: 0.9;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                max-height: 0; // start hidden
+                overflow: hidden;
+
+                .link {
+                    list-style-type: none;
+
+                    &.link-desktop {
+                        display: none;
+                    }
+
+                    &.link-mobile {
+                        display: block;
+                    }
+
+                    a {
+                        color: $white-color;
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 15px;
+                        font-weight: 700;
+                        letter-spacing: 0;
+                        line-height: 60px;
+                        text-decoration: none;
+                        position: relative;
+
+                        &::after {    
+                            background: none repeat scroll 0 0 transparent;
+                            margin-top: -2px;
+                            bottom: 0;
+                            content: "";
+                            display: block;
+                            height: 2px;
+                            left: 50%;
+                            position: absolute;
+                            background: $green-color;
+                            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                            width: 0;
+                        }
+
+                        &:hover {
+                            &::after { 
+                                width: 100%; 
+                                left: 0; 
+                            }
+                        }
+
+                        &:active {
+                            color: $gray-color;
+                        }
+                    }
+                }
+
+                hr {
+                    opacity: 0.5;
+                    border: 1px solid $white-color;
+                    width: 41px;
+                    background-color: $white-color;
+                }
+
+                .button-link {
+                    list-style-type: none;
+
+                    .create-gifo-button {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

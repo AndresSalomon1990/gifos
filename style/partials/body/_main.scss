@@ -1,0 +1,24 @@
+main {
+    .main-title-container {
+        display: flex;
+        width: 286px;
+        height: 99px;
+        padding-top: 102px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 25px;
+            color: $violet-color;
+            text-align: center;
+            line-height: 33px;
+
+            span {
+                color: $green-color;
+            }
+        }
+    }
+}

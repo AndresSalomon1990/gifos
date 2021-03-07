@@ -1,0 +1,84 @@
+@media screen and (min-width: 980px) {
+
+    // -------------------- START HEADER --------------------
+    header {
+        .topnav-container {
+    
+            .logo-container {
+                width: 59.1px;
+                height: 59.1px;
+                margin-top: 15px;
+                margin-left: 156px;
+                text-decoration: none;
+            }
+            
+            nav {
+                margin-right: 156px;
+
+                .input {
+                    display: none;
+                }
+
+                .bar1, .bar2, .bar3 {
+                    display: none;
+                }
+
+                ul {                
+                    position: relative; // position the navbar
+                    top: -5px;
+                    max-height: 95px;
+                    background-color: transparent;
+                    opacity: 1;
+                    display: flex;
+                    justify-content: flex-end;
+                    flex-direction: row;
+                    
+                    .link {
+                        &.link-desktop {
+                            display: block;
+                        }
+                        
+                        &.link-mobile {
+                            display: none;
+                        }
+                        
+                        a {
+                            color: $violet-color;
+                            font-size: 13px;
+                            margin-left: 40px;
+                        }
+                    }
+
+                    hr {
+                        display: none;
+                    }
+
+                    .button-link {
+                        .create-gifo-button {
+                            display: block;
+                            border-radius: 50%;
+                            height: 54px;
+                            width: 54px;
+                            background-image: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
+                            background-color: #cccccc; /* Used if the image is unavailable */
+                            background-position: center; /* Center the image */
+                            background-repeat: no-repeat; /* Do not repeat the image */
+                            background-size: contain; /* Resize the background image to cover the entire container */
+                            cursor: pointer;
+                            margin-left: 40px;
+
+                            &:hover {
+                                background-image: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
+                            }
+                    
+                            &:active {
+                                background-image: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
+                                transform: scale(0.98);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } // -------------------- END HEADER --------------------
+}
