@@ -25,7 +25,7 @@
 
                 ul {                
                     position: relative; // position the navbar
-                    top: -5px;
+                    top: 5px;
                     max-height: 95px;
                     background-color: transparent;
                     opacity: 1;
@@ -57,8 +57,8 @@
                         .create-gifo-button {
                             display: block;
                             border-radius: 50%;
-                            height: 54px;
-                            width: 54px;
+                            height: 55px;
+                            width: 55px;
                             background-image: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
                             background-color: #cccccc; /* Used if the image is unavailable */
                             background-position: center; /* Center the image */
@@ -81,4 +81,56 @@
             }
         }
     } // -------------------- END HEADER --------------------
+
+    // -------------------- START MAIN --------------------
+    main {
+        // -------------------- START PRESENTATION SECTION -------------------
+        .presentation-section {
+            padding-top: 140px;
+
+            .main-title-container {
+                width: 600px;
+                height: 100px;
+                margin-bottom: 24px;
+                
+                h1 {
+                    font-size: 35px;
+                    line-height: 50px;
+                }
+            }
+    
+            .hero-image {
+                width: 399px;
+                height: 190px;
+            }
+
+            .search-bar-container {
+                width: 551px;
+            }
+        } // -------------------- END PRESENTATION SECTION -------------------
+
+        // -------------------- START TRENDING TAGS SECTION --------------------
+        .trending-tags-section {
+        margin-top: 31px;
+
+        .trending-title-container {
+            h2 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 16px;
+                color: $violet-color;
+                text-align: center;
+                line-height: 25px;
+            }
+        }
+
+        .trending-tags-container {
+            width: 402px;
+
+            p {
+                font-size: 16px;
+            }
+        }
+    } // -------------------- END TRENDING TAGS SECTION --------------------
+    } // -------------------- END MAIN --------------------
 }

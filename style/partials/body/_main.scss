@@ -1,24 +1,163 @@
 main {
-    .main-title-container {
-        display: flex;
-        width: 286px;
-        height: 99px;
+    position: relative;
+
+    // -------------------- START PRESENTATION SECTION --------------------
+    .presentation-section {
         padding-top: 102px;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 25px;
-            color: $violet-color;
-            text-align: center;
-            line-height: 33px;
-
-            span {
-                color: $green-color;
+        .main-title-container {
+            display: flex;
+            width: 286px;
+            height: 99px;
+            position: relative;
+            @extend %center;
+            margin-bottom: 31px;
+            
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 25px;
+                color: $violet-color;
+                text-align: center;
+                line-height: 33px;
+                
+                span {
+                    color: $green-color;
+                }
             }
         }
-    }
+
+        .hero-image {
+            display: flex;
+            position: relative;
+            @extend %center;
+            width: 273px;
+            height: 130px;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .search-bar-container {
+            position: relative;
+            @extend %center;
+            width: 334px;
+            height: 50px;
+
+            input {
+                height: 100%;
+                width: 100%;
+                background: $white-color;
+                border: 1px solid $violet-color;
+                border-radius: 27px;
+                padding-left: 55px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                color: $black-color;
+                text-align: left;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .search-autocomplete-icon {
+                position: absolute;
+                left: 20px;
+                top: 15px;
+                height: 20px;
+                width: 20px;
+                background-image: url("../../../assets/images/icon/icon-search.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                opacity: 0.6;
+                display: none;
+            }
+
+            .search-toggle-icon {
+                position: absolute;
+                right: 20px;
+                top: 15px;
+                height: 20px;
+                width: 20px;
+                background-image: url("../../../assets/images/icon/icon-search.svg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: contain;
+                cursor: pointer;
+            }
+        }
+    } // -------------------- END PRESENTATION SECTION --------------------
+
+    // -------------------- START TRENDING TAGS SECTION --------------------
+    .trending-tags-section {
+        margin-top: 31px;
+
+        .trending-title-container {
+            h2 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 16px;
+                color: $violet-color;
+                text-align: center;
+                line-height: 25px;
+            }
+        }
+
+        .trending-tags-container {
+            position: relative;
+            @extend %center;
+            width: 225px;
+
+            p {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 500;
+                font-size: 14px;
+                color: $violet-color;
+                text-align: center;
+                line-height: 25px;
+            }
+        }
+    } // -------------------- END TRENDING TAGS SECTION --------------------
+
+    // -------------------- START SEARCH RESULTS SECTION --------------------
+    .search-results-section {
+        .search-result-container {
+            display: flex;
+        }
+    } // -------------------- END SEARCH RESULTS SECTION --------------------
+
+    // -------------------- START TRENDING GIFOS SECTION --------------------
+    .trending-gifos-section {
+        background-color: $smoke-color;
+        margin-top: 45px;
+
+        .trending-gifos-title-container {
+            padding-top: 45px;
+
+            h2 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 20px;
+                color: $violet-color;
+                text-align: center;
+                line-height: 30px;
+                margin-bottom: 7px;
+            }
+
+            p {
+                height: 46px;
+                font-family: 'Roboto', sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+                color: $black-color;
+                text-align: center;
+                line-height: 23px;
+            }
+        }
+    } // -------------------- END TRENDING GIFOS SECTION --------------------
 }

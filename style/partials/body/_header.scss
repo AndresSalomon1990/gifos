@@ -106,10 +106,10 @@ header {
                         line-height: 60px;
                         text-decoration: none;
                         position: relative;
+                        padding-bottom: 2px;
 
                         &::after {    
                             background: none repeat scroll 0 0 transparent;
-                            margin-top: -2px;
                             bottom: 0;
                             content: "";
                             display: block;

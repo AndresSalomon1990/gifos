@@ -2,6 +2,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
 /* ---------- Variables ---------- */
+/* ---------- Placeholders ---------- */
+main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-tags-section .trending-tags-container {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 /* ---------- Mixins ---------- */
 /* ---------- Global and Body ---------- */
 html {
@@ -139,11 +146,11 @@ header .topnav-container nav ul .link a {
   line-height: 60px;
   text-decoration: none;
   position: relative;
+  padding-bottom: 2px;
 }
 
 header .topnav-container nav ul .link a::after {
   background: none repeat scroll 0 0 transparent;
-  margin-top: -2px;
   bottom: 0;
   content: "";
   display: block;
@@ -181,20 +188,25 @@ header .topnav-container nav ul .button-link .create-gifo-button {
 }
 
 /* ---------- Main ---------- */
-main .main-title-container {
+main {
+  position: relative;
+}
+
+main .presentation-section {
+  padding-top: 102px;
+}
+
+main .presentation-section .main-title-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 286px;
   height: 99px;
-  padding-top: 102px;
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  position: relative;
+  margin-bottom: 31px;
 }
 
-main .main-title-container h1 {
+main .presentation-section .main-title-container h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 25px;
@@ -203,8 +215,135 @@ main .main-title-container h1 {
   line-height: 33px;
 }
 
-main .main-title-container h1 span {
+main .presentation-section .main-title-container h1 span {
   color: #5ED7C6;
+}
+
+main .presentation-section .hero-image {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  width: 273px;
+  height: 130px;
+}
+
+main .presentation-section .hero-image img {
+  width: 100%;
+  height: auto;
+}
+
+main .presentation-section .search-bar-container {
+  position: relative;
+  width: 334px;
+  height: 50px;
+}
+
+main .presentation-section .search-bar-container input {
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+  border: 1px solid #572EE5;
+  border-radius: 27px;
+  padding-left: 55px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-align: left;
+}
+
+main .presentation-section .search-bar-container input:focus {
+  outline: none;
+}
+
+main .presentation-section .search-bar-container .search-autocomplete-icon {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/images/icon/icon-search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.6;
+  display: none;
+}
+
+main .presentation-section .search-bar-container .search-toggle-icon {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/images/icon/icon-search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+main .trending-tags-section {
+  margin-top: 31px;
+}
+
+main .trending-tags-section .trending-title-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 25px;
+}
+
+main .trending-tags-section .trending-tags-container {
+  position: relative;
+  width: 225px;
+}
+
+main .trending-tags-section .trending-tags-container p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 25px;
+}
+
+main .search-results-section .search-result-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .trending-gifos-section {
+  background-color: #F3F5F8;
+  margin-top: 45px;
+}
+
+main .trending-gifos-section .trending-gifos-title-container {
+  padding-top: 45px;
+}
+
+main .trending-gifos-section .trending-gifos-title-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #572EE5;
+  text-align: center;
+  line-height: 30px;
+  margin-bottom: 7px;
+}
+
+main .trending-gifos-section .trending-gifos-title-container p {
+  height: 46px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  line-height: 23px;
 }
 
 /* ---------- Footer ---------- */
@@ -228,7 +367,7 @@ main .main-title-container h1 span {
   }
   header .topnav-container nav ul {
     position: relative;
-    top: -5px;
+    top: 5px;
     max-height: 95px;
     background-color: transparent;
     opacity: 1;
@@ -260,8 +399,8 @@ main .main-title-container h1 span {
   header .topnav-container nav ul .button-link .create-gifo-button {
     display: block;
     border-radius: 50%;
-    height: 54px;
-    width: 54px;
+    height: 55px;
+    width: 55px;
     background-image: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
     background-color: #cccccc;
     /* Used if the image is unavailable */
@@ -281,6 +420,42 @@ main .main-title-container h1 span {
     background-image: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
     -webkit-transform: scale(0.98);
             transform: scale(0.98);
+  }
+  main .presentation-section {
+    padding-top: 140px;
+  }
+  main .presentation-section .main-title-container {
+    width: 600px;
+    height: 100px;
+    margin-bottom: 24px;
+  }
+  main .presentation-section .main-title-container h1 {
+    font-size: 35px;
+    line-height: 50px;
+  }
+  main .presentation-section .hero-image {
+    width: 399px;
+    height: 190px;
+  }
+  main .presentation-section .search-bar-container {
+    width: 551px;
+  }
+  main .trending-tags-section {
+    margin-top: 31px;
+  }
+  main .trending-tags-section .trending-title-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #572EE5;
+    text-align: center;
+    line-height: 25px;
+  }
+  main .trending-tags-section .trending-tags-container {
+    width: 402px;
+  }
+  main .trending-tags-section .trending-tags-container p {
+    font-size: 16px;
   }
 }
 /*# sourceMappingURL=style.css.map */
