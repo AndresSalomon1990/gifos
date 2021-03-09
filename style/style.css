@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
 /* ---------- Variables ---------- */
 /* ---------- Placeholders ---------- */
-main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-tags-section .trending-tags-container, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
+main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-terms-section .trending-terms-container, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -83,8 +83,8 @@ header .topnav-container nav input:checked ~ div:nth-of-type(3) {
 }
 
 header .topnav-container nav input:checked ~ ul {
-  max-height: 1000px;
-  height: 10000px;
+  max-height: 100vh;
+  height: 100vh;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -192,9 +192,6 @@ main .presentation-section {
 }
 
 main .presentation-section .main-title-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   width: 286px;
   height: 99px;
   position: relative;
@@ -229,10 +226,10 @@ main .presentation-section .hero-image img {
 }
 
 main .presentation-section .search-bar-container {
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   width: 334px;
   height: 50px;
 }
@@ -282,11 +279,23 @@ main .presentation-section .search-bar-container .search-toggle-icon {
   cursor: pointer;
 }
 
-main .trending-tags-section {
+main .trending-terms-section {
   margin-top: 31px;
 }
 
-main .trending-tags-section .trending-title-container h2 {
+main .trending-terms-section .trending-title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+main .trending-terms-section .trending-title-container h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 16px;
@@ -295,12 +304,13 @@ main .trending-tags-section .trending-title-container h2 {
   line-height: 25px;
 }
 
-main .trending-tags-section .trending-tags-container {
+main .trending-terms-section .trending-terms-container {
   position: relative;
   width: 225px;
+  height: auto;
 }
 
-main .trending-tags-section .trending-tags-container p {
+main .trending-terms-section .trending-terms-container p {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -377,6 +387,10 @@ footer {
           align-items: center;
   height: 196px;
   padding-top: 47px;
+  border-bottom: 5px solid #572EE5;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 footer .footer-social-container h3 {
@@ -552,16 +566,16 @@ footer .brand-container h3 {
     line-height: 50px;
   }
   main .presentation-section .hero-image {
-    width: 399px;
+    max-width: 399px;
     height: 190px;
   }
   main .presentation-section .search-bar-container {
     width: 551px;
   }
-  main .trending-tags-section {
+  main .trending-terms-section {
     margin-top: 31px;
   }
-  main .trending-tags-section .trending-title-container h2 {
+  main .trending-terms-section .trending-title-container h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 16px;
@@ -569,10 +583,10 @@ footer .brand-container h3 {
     text-align: center;
     line-height: 25px;
   }
-  main .trending-tags-section .trending-tags-container {
+  main .trending-terms-section .trending-terms-container {
     width: 402px;
   }
-  main .trending-tags-section .trending-tags-container p {
+  main .trending-terms-section .trending-terms-container p {
     font-size: 16px;
   }
   main .trending-gifos-section {

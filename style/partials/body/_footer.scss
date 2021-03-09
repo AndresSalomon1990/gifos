@@ -5,6 +5,10 @@ footer {
     align-items: center;
     height: 196px;
     padding-top: 47px;
+    border-bottom: 5px solid $violet-color;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 
     .footer-social-container {
         h3 {

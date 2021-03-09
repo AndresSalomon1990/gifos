@@ -6,12 +6,11 @@ main {
         padding-top: 102px;
 
         .main-title-container {
-            display: flex;
             width: 286px;
             height: 99px;
             position: relative;
-            margin-bottom: 31px;
             @extend %centerX;
+            margin-bottom: 31px;
             
             h1 {
                 font-family: 'Montserrat', sans-serif;
@@ -41,8 +40,8 @@ main {
         }
 
         .search-bar-container {
-            position: relative;
             display: flex;
+            position: relative;
             @extend %centerX;
             width: 334px;
             height: 50px;
@@ -94,11 +93,16 @@ main {
         }
     } // -------------------- END PRESENTATION SECTION --------------------
 
-    // -------------------- START TRENDING TAGS SECTION --------------------
-    .trending-tags-section {
+    // -------------------- START TRENDING TERMS SECTION --------------------
+    .trending-terms-section {
         margin-top: 31px;
 
         .trending-title-container {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            width: 100%;
+
             h2 {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 700;
@@ -109,10 +113,11 @@ main {
             }
         }
 
-        .trending-tags-container {
+        .trending-terms-container {
             position: relative;
             @extend %centerX;
             width: 225px;
+            height: auto;
 
             p {
                 font-family: 'Montserrat', sans-serif;
@@ -123,7 +128,7 @@ main {
                 line-height: 25px;
             }
         }
-    } // -------------------- END TRENDING TAGS SECTION --------------------
+    } // -------------------- END TRENDING TERMS SECTION --------------------
 
     // -------------------- START SEARCH RESULTS SECTION --------------------
     .search-results-section {

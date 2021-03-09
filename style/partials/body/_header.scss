@@ -52,8 +52,8 @@ header {
 
                 // checkbox hack
                 &:checked ~ ul {
-                    max-height: 1000px; // show the navbar items from 0px -> 1000px with a transition
-                    height: 10000px;
+                    max-height: 100vh; // show the navbar items from 0px -> 100vh with a transition
+                    height: 100vh;
                     transition: all 0.5s;
                 }
             }
