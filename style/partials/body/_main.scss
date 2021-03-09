@@ -10,8 +10,8 @@ main {
             width: 286px;
             height: 99px;
             position: relative;
-            @extend %center;
             margin-bottom: 31px;
+            @extend %centerX;
             
             h1 {
                 font-family: 'Montserrat', sans-serif;
@@ -30,8 +30,8 @@ main {
         .hero-image {
             display: flex;
             position: relative;
-            @extend %center;
-            width: 273px;
+            @extend %centerX;
+            min-width: 273px;
             height: 130px;
 
             img {
@@ -42,7 +42,8 @@ main {
 
         .search-bar-container {
             position: relative;
-            @extend %center;
+            display: flex;
+            @extend %centerX;
             width: 334px;
             height: 50px;
 
@@ -110,7 +111,7 @@ main {
 
         .trending-tags-container {
             position: relative;
-            @extend %center;
+            @extend %centerX;
             width: 225px;
 
             p {
@@ -135,10 +136,13 @@ main {
     .trending-gifos-section {
         background-color: $smoke-color;
         margin-top: 45px;
+        height: 430px;
 
         .trending-gifos-title-container {
+            position: relative;
+            @extend %centerX;
             padding-top: 45px;
-
+            
             h2 {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 700;
@@ -149,7 +153,18 @@ main {
                 margin-bottom: 7px;
             }
 
+            .last-gifos-mobile {
+                display: inline-block;
+            }
+
+            .last-gifos-desktop {
+                display: none;
+            }
+
             p {
+                position: relative;
+                @extend %centerX;
+                width: 333px;
                 height: 46px;
                 font-family: 'Roboto', sans-serif;
                 font-weight: 400;
@@ -158,6 +173,10 @@ main {
                 text-align: center;
                 line-height: 23px;
             }
+        }
+
+        .trending-gifos-container {
+            display: flex;
         }
     } // -------------------- END TRENDING GIFOS SECTION --------------------
 }

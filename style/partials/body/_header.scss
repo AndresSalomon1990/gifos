@@ -7,15 +7,9 @@ header {
         background-color: $white-color;
         width: 100%;
         position: fixed;
+        top: 0;
         z-index: 99;
-
-        .violet-top-line {
-            border: 2.5px solid $violet-color;
-            background-color: $violet-color;
-            width: 100%;
-            position: absolute;
-            top: 0;
-        }
+        border-top: 5px solid $violet-color;
 
         .logo-container {
             width: 48.8px;
@@ -74,7 +68,7 @@ header {
 
             ul {                
                 position: absolute;
-                top: 95px; // move 95px from the top (which is the height of the navbar)
+                top: 90px; // move 95px from the top (which is the height of the topnavbar + top border)
                 left: 0;
                 width: 100%;
                 background-color: $violet-color;
@@ -134,11 +128,12 @@ header {
                     }
                 }
 
-                hr {
+                .menu-separate-line {
                     opacity: 0.5;
                     border: 1px solid $white-color;
                     width: 41px;
                     background-color: $white-color;
+                    list-style-type: none;
                 }
 
                 .button-link {

@@ -13,9 +13,8 @@
 
     <!-- START HEADER -->
     <header>
-        <div class="topnav-container">
-            <hr class="violet-top-line">
-            <a href="#" class="logo-container">
+        <div class="topnav-container" id="topnav-container">
+            <a href="./index.html" class="logo-container">
                 <img src="./assets/images/logo/logo-desktop.svg" class="logo-img" alt="Brand logo">
             </a>
             <nav>
@@ -26,13 +25,19 @@
                 <ul>
                     <li class="link link-mobile"><a href="#">Modo Nocturno</a></li>
                     <li class="link link-desktop"><a href="#">MODO NOCTURNO</a></li>
-                    <hr>
-                    <li class="link link-mobile"><a href="#">Favoritos</a></li>
-                    <li class="link link-desktop"><a href="#">FAVORITOS</a></li>
-                    <hr>
-                    <li class="link link-mobile"><a href="#">Mis GIFOS</a></li>
-                    <li class="link link-desktop"><a href="#">MIS GIFOS</a></li>
-                    <hr>
+
+                    <li class="menu-separate-line"></li>
+
+                    <li class="link link-mobile"><a href="./favorites.html">Favoritos</a></li>
+                    <li class="link link-desktop"><a href="./favorites.html">FAVORITOS</a></li>
+
+                    <li class="menu-separate-line"></li>
+
+                    <li class="link link-mobile"><a href="./my-gifos.html">Mis GIFOS</a></li>
+                    <li class="link link-desktop"><a href="./my-gifos.html">MIS GIFOS</a></li>
+
+                    <li class="menu-separate-line"></li>
+                    
                     <li class="button-link"><a href="#" class="create-gifo-button"></a></li>
                 </ul>
             </nav>
@@ -67,16 +72,20 @@
             </div>
         </section>
 
-        <section class="search-results-section">
+        <div class="search-results-section">
             <div class="search-result-container">
 
             </div>
-        </section>
+        </div>
         
         <section class="trending-gifos-section">
             <div class="trending-gifos-title-container">
                 <h2>Trending GIFOS</h2>
-                <p>Mirá los últimos <br> GIFOS de nuestra comunidad.</p>
+                <p class="last-gifos-mobile">Mirá los últimos <br> GIFOS de nuestra comunidad.</p>
+                <p class="last-gifos-desktop">Mirá los últimos GIFOS de nuestra comunidad.</p>
+            </div>
+            <div class="trending-gifos-container">
+
             </div>
         </section>
     </main>
@@ -84,7 +93,17 @@
 
     <!-- START FOOTER -->
     <footer>
-
+        <div class="footer-social-container">
+            <h3>Compartir en:</h3>
+            <div class="social-icon-container">
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook" class="facebook-icon"></a>
+                <a href="https://www.twitter.com/" target="_blank" title="Twitter" class="twitter-icon"></a>
+                <a href="https://www.instagram.com/" target="_blank" title="Instagram" class="instagram-icon"></a>
+            </div>   
+        </div>
+        <div class="brand-container">
+            <h3>&copy; GIFOS 2020 All Rights Reserved.</h3>
+        </div>
     </footer>
     <!-- END FOOTER -->
 

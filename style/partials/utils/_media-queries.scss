@@ -49,7 +49,7 @@
                         }
                     }
 
-                    hr {
+                    .menu-separate-line {
                         display: none;
                     }
 
@@ -111,26 +111,91 @@
 
         // -------------------- START TRENDING TAGS SECTION --------------------
         .trending-tags-section {
-        margin-top: 31px;
+            margin-top: 31px;
 
-        .trending-title-container {
-            h2 {
-                font-family: 'Montserrat', sans-serif;
-                font-weight: 700;
-                font-size: 16px;
-                color: $violet-color;
-                text-align: center;
-                line-height: 25px;
+            .trending-title-container {
+                h2 {
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: $violet-color;
+                    text-align: center;
+                    line-height: 25px;
+                }
             }
-        }
 
-        .trending-tags-container {
-            width: 402px;
+            .trending-tags-container {
+                width: 402px;
 
-            p {
-                font-size: 16px;
+                p {
+                    font-size: 16px;
+                }
             }
-        }
-    } // -------------------- END TRENDING TAGS SECTION --------------------
+        } // -------------------- END TRENDING TAGS SECTION --------------------
+
+        // -------------------- START TRENDING GIFOS SECTION --------------------
+        .trending-gifos-section {
+            background-color: $smoke-color;
+            margin-top: 45px;
+            height: 640px;
+
+            .trending-gifos-title-container {
+                padding-top: 67px;
+
+                h2 {
+                    font-size: 25px;
+                    margin-bottom: 12px;
+                }
+
+                .last-gifos-mobile {
+                    display: none;
+                }
+    
+                .last-gifos-desktop {
+                    display: inline-block;
+                }
+
+                p {
+                    width: 400px;
+                    height: 21px;
+                    font-size: 18px;
+                }
+            }
+
+            .trending-gifos-container {
+                display: flex;
+            }
+        } // -------------------- END TRENDING GIFOS SECTION --------------------
     } // -------------------- END MAIN --------------------
+
+    // -------------------- START FOOTER --------------------
+    footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        height: 116px;
+        padding: 0 155px;
+
+        .footer-social-container {
+            display: flex;
+            flex-direction: row;
+
+            h3 {
+                font-size: 13px;
+                align-self: center;
+            }
+
+            .social-icon-container {
+                padding: 0;
+            }
+        }
+
+        .brand-container {
+            padding: 0;
+
+            h3 {
+                font-size: 13px;
+            }
+        }
+    } // -------------------- END FOOTER --------------------
 }

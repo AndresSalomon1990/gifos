@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
 /* ---------- Variables ---------- */
 /* ---------- Placeholders ---------- */
-main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-tags-section .trending-tags-container {
+main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-tags-section .trending-tags-container, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -38,15 +38,9 @@ header .topnav-container {
   background-color: #FFFFFF;
   width: 100%;
   position: fixed;
-  z-index: 99;
-}
-
-header .topnav-container .violet-top-line {
-  border: 2.5px solid #572EE5;
-  background-color: #572EE5;
-  width: 100%;
-  position: absolute;
   top: 0;
+  z-index: 99;
+  border-top: 5px solid #572EE5;
 }
 
 header .topnav-container .logo-container {
@@ -106,7 +100,7 @@ header .topnav-container nav .bar1, header .topnav-container nav .bar2, header .
 
 header .topnav-container nav ul {
   position: absolute;
-  top: 95px;
+  top: 90px;
   left: 0;
   width: 100%;
   background-color: #572EE5;
@@ -172,11 +166,12 @@ header .topnav-container nav ul .link a:active {
   color: #9CAFC3;
 }
 
-header .topnav-container nav ul hr {
+header .topnav-container nav ul .menu-separate-line {
   opacity: 0.5;
   border: 1px solid #FFFFFF;
   width: 41px;
   background-color: #FFFFFF;
+  list-style-type: none;
 }
 
 header .topnav-container nav ul .button-link {
@@ -224,7 +219,7 @@ main .presentation-section .hero-image {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  width: 273px;
+  min-width: 273px;
   height: 130px;
 }
 
@@ -235,6 +230,9 @@ main .presentation-section .hero-image img {
 
 main .presentation-section .search-bar-container {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 334px;
   height: 50px;
 }
@@ -320,9 +318,11 @@ main .search-results-section .search-result-container {
 main .trending-gifos-section {
   background-color: #F3F5F8;
   margin-top: 45px;
+  height: 430px;
 }
 
 main .trending-gifos-section .trending-gifos-title-container {
+  position: relative;
   padding-top: 45px;
 }
 
@@ -336,7 +336,17 @@ main .trending-gifos-section .trending-gifos-title-container h2 {
   margin-bottom: 7px;
 }
 
+main .trending-gifos-section .trending-gifos-title-container .last-gifos-mobile {
+  display: inline-block;
+}
+
+main .trending-gifos-section .trending-gifos-title-container .last-gifos-desktop {
+  display: none;
+}
+
 main .trending-gifos-section .trending-gifos-title-container p {
+  position: relative;
+  width: 333px;
   height: 46px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
@@ -346,7 +356,115 @@ main .trending-gifos-section .trending-gifos-title-container p {
   line-height: 23px;
 }
 
+main .trending-gifos-section .trending-gifos-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 /* ---------- Footer ---------- */
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 196px;
+  padding-top: 47px;
+}
+
+footer .footer-social-container h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  color: #000000;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+footer .footer-social-container .social-icon-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  width: 100px;
+  padding-top: 24px;
+}
+
+footer .footer-social-container .social-icon-container a {
+  text-decoration: none;
+}
+
+footer .footer-social-container .social-icon-container .facebook-icon {
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/images/icon/icon_facebook.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+footer .footer-social-container .social-icon-container .facebook-icon:hover {
+  background-image: url("../../../assets/images/icon/icon_facebook_hover.svg");
+}
+
+footer .footer-social-container .social-icon-container .twitter-icon {
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/images/icon/icon-twitter.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+footer .footer-social-container .social-icon-container .twitter-icon:hover {
+  background-image: url("../../../assets/images/icon/icon-twitter-hover.svg");
+}
+
+footer .footer-social-container .social-icon-container .instagram-icon {
+  height: 20px;
+  width: 20px;
+  background-image: url("../../../assets/images/icon/icon_instagram.svg");
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+footer .footer-social-container .social-icon-container .instagram-icon:hover {
+  background-image: url("../../../assets/images/icon/icon_instagram-hover.svg");
+}
+
+footer .brand-container {
+  padding-top: 46px;
+}
+
+footer .brand-container h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #000000;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: center;
+}
+
 /* ---------- Media queries ---------- */
 @media screen and (min-width: 980px) {
   header .topnav-container .logo-container {
@@ -393,7 +511,7 @@ main .trending-gifos-section .trending-gifos-title-container p {
     font-size: 13px;
     margin-left: 40px;
   }
-  header .topnav-container nav ul hr {
+  header .topnav-container nav ul .menu-separate-line {
     display: none;
   }
   header .topnav-container nav ul .button-link .create-gifo-button {
@@ -456,6 +574,71 @@ main .trending-gifos-section .trending-gifos-title-container p {
   }
   main .trending-tags-section .trending-tags-container p {
     font-size: 16px;
+  }
+  main .trending-gifos-section {
+    background-color: #F3F5F8;
+    margin-top: 45px;
+    height: 640px;
+  }
+  main .trending-gifos-section .trending-gifos-title-container {
+    padding-top: 67px;
+  }
+  main .trending-gifos-section .trending-gifos-title-container h2 {
+    font-size: 25px;
+    margin-bottom: 12px;
+  }
+  main .trending-gifos-section .trending-gifos-title-container .last-gifos-mobile {
+    display: none;
+  }
+  main .trending-gifos-section .trending-gifos-title-container .last-gifos-desktop {
+    display: inline-block;
+  }
+  main .trending-gifos-section .trending-gifos-title-container p {
+    width: 400px;
+    height: 21px;
+    font-size: 18px;
+  }
+  main .trending-gifos-section .trending-gifos-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  footer {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    height: 116px;
+    padding: 0 155px;
+  }
+  footer .footer-social-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  footer .footer-social-container h3 {
+    font-size: 13px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  footer .footer-social-container .social-icon-container {
+    padding: 0;
+  }
+  footer .brand-container {
+    padding: 0;
+  }
+  footer .brand-container h3 {
+    font-size: 13px;
   }
 }
 /*# sourceMappingURL=style.css.map */

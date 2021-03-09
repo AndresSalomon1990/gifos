@@ -1,0 +1,70 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    height: 196px;
+    padding-top: 47px;
+
+    .footer-social-container {
+        h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            color: $black-color;
+            letter-spacing: 0;
+            text-align: center;
+        }
+
+        .social-icon-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            text-align: center;
+            width: 100px;
+            padding-top: 24px;
+
+            a {
+                text-decoration: none;
+            }
+
+            .facebook-icon {
+                @include loadSocialMediaIcon("../../../assets/images/icon/icon_facebook.svg");
+
+                &:hover {
+                    background-image: url("../../../assets/images/icon/icon_facebook_hover.svg");
+                }
+            }
+    
+            .twitter-icon {
+                @include loadSocialMediaIcon("../../../assets/images/icon/icon-twitter.svg");
+
+                &:hover {
+                    background-image: url("../../../assets/images/icon/icon-twitter-hover.svg");
+                }
+            }
+    
+            .instagram-icon {
+                @include loadSocialMediaIcon("../../../assets/images/icon/icon_instagram.svg");
+
+                &:hover {
+                    background-image: url("../../../assets/images/icon/icon_instagram-hover.svg");
+                }
+            }
+        }
+    }
+
+    .brand-container {
+        padding-top: 46px;
+
+        h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+            font-size: 14px;
+            color: $black-color;
+            letter-spacing: 0;
+            line-height: 20px;
+            text-align: center;
+        }
+    }
+}
