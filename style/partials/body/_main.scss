@@ -119,13 +119,22 @@ main {
             width: 225px;
             height: auto;
 
-            p {
+            .trending-search-term {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 500;
                 font-size: 14px;
                 color: $violet-color;
                 text-align: center;
                 line-height: 25px;
+                cursor: pointer;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:active {
+                    color: $gray-color;
+                }
             }
         }
     } // -------------------- END TRENDING TERMS SECTION --------------------

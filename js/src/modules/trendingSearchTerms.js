@@ -10,8 +10,6 @@ const trendingSearchTerms = (function() {
             if(response.ok) {
                 const jsonResponse = await response.json();
 
-                console.log(jsonResponse);
-
                 return jsonResponse;
             };
 
@@ -27,17 +25,27 @@ const trendingSearchTerms = (function() {
         let termsToRender = "";
         let i = 0;
         for (i; i<5; i++) {
-            termsToRender += searchTerms.data[i] +", ";
+            if (i === 4) {
+                termsToRender += `<span class="trending-search-term">${searchTerms.data[i]}</span>`;
+                break;
+            }
+            termsToRender += `<span class="trending-search-term">${searchTerms.data[i]}</span><span>, </span>`;
         }
 
-        const p = `<p>${ termsToRender.slice(0, -2) }</p>`;
+        containerElement.innerHTML = termsToRender;
+    }
 
-        containerElement.innerHTML = p;
+    // Event capturing
+    function addClickEventListener(event, inputElement, classToSearch) {
+        if (event.target.className === classToSearch) {
+            inputElement.value = event.target.innerHTML;
+        }
     }
 
     return {
         get,
-        render
+        render,
+        addClickEventListener
     }
 
 })();

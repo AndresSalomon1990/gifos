@@ -310,13 +310,22 @@ main .trending-terms-section .trending-terms-container {
   height: auto;
 }
 
-main .trending-terms-section .trending-terms-container p {
+main .trending-terms-section .trending-terms-container .trending-search-term {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 14px;
   color: #572EE5;
   text-align: center;
   line-height: 25px;
+  cursor: pointer;
+}
+
+main .trending-terms-section .trending-terms-container .trending-search-term:hover {
+  text-decoration: underline;
+}
+
+main .trending-terms-section .trending-terms-container .trending-search-term:active {
+  color: #9CAFC3;
 }
 
 main .search-results-section .search-result-container {
@@ -584,9 +593,10 @@ footer .brand-container h3 {
     line-height: 25px;
   }
   main .trending-terms-section .trending-terms-container {
-    width: 402px;
+    width: 600px;
+    text-align: center;
   }
-  main .trending-terms-section .trending-terms-container p {
+  main .trending-terms-section .trending-terms-container .trending-search-term {
     font-size: 16px;
   }
   main .trending-gifos-section {

@@ -125,9 +125,10 @@
             }
 
             .trending-terms-container {
-                width: 402px;
+                width: 600px;
+                text-align: center;
 
-                p {
+                .trending-search-term {
                     font-size: 16px;
                 }
             }

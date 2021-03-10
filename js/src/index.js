@@ -12,7 +12,7 @@ import trendingSearchTerms from "./modules/trendingSearchTerms.js";
 //-------------------------------------------------------------
 //API DATA
 //-------------------------------------------------------------
-const trendingTerms = trendingSearchTerms.get(constants.PARAM_API_KEY, constants.API_KEY);
+const trendingTermsData = trendingSearchTerms.get(constants.PARAM_API_KEY, constants.API_KEY);
 
 //-------------------------------------------------------------
 //ELEMENTS
@@ -20,6 +20,7 @@ const trendingTerms = trendingSearchTerms.get(constants.PARAM_API_KEY, constants
 
 //-----------------------Main elements-----------------------
 const trendingTermsContainer = document.getElementById("trending-terms-container");
+const searchGifsInput = document.getElementById("search-gifs-input");
 
 //-------------------------------------------------------------
 //EVENT LISTENERS
@@ -38,4 +39,7 @@ window.addEventListener("scroll", function() {
 //-------------------------------------------------------------
 
 //Render trending search terms
-trendingSearchTerms.render(trendingTerms, trendingTermsContainer);
+trendingSearchTerms.render(trendingTermsData, trendingTermsContainer);
+
+trendingTermsContainer.addEventListener("click", () => {
+    trendingSearchTerms.addClickEventListener(event, searchGifsInput, "trending-search-term")}, false);
