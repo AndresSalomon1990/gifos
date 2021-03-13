@@ -1,9 +1,9 @@
 const trendingSearchTerms = (function() {
-    const _trendingUrl = "https://api.giphy.com/v1/trending/searches?";
 
-    async function get(paramApiKey, apiKey) {
+    // Get API data
+    async function get(url, paramApiKey, apiKey) {
         try {
-            const endpoint = _trendingUrl + paramApiKey + apiKey;
+            const endpoint = url + paramApiKey + apiKey;
 
             const response = await fetch(endpoint);
 
@@ -19,8 +19,9 @@ const trendingSearchTerms = (function() {
         }
     }
 
-    async function render(apiTerms, containerElement) {
-        const searchTerms = await apiTerms;
+    // Render API data
+    async function render(apiData, containerElement) {
+        const searchTerms = await apiData;
 
         let termsToRender = "";
         let i = 0;
@@ -35,10 +36,13 @@ const trendingSearchTerms = (function() {
         containerElement.innerHTML = termsToRender;
     }
 
-    // Event capturing
+    // Event capturing for the trending search terms
     function addClickEventListener(event, inputElement, classToSearch) {
         if (event.target.className === classToSearch) {
             inputElement.value = event.target.innerHTML;
+
+            const changeEvent = new Event("change");
+            inputElement.dispatchEvent(changeEvent);
         }
     }
 

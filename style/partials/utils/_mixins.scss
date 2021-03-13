@@ -8,3 +8,15 @@
     background-size: contain;
     cursor: pointer;
 }
+
+@mixin loadGifIcon($url) {
+    height: 32px;
+    width: 32px;
+    background-image: url($url);
+    background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: contain; /* Resize the background image to cover the entire container */
+    border-radius: 6px;
+    cursor: pointer;
+}
