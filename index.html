@@ -55,7 +55,12 @@
                 <img src="./assets/images/ilustra_header.svg" alt="Hero ilustration">
             </div>
             <div class="search-bar-container">
-                <input id="search-gifs-input" type="search" name="searchGifos" placeholder="Buscá GIFOS y más" autocomplete="off">
+                <div class="search-bar">
+                    <input id="search-gifs-input" type="search" name="searchGifos" placeholder="Buscá GIFOS y más" autocomplete="off">
+                    <ul class="autocomplete-box" id="autocomplete-box">
+                        <!-- Autocomplete suggestions results -->
+                    </ul>
+                </div>
                 <i class="search-icon" id="search-icon"></i>
                 <i class="search-toggle-icon" id="search-toggle-icon"></i>
                 <i class="cancel-search-icon" id="cancel-search-icon"></i>
@@ -67,13 +72,15 @@
                 <h2>Trending:</h2>
             </div>
             <div class="trending-terms-container" id="trending-terms-container">
-                
+                <!-- Trending terms results -->
             </div>
         </section>
 
         <section class="search-results-section">
+            <div class="search-result-separator" id="search-result-separator"></div>
+            <h2 class="search-result-title" id="search-result-title">HOLA</h2>
             <div class="search-result-container" id="search-result-container">
-
+                <!-- Results from the search -->
             </div>
         </section>
         
@@ -84,7 +91,7 @@
                 <p class="last-gifos-desktop">Mirá los últimos GIFOS de nuestra comunidad.</p>
             </div>
             <div class="trending-gifos-container">
-
+                <!-- Trending gifos results -->
             </div>
         </section>
     </main>

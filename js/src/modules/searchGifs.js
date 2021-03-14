@@ -1,9 +1,11 @@
 const searchGifs = (function() {
     const _limitToShow = 12;
 
-    // Clear search input and load the search icon
-    function clearSearch(inputElement, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
+    // Clear search input
+    function clearSearch(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
         inputElement.value = "";
+        searchResultSeparator.style.display = "none";
+        searchResultTitle.style.display = "none";
         searchToggleIcon.style.display = "block";
         cancelSearchIcon.style.display = "none";
         searchIcon.style.display = "none";
@@ -11,32 +13,37 @@ const searchGifs = (function() {
     }
     
     // Render API data
-    async function render(apiData, containerElement) { 
+    async function render(apiData, inputElement, searchResultSeparator, searchResultTitle, containerElement) { 
         const searchResults = await apiData;
         containerElement.innerHTML = "";
+        searchResultTitle.innerHTML = inputElement.value;
+        searchResultSeparator.style.display = "block";
+        searchResultTitle.style.display = "block";
 
         searchResults.data
-            .map(gif => gif.images.fixed_height.url)
-            .forEach(url => {
+            .forEach(gifData => {
+                let username = gifData.username  || "sin definir";
+                let title = gifData.title || "sin definir";
+
                 const gif = `
                     <div class="gif-container">
-                        <img src=${url} alt=${url} class="gif">
+                        <img src=${gifData.images.fixed_height.url} alt=${gifData.images.fixed_height.url} class="gif">
                         <div class="overlay"></div>
                         <div class="icon-container">
                             <i class="icon icon-fav"></i>
-                            <a href=${url} class="icon icon-download" onclick="this.click()" download="myGif.gif"></a>
+                            <a href=${gifData.images.fixed_height.url} class="icon icon-download" onclick="this.click()" download="myGif.gif"></a>
                             <i class="icon icon-max"></i>
                         </div>
+                        <p class="gif-user">${username}</p>
+                        <p class="gif-title">${title}</p>
                     </div>`;
 
                     containerElement.insertAdjacentHTML("beforeend", gif);
             });
     };
 
-    // Get API data and render it with the render function
+    // Get API data
     async function get(url, inputElement, paramApiKey, apiKey, paramQ, paramLimit) {
-        // event.preventDefault();
-
         try {
             let searchTerm = inputElement.value;
             const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow;
