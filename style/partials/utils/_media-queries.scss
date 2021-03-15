@@ -149,6 +149,12 @@
 
             .search-bar-container {
                 max-width: 551px;
+
+                .search-bar {
+                    .search-bar-bottom-line {
+                        width: 505px;
+                    }
+                }
             }
         } // -------------------- END PRESENTATION SECTION -------------------
 

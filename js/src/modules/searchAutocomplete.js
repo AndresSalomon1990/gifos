@@ -1,18 +1,25 @@
 const searchAutocomplete = (function() {
 
-    async function render(apiData, autocompleteBox) {
+    async function render(apiData, autocompleteBox, searchBarBottomLine) {
         const suggestions = await apiData;
         autocompleteBox.innerHTML = "";
+
+        let pad = window.screen.width < 980 ? "10px 10px 15px 20px" : "10px 10px 15px 1px";
+
+        autocompleteBox.style.padding = pad;
+        searchBarBottomLine.style.display = "block";
     
         suggestions.data.forEach(suggestion => {
-            let item = `<li>${suggestion.name}</li>`;
+            let item = `<li class="autocomplete-suggestion">${suggestion.name}</li>`;
             
             autocompleteBox.insertAdjacentHTML("beforeend", item);
         });
     };
 
-    function clear(autocompleteBox) {
+    function clear(autocompleteBox, searchBarBottomLine) {
         autocompleteBox.innerHTML = "";
+        autocompleteBox.style.removeProperty("padding");
+        searchBarBottomLine.style.display = "none";
     };
 
     async function get(url, inputElement, paramApiKey, apiKey, paramQ) {
@@ -24,8 +31,6 @@ const searchAutocomplete = (function() {
             if(response.ok) {
                 const jsonResponse = await response.json();
     
-                // console.log(jsonResponse);
-    
                 return jsonResponse;
             };
     
@@ -35,10 +40,21 @@ const searchAutocomplete = (function() {
         }
     };
 
+    // Event capturing for autocomplete suggestions
+    function addClickEventListener(event, inputElement, classToSearch) {
+        if (event.target.className === classToSearch) {
+            inputElement.value = event.target.innerHTML;
+
+            const changeEvent = new Event("change");
+            inputElement.dispatchEvent(changeEvent);
+        }
+    }
+
     return {
         get,
         render,
-        clear
+        clear,
+        addClickEventListener
     }
 })();
 

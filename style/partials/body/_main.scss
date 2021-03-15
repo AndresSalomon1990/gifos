@@ -84,24 +84,32 @@ main {
                     }
                 }
 
-                .autocomplete-box {
-                    padding: 10px 10px 15px 43px;
-                    overflow-y: auto;
-                    // opacity: 0;
-                    // pointer-events: none;
+                .search-bar-bottom-line {
+                    position: relative;
+                    @extend %centerX;
+                    width: 300px;
+                    opacity: 0.5;
+                    height: 0.5px;
+                    background-color: $gray-color;
+                    display: none;
+                }
 
-                    li {
+                .autocomplete-box {
+                    overflow-y: auto;
+
+                    .autocomplete-suggestion {
                         font-family: 'Roboto', sans-serif;
                         font-weight: 400;
-                        font-size: 16px;
-                        color: $gray-color;
+                        font-size: 18px;
                         text-align: left;
                         padding: 8px 12px;
-                        width: 100%;
+                        width: 105%;
                         border-radius: 3px;
-                        list-style-type: none;
                         cursor: default;
-                        // display: none;
+                        list-style-image: url("../../../assets/images/icon/icon-search.svg");
+                        opacity: 0.5;
+                        cursor: default;
+                        transform: scale(0.85);
 
                         &:hover {
                             background: #efefef;
@@ -139,7 +147,6 @@ main {
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
-                cursor: pointer;
             }
 
             .cancel-search-icon {
@@ -225,9 +232,10 @@ main {
         .search-result-title {
             position: relative;
             @extend %centerX;
+            width: 100%;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 25px;
+            font-size: 1.5625em; //25px
             color: $violet-color;
             text-align: center;
             line-height: 40px;
@@ -278,6 +286,22 @@ main {
                 opacity: 0;
                 height: 36px;
                 display: none;
+            }
+
+            .no-results-container {
+                img {
+                    height: 150px;
+                    width: 150px;
+                }
+
+                p {
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 700;
+                    font-size: 22px;
+                    color: $green-color;
+                    text-align: center;
+                    line-height: 25px;
+                }
             }
         }
     } // -------------------- END SEARCH RESULTS SECTION --------------------

@@ -20,7 +20,8 @@ const searchGifs = (function() {
         searchResultSeparator.style.display = "block";
         searchResultTitle.style.display = "block";
 
-        searchResults.data
+        if (searchResults.data.length > 0) {
+            searchResults.data
             .forEach(gifData => {
                 let username = gifData.username  || "sin definir";
                 let title = gifData.title || "sin definir";
@@ -40,6 +41,15 @@ const searchGifs = (function() {
 
                     containerElement.insertAdjacentHTML("beforeend", gif);
             });
+        } else {
+            const noResults = `
+                <div class="no-results-container">
+                    <img src="../../../assets/images/icon/icon-busqueda-sin-resultado.svg" alt="Sin resultados">
+                    <p>Intenta con otra búsqueda</p>
+                </div>`;
+
+                containerElement.innerHTML = noResults;
+        }
     };
 
     // Get API data
@@ -54,7 +64,7 @@ const searchGifs = (function() {
 
                 console.log(jsonResponse);
                 console.log(jsonResponse.pagination.total_count);
-
+                
                 return jsonResponse;
             };
 

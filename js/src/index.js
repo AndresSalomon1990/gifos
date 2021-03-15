@@ -8,18 +8,8 @@ import searchGifs from "./modules/searchGifs.js";
 import searchAutocomplete from "./modules/searchAutocomplete.js";
 
 //-------------------------------------------------------------
-//API DATA
+// CHANGE TOPNAVAR STYLE
 //-------------------------------------------------------------
-const trendingTermsData = trendingSearchTerms.get(
-    constants.url.TRENDING_SEARCH_TERMS_URL,
-    constants.queryStrings.PARAM_API_KEY,
-    constants.queryStrings.API_KEY);
-
-//-------------------------------------------------------------
-//EVENT LISTENERS
-//-------------------------------------------------------------
-
-//-----------------------Header listeners----------------------
 
 // Change style of topNavbar on scroll
 window.addEventListener("scroll", () => {
@@ -35,7 +25,13 @@ window.addEventListener("resize", () => {
     }
 }, false);
 
-//-----------------------Main listeners----------------------
+//-------------------------------------------------------------
+// TRENDING TERMS
+//-------------------------------------------------------------
+const trendingTermsData = trendingSearchTerms.get(
+    constants.url.TRENDING_SEARCH_TERMS_URL,
+    constants.queryStrings.PARAM_API_KEY,
+    constants.queryStrings.API_KEY);
 
 // Add click functionality to the terms so they can fill the input
 constants.elements.TRENDING_TERMS_CONTAINER.addEventListener("click", (event) => {
@@ -46,9 +42,21 @@ constants.elements.TRENDING_TERMS_CONTAINER.addEventListener("click", (event) =>
     );
 }, true);
 
-// Change search icon to X when the input is filled on KEYUP
-constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
+// Render trending search terms
+trendingSearchTerms.render(trendingTermsData, constants.elements.TRENDING_TERMS_CONTAINER);
+
+//-------------------------------------------------------------
+// SEARCH BAR
+//-------------------------------------------------------------
+
+// Change search icon to X when the input is filled in typing
+constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
     if (constants.elements.SEARCH_GIFS_INPUT.value === "") {
+
+        searchAutocomplete.clear(
+            constants.elements.AUTOCOMPLETE_BOX,
+            constants.elements.SEARCH_BAR_BOTTOM_LINE
+        );
 
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "block";
         constants.elements.CANCEL_SEARCH_ICON.style.display = "none";
@@ -64,24 +72,19 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
                 constants.elements.SEARCH_ICON,
                 constants.elements.SEARCH_RESULT_CONTAINER
             );
-        }, false);
 
-        searchGifs.clearSearch(
-            constants.elements.SEARCH_GIFS_INPUT,
-            constants.elements.SEARCH_RESULT_SEPARATOR,
-            constants.elements.SEARCH_RESULT_TITLE,
-            constants.elements.SEARCH_TOGGLE_ICON,
-            constants.elements.CANCEL_SEARCH_ICON,
-            constants.elements.SEARCH_ICON,
-            constants.elements.SEARCH_RESULT_CONTAINER
-        );
+            searchAutocomplete.clear(
+                constants.elements.AUTOCOMPLETE_BOX,
+                constants.elements.SEARCH_BAR_BOTTOM_LINE
+            );
+        }, false);
     } else {
         
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "none";
         constants.elements.CANCEL_SEARCH_ICON.style.display = "block";
         constants.elements.SEARCH_ICON.style.display = "block";
 
-        constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {
+        constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {            
             searchGifs.clearSearch(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
@@ -90,6 +93,11 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
                 constants.elements.CANCEL_SEARCH_ICON,
                 constants.elements.SEARCH_ICON,
                 constants.elements.SEARCH_RESULT_CONTAINER
+            );
+
+            searchAutocomplete.clear(
+                constants.elements.AUTOCOMPLETE_BOX,
+                constants.elements.SEARCH_BAR_BOTTOM_LINE
             );
         }, false);
     }
@@ -99,6 +107,11 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
 constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     if (constants.elements.SEARCH_GIFS_INPUT.value === "") {
 
+        searchAutocomplete.clear(
+            constants.elements.AUTOCOMPLETE_BOX,
+            constants.elements.SEARCH_BAR_BOTTOM_LINE
+        );
+
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "block";
         constants.elements.CANCEL_SEARCH_ICON.style.display = "none";
         constants.elements.SEARCH_ICON.style.display = "none";
@@ -113,6 +126,11 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
                 constants.elements.SEARCH_ICON,
                 constants.elements.SEARCH_RESULT_CONTAINER
             );
+
+            searchAutocomplete.clear(
+                constants.elements.AUTOCOMPLETE_BOX,
+                constants.elements.SEARCH_BAR_BOTTOM_LINE
+            );
         }, false);
     } else {
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "none";
@@ -120,6 +138,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.elements.SEARCH_ICON.style.display = "block";
 
         constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {
+
             searchGifs.clearSearch(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
@@ -128,6 +147,11 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
                 constants.elements.CANCEL_SEARCH_ICON,
                 constants.elements.SEARCH_ICON,
                 constants.elements.SEARCH_RESULT_CONTAINER
+            );
+
+            searchAutocomplete.clear(
+                constants.elements.AUTOCOMPLETE_BOX,
+                constants.elements.SEARCH_BAR_BOTTOM_LINE
             );
         }, false);
     }
@@ -154,9 +178,13 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     );
 }, false);
 
-// Autocomplete suggestions when searching
-constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
-    
+//-------------------------------------------------------------
+// AUTOCOMPLETE SUGGESTIONS
+//-------------------------------------------------------------
+
+// Autocomplete suggestions when the user type something
+constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
+
     let searchAutocompleteData = searchAutocomplete.get(
         constants.url.SEARCH_AUTOCOMPLETE_URL,
         constants.elements.SEARCH_GIFS_INPUT,
@@ -165,16 +193,34 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
         constants.queryStrings.PARAM_Q
     );
 
-    searchAutocomplete.render(searchAutocompleteData, constants.elements.AUTOCOMPLETE_BOX);
+    searchAutocomplete.render(
+        searchAutocompleteData,
+        constants.elements.AUTOCOMPLETE_BOX,
+        constants.elements.SEARCH_BAR_BOTTOM_LINE);
+
+    if (constants.elements.SEARCH_GIFS_INPUT.value === "") {
+        searchAutocomplete.clear(
+            constants.elements.AUTOCOMPLETE_BOX,
+            constants.elements.SEARCH_BAR_BOTTOM_LINE);
+    }
 }, false);
 
+// Add click functionality to the suggestions so they can fill the input
+constants.elements.AUTOCOMPLETE_BOX.addEventListener("click", (event) => {
+    trendingSearchTerms.addClickEventListener(
+        event,
+        constants.elements.SEARCH_GIFS_INPUT,
+        "autocomplete-suggestion"
+    );
+
+    searchAutocomplete.clear(
+        constants.elements.AUTOCOMPLETE_BOX,
+        constants.elements.SEARCH_BAR_BOTTOM_LINE);
+}, true);
+
+// Clear autocomplete box when searching
 constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
-    searchAutocomplete.clear(constants.elements.AUTOCOMPLETE_BOX) 
+    searchAutocomplete.clear(
+        constants.elements.AUTOCOMPLETE_BOX,
+        constants.elements.SEARCH_BAR_BOTTOM_LINE);
 }, false);
-
-//-------------------------------------------------------------
-//RENDER API DATA
-//-------------------------------------------------------------
-
-// Render trending search terms
-trendingSearchTerms.render(trendingTermsData, constants.elements.TRENDING_TERMS_CONTAINER);

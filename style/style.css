@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
 /* ---------- Variables ---------- */
 /* ---------- Placeholders ---------- */
-main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .trending-terms-section, main .trending-terms-section .trending-terms-container, main .search-results-section .search-result-separator, main .search-results-section .search-result-title, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
+main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .presentation-section .search-bar-container .search-bar .search-bar-bottom-line, main .trending-terms-section, main .trending-terms-section .trending-terms-container, main .search-results-section .search-result-separator, main .search-results-section .search-result-title, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -287,25 +287,36 @@ main .presentation-section .search-bar-container .search-bar input::-webkit-sear
   -webkit-appearance: none;
 }
 
+main .presentation-section .search-bar-container .search-bar .search-bar-bottom-line {
+  position: relative;
+  width: 300px;
+  opacity: 0.5;
+  height: 0.5px;
+  background-color: #9CAFC3;
+  display: none;
+}
+
 main .presentation-section .search-bar-container .search-bar .autocomplete-box {
-  padding: 10px 10px 15px 43px;
   overflow-y: auto;
 }
 
-main .presentation-section .search-bar-container .search-bar .autocomplete-box li {
+main .presentation-section .search-bar-container .search-bar .autocomplete-box .autocomplete-suggestion {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  color: #9CAFC3;
+  font-size: 18px;
   text-align: left;
   padding: 8px 12px;
-  width: 100%;
+  width: 105%;
   border-radius: 3px;
-  list-style-type: none;
   cursor: default;
+  list-style-image: url("../../../assets/images/icon/icon-search.svg");
+  opacity: 0.5;
+  cursor: default;
+  -webkit-transform: scale(0.85);
+          transform: scale(0.85);
 }
 
-main .presentation-section .search-bar-container .search-bar .autocomplete-box li:hover {
+main .presentation-section .search-bar-container .search-bar .autocomplete-box .autocomplete-suggestion:hover {
   background: #efefef;
 }
 
@@ -339,7 +350,6 @@ main .presentation-section .search-bar-container .search-toggle-icon {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  cursor: pointer;
 }
 
 main .presentation-section .search-bar-container .cancel-search-icon {
@@ -422,9 +432,10 @@ main .search-results-section .search-result-separator {
 
 main .search-results-section .search-result-title {
   position: relative;
+  width: 100%;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 1.5625em;
   color: #572EE5;
   text-align: center;
   line-height: 40px;
@@ -480,6 +491,20 @@ main .search-results-section .search-result-container .gif-title {
   opacity: 0;
   height: 36px;
   display: none;
+}
+
+main .search-results-section .search-result-container .no-results-container img {
+  height: 150px;
+  width: 150px;
+}
+
+main .search-results-section .search-result-container .no-results-container p {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #5ED7C6;
+  text-align: center;
+  line-height: 25px;
 }
 
 main .trending-gifos-section {
@@ -764,6 +789,9 @@ footer .brand-container h3 {
   }
   main .presentation-section .search-bar-container {
     max-width: 551px;
+  }
+  main .presentation-section .search-bar-container .search-bar .search-bar-bottom-line {
+    width: 505px;
   }
   main .trending-terms-section {
     margin-top: 31px;
