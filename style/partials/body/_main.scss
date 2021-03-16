@@ -232,7 +232,6 @@ main {
         .search-result-title {
             position: relative;
             @extend %centerX;
-            width: 100%;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.5625em; //25px
@@ -289,9 +288,15 @@ main {
             }
 
             .no-results-container {
+                margin-top: 100px;
+                margin-bottom: 150px;
+                grid-column: 1 / span 2;
+                justify-content: stretch;
+                align-content: stretch;
+
                 img {
                     height: 150px;
-                    width: 150px;
+                    width: 100%;
                 }
 
                 p {
@@ -301,6 +306,7 @@ main {
                     color: $green-color;
                     text-align: center;
                     line-height: 25px;
+                    margin-top: 30px;
                 }
             }
         }
@@ -310,7 +316,7 @@ main {
     .trending-gifos-section {
         background-color: $smoke-color;
         margin-top: 45px;
-        height: 430px;
+        padding-bottom: 82px;
 
         .trending-gifos-title-container {
             position: relative;

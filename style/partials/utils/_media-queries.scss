@@ -36,6 +36,10 @@
                     height: 36px;
                     display: none;
                 }
+
+                .no-results-container {
+                    grid-column: 1 / span 3;
+                }
             }
         } // -------------------- END SEARCH RESULT SECTION --------------------
     }
@@ -331,6 +335,10 @@
                         }
                     }
                 }
+
+                .no-results-container {
+                    grid-column: 1 / span 5;
+                }
             }
         } // -------------------- END SEARCH RESULT SECTION --------------------
 
@@ -338,7 +346,7 @@
         .trending-gifos-section {
             background-color: $smoke-color;
             margin-top: 45px;
-            height: 640px;
+            padding-bottom: 182px;
 
             .trending-gifos-title-container {
                 padding-top: 67px;
