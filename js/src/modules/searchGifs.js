@@ -1,8 +1,9 @@
 const searchGifs = (function() {
     const _limitToShow = 12;
+    let _offset = 0;
 
     // Clear search input
-    function clearSearch(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
+    function clear(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
         inputElement.value = "";
         searchResultSeparator.style.display = "none";
         searchResultTitle.style.display = "none";
@@ -53,10 +54,10 @@ const searchGifs = (function() {
     };
 
     // Get API data
-    async function get(url, inputElement, paramApiKey, apiKey, paramQ, paramLimit) {
+    async function get(url, inputElement, paramApiKey, apiKey, paramQ, paramLimit, paramOffset) {
         try {
             let searchTerm = inputElement.value;
-            const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow;
+            const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow + paramOffset + _offset;
             const response = await fetch(endpoint);
 
             if(response.ok) {
@@ -64,6 +65,8 @@ const searchGifs = (function() {
 
                 console.log(jsonResponse);
                 console.log(jsonResponse.pagination.total_count);
+                _offset++;
+                console.log("Offset: " + _offset);
                 
                 return jsonResponse;
             };
@@ -77,7 +80,7 @@ const searchGifs = (function() {
     return {
         get,
         render,
-        clearSearch
+        clear
     }
 
 })();

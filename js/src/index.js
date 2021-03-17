@@ -49,8 +49,8 @@ trendingSearchTerms.render(trendingTermsData, constants.elements.TRENDING_TERMS_
 // SEARCH BAR
 //-------------------------------------------------------------
 
-// Change search icon to X when the input is filled in typing
-constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
+// Change search icon to X when the user fill the input typing
+constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
     if (constants.elements.SEARCH_GIFS_INPUT.value === "") {
 
         searchAutocomplete.clear(
@@ -63,7 +63,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
         constants.elements.SEARCH_ICON.style.display = "none";
 
         constants.elements.CANCEL_SEARCH_ICON.removeEventListener("click", () => {
-            searchGifs.clearSearch(
+            searchGifs.clear(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
                 constants.elements.SEARCH_RESULT_TITLE,
@@ -85,7 +85,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
         constants.elements.SEARCH_ICON.style.display = "block";
 
         constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {            
-            searchGifs.clearSearch(
+            searchGifs.clear(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
                 constants.elements.SEARCH_RESULT_TITLE,
@@ -117,7 +117,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.elements.SEARCH_ICON.style.display = "none";
 
         constants.elements.CANCEL_SEARCH_ICON.removeEventListener("click", () => {
-            searchGifs.clearSearch(
+            searchGifs.clear(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
                 constants.elements.SEARCH_RESULT_TITLE,
@@ -139,7 +139,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
 
         constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {
 
-            searchGifs.clearSearch(
+            searchGifs.clear(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
                 constants.elements.SEARCH_RESULT_TITLE,
@@ -166,8 +166,13 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.queryStrings.PARAM_API_KEY,
         constants.queryStrings.API_KEY,
         constants.queryStrings.PARAM_Q,
-        constants.queryStrings.PARAM_LIMIT
+        constants.queryStrings.PARAM_LIMIT,
+        constants.queryStrings.PARAM_OFFSET
     );
+
+    // searchData
+    // .then(data => console.log(data.data))
+    // .catch(error => console.log(error.message));
 
     searchGifs.render(
         searchData,
@@ -224,3 +229,16 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
         constants.elements.AUTOCOMPLETE_BOX,
         constants.elements.SEARCH_BAR_BOTTOM_LINE);
 }, false);
+
+// ------------------ TEST DARK MODE
+const changeBg = () => {
+    let theme = document.documentElement.getAttribute("data-theme");
+
+    if(theme === "dark") {
+        document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
+}
+
+document.getElementById("nocturne-mode").addEventListener("click", changeBg, false);

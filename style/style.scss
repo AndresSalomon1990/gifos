@@ -4,6 +4,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap'); // Roboto R400, B700, BL900
 //font-family: 'Roboto', sans-serif;
 
+:root {
+    --bg: #ffffff;
+}
+
+[data-theme="dark"] {
+    --bg: #000000;
+}
+
 /* ---------- Variables ---------- */
 @import "./partials/utils/colors";
 

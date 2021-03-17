@@ -1,6 +1,14 @@
 /* ---------- Fonts ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+:root {
+  --bg: #ffffff;
+}
+
+[data-theme="dark"] {
+  --bg: #000000;
+}
+
 /* ---------- Variables ---------- */
 /* ---------- Placeholders ---------- */
 main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .presentation-section .search-bar-container .search-bar .search-bar-bottom-line, main .trending-terms-section, main .trending-terms-section .trending-terms-container, main .search-results-section .search-result-separator, main .search-results-section .search-result-title, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
@@ -21,6 +29,10 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+body {
+  background-color: var(--bg);
 }
 
 /* ---------- Header ---------- */
