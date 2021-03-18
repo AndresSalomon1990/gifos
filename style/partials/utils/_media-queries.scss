@@ -54,6 +54,8 @@
             .logo-container {
                 width: 59.1px;
                 height: 59.1px;
+                // background-image: url(../../../assets/images/logo/logo-desktop.svg);
+                background-image: var(--desktop-logo);
                 margin-top: 15px;
                 margin-left: 156px;
                 text-decoration: none;

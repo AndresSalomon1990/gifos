@@ -15,13 +15,13 @@ header {
         .logo-container {
             width: 48.8px;
             height: 48.8px;
+            // background-image: url(../../../assets/images/logo/logo-mobile.svg);
+            background-image: var(--mobile-logo);
+            background-repeat: no-repeat;
+            background-size: contain;
             margin-top: 15px;
             margin-left: 22px;
             text-decoration: none;
-
-            .logo-img {
-                width: 100%;
-            }
         }
 
         nav {

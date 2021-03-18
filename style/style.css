@@ -1,15 +1,54 @@
 /* ---------- Fonts ---------- */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+/* ---------- Variables ---------- */
 :root {
-  --bg: #ffffff;
+  --main-bg-color: #FFFFFF;
+  --trending-gifos-bg-color: #F3F5F8;
+  --main-letter-color: #572EE5;
+  --menu-mobile-bg-color: #572EE5;
+  --border-color: #572EE5;
+  --border-topnav-color: #572EE5;
+  --search-letter-color: #9CAFC3;
+  --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
+  --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
+  --create-gifo-button-normal: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
+  --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
+  --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
+  --icon-search: url("../../../assets/images/icon/icon-search.svg");
+  --icon-close: url("../../../assets/images/icon/close.svg");
+  --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
+  --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_hover.svg");
+  --icon-twitter-normal: url("../../../assets/images/icon/icon-twitter.svg");
+  --icon-twitter-hover: url("../../../assets/images/icon/icon-twitter-hover.svg");
+  --icon-instagram-normal: url("../../../assets/images/icon/icon_instagram.svg");
+  --icon-instagram-hover: url("../../../assets/images/icon/icon_instagram-hover.svg");
 }
 
 [data-theme="dark"] {
-  --bg: #000000;
+  --main-bg-color: #37383C;
+  --trending-gifos-bg-color: #222326;
+  --main-letter-color: #FFFFFF;
+  --menu-mobile-bg-color: #000000;
+  --border-color: #FFFFFF;
+  --border-topnav-color: #000000;
+  --search-letter-color: #6B7989;
+  --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
+  --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
+  --create-gifo-button-normal:  url("../../../assets/images/cta/CTA-crar-gifo-modo-noc.svg");
+  --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
+  --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
+  --icon-search: url("../../../assets/images/icon/icon-search-modo-noct.svg");
+  --icon-close: url("../../../assets/images/icon/close-modo-noct.svg");
+  --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
+  --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_noc.svg");
+  --icon-twitter-normal: url("../../../assets/images/icon/icon-tw-normal.svg");
+  --icon-twitter-hover: url("../../../assets/images/icon/icon_twitter_noc.svg");
+  --icon-instagram-normal: url("../../../assets/images/icon/icon_instagram.svg");
+  --icon-instagram-hover: url("../../../assets/images/icon/icon_instagram_noc.svg");
 }
 
-/* ---------- Variables ---------- */
+/* ---------- Colors ---------- */
 /* ---------- Placeholders ---------- */
 main .presentation-section .main-title-container, main .presentation-section .hero-image, main .presentation-section .search-bar-container, main .presentation-section .search-bar-container .search-bar .search-bar-bottom-line, main .trending-terms-section, main .trending-terms-section .trending-terms-container, main .search-results-section .search-result-separator, main .search-results-section .search-result-title, main .trending-gifos-section .trending-gifos-title-container, main .trending-gifos-section .trending-gifos-title-container p {
   left: 50%;
@@ -60,13 +99,12 @@ header .topnav-container {
 header .topnav-container .logo-container {
   width: 48.8px;
   height: 48.8px;
+  background-image: var(--mobile-logo);
+  background-repeat: no-repeat;
+  background-size: contain;
   margin-top: 15px;
   margin-left: 22px;
   text-decoration: none;
-}
-
-header .topnav-container .logo-container .logo-img {
-  width: 100%;
 }
 
 header .topnav-container nav {
@@ -732,6 +770,7 @@ footer .brand-container h3 {
   header .topnav-container .logo-container {
     width: 59.1px;
     height: 59.1px;
+    background-image: var(--desktop-logo);
     margin-top: 15px;
     margin-left: 156px;
     text-decoration: none;

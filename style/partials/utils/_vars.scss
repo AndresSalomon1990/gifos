@@ -1,0 +1,53 @@
+:root {
+    --main-bg-color: #FFFFFF;
+    --trending-gifos-bg-color: #F3F5F8;
+    --main-letter-color: #572EE5;
+    --menu-mobile-bg-color: #572EE5;
+    --border-color: #572EE5;
+    --border-topnav-color: #572EE5;
+    --search-letter-color: #9CAFC3;
+
+    --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
+    --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
+
+    --create-gifo-button-normal: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
+    --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
+    --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
+
+    --icon-search: url("../../../assets/images/icon/icon-search.svg");
+    --icon-close: url("../../../assets/images/icon/close.svg");
+
+    --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
+    --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_hover.svg");
+    --icon-twitter-normal: url("../../../assets/images/icon/icon-twitter.svg");
+    --icon-twitter-hover: url("../../../assets/images/icon/icon-twitter-hover.svg");
+    --icon-instagram-normal: url("../../../assets/images/icon/icon_instagram.svg");
+    --icon-instagram-hover: url("../../../assets/images/icon/icon_instagram-hover.svg");
+}
+
+[data-theme="dark"] {
+    --main-bg-color: #37383C;
+    --trending-gifos-bg-color: #222326;
+    --main-letter-color: #FFFFFF;
+    --menu-mobile-bg-color: #000000;
+    --border-color: #FFFFFF;
+    --border-topnav-color: #000000;
+    --search-letter-color: #6B7989;
+
+    --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
+    --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
+
+    --create-gifo-button-normal:  url("../../../assets/images/cta/CTA-crar-gifo-modo-noc.svg");
+    --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
+    --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
+
+    --icon-search: url("../../../assets/images/icon/icon-search-modo-noct.svg");
+    --icon-close: url("../../../assets/images/icon/close-modo-noct.svg");
+
+    --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
+    --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_noc.svg");
+    --icon-twitter-normal: url("../../../assets/images/icon/icon-tw-normal.svg");
+    --icon-twitter-hover: url("../../../assets/images/icon/icon_twitter_noc.svg");
+    --icon-instagram-normal: url("../../../assets/images/icon/icon_instagram.svg");
+    --icon-instagram-hover: url("../../../assets/images/icon/icon_instagram_noc.svg");
+}
