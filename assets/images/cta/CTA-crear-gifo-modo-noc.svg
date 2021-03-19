@@ -11,7 +11,7 @@
             <g id="CTA-crear-gifo-modo-noc" transform="translate(169.000000, 2771.000000)">
                 <circle id="Oval-3" stroke="#FFFFFF" fill-rule="nonzero" cx="27" cy="27" r="26.5"></circle>
                 <g id="video" transform="translate(19.000000, 19.000000)">
-                    <mask id="mask-2" fill="white">
+                    <mask id="mask-2" fill="none">
                         <use xlink:href="#path-1"></use>
                     </mask>
                     <use id="Combined-Shape" fill="#000000" fill-rule="nonzero" xlink:href="#path-1"></use>

@@ -2,10 +2,13 @@
     --main-bg-color: #FFFFFF;
     --trending-gifos-bg-color: #F3F5F8;
     --main-letter-color: #572EE5;
-    --menu-mobile-bg-color: #572EE5;
+    --p-trending-color: #000000;
+    --menu-mobile-bg-color: #562ee5e8;
     --border-color: #572EE5;
     --border-topnav-color: #572EE5;
-    --search-letter-color: #9CAFC3;
+    --search-letter-color: #000000;
+    --search-letter-color-hover-bg: #efefef;
+    --text-footer-color: #000000;
 
     --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
     --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
@@ -29,17 +32,20 @@
     --main-bg-color: #37383C;
     --trending-gifos-bg-color: #222326;
     --main-letter-color: #FFFFFF;
+    --p-trending-color: #FFFFFF;
     --menu-mobile-bg-color: #000000;
     --border-color: #FFFFFF;
     --border-topnav-color: #000000;
-    --search-letter-color: #6B7989;
+    --search-letter-color: #FFFFFF;
+    --search-letter-color-hover-bg: #2e2d2d;
+    --text-footer-color: #FFFFFF;
 
     --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
     --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
 
-    --create-gifo-button-normal:  url("../../../assets/images/cta/CTA-crar-gifo-modo-noc.svg");
-    --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
-    --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
+    --create-gifo-button-normal: url("../../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
+    --create-gifo-button-hover: url("../../../assets/images/cta/CTA-crear-gifo-modo-noc.svg");
+    --create-gifo-button-active: url("../../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
 
     --icon-search: url("../../../assets/images/icon/icon-search-modo-noct.svg");
     --icon-close: url("../../../assets/images/icon/close-modo-noct.svg");

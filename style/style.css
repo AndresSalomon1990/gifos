@@ -6,10 +6,13 @@
   --main-bg-color: #FFFFFF;
   --trending-gifos-bg-color: #F3F5F8;
   --main-letter-color: #572EE5;
-  --menu-mobile-bg-color: #572EE5;
+  --p-trending-color: #000000;
+  --menu-mobile-bg-color: #562ee5e8;
   --border-color: #572EE5;
   --border-topnav-color: #572EE5;
-  --search-letter-color: #9CAFC3;
+  --search-letter-color: #000000;
+  --search-letter-color-hover-bg: #efefef;
+  --text-footer-color: #000000;
   --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
   --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
   --create-gifo-button-normal: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
@@ -29,15 +32,18 @@
   --main-bg-color: #37383C;
   --trending-gifos-bg-color: #222326;
   --main-letter-color: #FFFFFF;
+  --p-trending-color: #FFFFFF;
   --menu-mobile-bg-color: #000000;
   --border-color: #FFFFFF;
   --border-topnav-color: #000000;
-  --search-letter-color: #6B7989;
+  --search-letter-color: #FFFFFF;
+  --search-letter-color-hover-bg: #2e2d2d;
+  --text-footer-color: #FFFFFF;
   --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
   --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
-  --create-gifo-button-normal:  url("../../../assets/images/cta/CTA-crar-gifo-modo-noc.svg");
-  --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
-  --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
+  --create-gifo-button-normal: url("../../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
+  --create-gifo-button-hover: url("../../../assets/images/cta/CTA-crear-gifo-modo-noc.svg");
+  --create-gifo-button-active: url("../../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
   --icon-search: url("../../../assets/images/icon/icon-search-modo-noct.svg");
   --icon-close: url("../../../assets/images/icon/close-modo-noct.svg");
   --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
@@ -86,12 +92,12 @@ header .topnav-container {
       -ms-flex-align: center;
           align-items: center;
   height: 95px;
-  background-color: #FFFFFF;
+  background-color: var(--main-bg-color);
   width: 100%;
   position: fixed;
   top: 0;
   z-index: 999;
-  border-top: 5px solid #572EE5;
+  border-top: 5px solid var(--border-topnav-color);
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -144,7 +150,7 @@ header .topnav-container nav input:checked ~ ul {
 header .topnav-container nav .bar1, header .topnav-container nav .bar2, header .topnav-container nav .bar3 {
   width: 15px;
   height: 2.5px;
-  background-color: #572EE5;
+  background-color: var(--border-color);
   margin: 2.25px 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -155,8 +161,7 @@ header .topnav-container nav ul {
   top: 90px;
   left: 0;
   width: 100%;
-  background-color: #572EE5;
-  opacity: 0.9;
+  background-color: var(--menu-mobile-bg-color);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -237,6 +242,7 @@ header .topnav-container nav ul .button-link .create-gifo-button {
 /* ---------- Main ---------- */
 main {
   position: relative;
+  background-color: var(--main-bg-color);
 }
 
 main .presentation-section {
@@ -254,7 +260,7 @@ main .presentation-section .main-title-container h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 25px;
-  color: #572EE5;
+  color: var(--main-letter-color);
   text-align: center;
   line-height: 33px;
 }
@@ -289,9 +295,9 @@ main .presentation-section .search-bar-container {
 
 main .presentation-section .search-bar-container .search-bar {
   position: absolute;
-  background: #FFFFFF;
+  background: var(--main-bg-color);
   width: 100%;
-  border: 1px solid #572EE5;
+  border: 1px solid var(--border-color);
   border-radius: 27px;
 }
 
@@ -305,7 +311,7 @@ main .presentation-section .search-bar-container .search-bar input {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: #000000;
+  color: var(--search-letter-color);
   text-align: left;
 }
 
@@ -359,15 +365,16 @@ main .presentation-section .search-bar-container .search-bar .autocomplete-box .
   width: 105%;
   border-radius: 3px;
   cursor: default;
-  list-style-image: url("../../../assets/images/icon/icon-search.svg");
+  list-style-image: var(--icon-search);
   opacity: 0.5;
   cursor: default;
   -webkit-transform: scale(0.85);
           transform: scale(0.85);
+  color: var(--search-letter-color);
 }
 
 main .presentation-section .search-bar-container .search-bar .autocomplete-box .autocomplete-suggestion:hover {
-  background: #efefef;
+  background: var(--search-letter-color-hover-bg);
 }
 
 main .presentation-section .search-bar-container .search-icon {
@@ -376,7 +383,7 @@ main .presentation-section .search-bar-container .search-icon {
   top: 15px;
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/icon-search.svg");
+  background-image: var(--icon-search);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -396,7 +403,7 @@ main .presentation-section .search-bar-container .search-toggle-icon {
   top: 15px;
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/icon-search.svg");
+  background-image: var(--icon-search);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -408,7 +415,7 @@ main .presentation-section .search-bar-container .cancel-search-icon {
   top: 15px;
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/close.svg");
+  background-image: var(--icon-close);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -440,7 +447,7 @@ main .trending-terms-section .trending-title-container h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 16px;
-  color: #572EE5;
+  color: var(--main-letter-color);
   text-align: center;
   line-height: 25px;
 }
@@ -455,7 +462,7 @@ main .trending-terms-section .trending-terms-container .trending-search-term {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: #572EE5;
+  color: var(--main-letter-color);
   text-align: center;
   line-height: 25px;
   cursor: pointer;
@@ -467,6 +474,10 @@ main .trending-terms-section .trending-terms-container .trending-search-term:hov
 
 main .trending-terms-section .trending-terms-container .trending-search-term:active {
   color: #9CAFC3;
+}
+
+main .trending-terms-section .trending-terms-container span {
+  color: var(--main-letter-color);
 }
 
 main .search-results-section .search-result-separator {
@@ -485,7 +496,7 @@ main .search-results-section .search-result-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 1.5625em;
-  color: #572EE5;
+  color: var(--main-letter-color);
   text-align: center;
   line-height: 40px;
   margin-bottom: 38px;
@@ -571,7 +582,7 @@ main .search-results-section .search-result-container .no-results-container p {
 }
 
 main .trending-gifos-section {
-  background-color: #F3F5F8;
+  background-color: var(--trending-gifos-bg-color);
   margin-top: 45px;
   padding-bottom: 82px;
 }
@@ -585,7 +596,7 @@ main .trending-gifos-section .trending-gifos-title-container h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 20px;
-  color: #572EE5;
+  color: var(--main-letter-color);
   text-align: center;
   line-height: 30px;
   margin-bottom: 7px;
@@ -606,7 +617,7 @@ main .trending-gifos-section .trending-gifos-title-container p {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 16px;
-  color: #000000;
+  color: var(--p-trending-color);
   text-align: center;
   line-height: 23px;
 }
@@ -632,17 +643,18 @@ footer {
           align-items: center;
   height: 196px;
   padding-top: 47px;
-  border-bottom: 5px solid #572EE5;
+  border-bottom: 5px solid var(--border-topnav-color);
   position: relative;
   bottom: 0;
   width: 100%;
+  background-color: var(--main-bg-color);
 }
 
 footer .footer-social-container h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 15px;
-  color: #000000;
+  color: var(--text-footer-color);
   letter-spacing: 0;
   text-align: center;
 }
@@ -668,7 +680,7 @@ footer .footer-social-container .social-icon-container a {
 footer .footer-social-container .social-icon-container .facebook-icon {
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/icon_facebook.svg");
+  background-image: var(--icon-facebook-normal);
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
@@ -677,13 +689,13 @@ footer .footer-social-container .social-icon-container .facebook-icon {
 }
 
 footer .footer-social-container .social-icon-container .facebook-icon:hover {
-  background-image: url("../../../assets/images/icon/icon_facebook_hover.svg");
+  background-image: var(--icon-facebook-hover);
 }
 
 footer .footer-social-container .social-icon-container .twitter-icon {
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/icon-twitter.svg");
+  background-image: var(--icon-twitter-normal);
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
@@ -692,13 +704,13 @@ footer .footer-social-container .social-icon-container .twitter-icon {
 }
 
 footer .footer-social-container .social-icon-container .twitter-icon:hover {
-  background-image: url("../../../assets/images/icon/icon-twitter-hover.svg");
+  background-image: var(--icon-twitter-hover);
 }
 
 footer .footer-social-container .social-icon-container .instagram-icon {
   height: 20px;
   width: 20px;
-  background-image: url("../../../assets/images/icon/icon_instagram.svg");
+  background-image: var(--icon-instagram-normal);
   background-color: transparent;
   background-position: center;
   background-repeat: no-repeat;
@@ -707,7 +719,7 @@ footer .footer-social-container .social-icon-container .instagram-icon {
 }
 
 footer .footer-social-container .social-icon-container .instagram-icon:hover {
-  background-image: url("../../../assets/images/icon/icon_instagram-hover.svg");
+  background-image: var(--icon-instagram-hover);
 }
 
 footer .brand-container {
@@ -718,7 +730,7 @@ footer .brand-container h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 14px;
-  color: #000000;
+  color: var(--text-footer-color);
   letter-spacing: 0;
   line-height: 20px;
   text-align: center;
@@ -808,7 +820,7 @@ footer .brand-container h3 {
     display: none;
   }
   header .topnav-container nav ul .link a {
-    color: #572EE5;
+    color: var(--main-letter-color);
     font-size: 13px;
     margin-left: 40px;
   }
@@ -820,7 +832,7 @@ footer .brand-container h3 {
     border-radius: 50%;
     height: 55px;
     width: 55px;
-    background-image: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
+    background-image: var(--create-gifo-button-normal);
     background-color: #cccccc;
     /* Used if the image is unavailable */
     background-position: center;
@@ -833,10 +845,10 @@ footer .brand-container h3 {
     margin-left: 40px;
   }
   header .topnav-container nav ul .button-link .create-gifo-button:hover {
-    background-image: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
+    background-image: var(--create-gifo-button-hover);
   }
   header .topnav-container nav ul .button-link .create-gifo-button:active {
-    background-image: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
+    background-image: var(--create-gifo-button-active);
     -webkit-transform: scale(0.98);
             transform: scale(0.98);
   }
@@ -869,7 +881,6 @@ footer .brand-container h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 16px;
-    color: #572EE5;
     text-align: center;
     line-height: 25px;
   }
@@ -1052,7 +1063,6 @@ footer .brand-container h3 {
     grid-column: 1 / span 5;
   }
   main .trending-gifos-section {
-    background-color: #F3F5F8;
     margin-top: 45px;
     padding-bottom: 182px;
   }

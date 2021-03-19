@@ -1,10 +1,11 @@
 main {
     position: relative;
+    background-color: var(--main-bg-color);
 
     // -------------------- START PRESENTATION SECTION --------------------
     .presentation-section {
         padding-top: 102px;
-
+        
         .main-title-container {
             width: 286px;
             height: 99px;
@@ -16,7 +17,7 @@ main {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 700;
                 font-size: 25px;
-                color: $violet-color;
+                color: var(--main-letter-color);
                 text-align: center;
                 line-height: 33px;
                 
@@ -49,9 +50,9 @@ main {
 
             .search-bar {
                 position: absolute;
-                background: $white-color;
+                background: var(--main-bg-color);
                 width: 100%;
-                border: 1px solid $violet-color;
+                border: 1px solid var(--border-color);
                 border-radius: 27px;
 
                 input {
@@ -64,7 +65,7 @@ main {
                     font-family: 'Roboto', sans-serif;
                     font-weight: 400;
                     font-size: 16px;
-                    color: $black-color;
+                    color: var(--search-letter-color);
                     text-align: left;
     
                     &:focus {
@@ -106,13 +107,14 @@ main {
                         width: 105%;
                         border-radius: 3px;
                         cursor: default;
-                        list-style-image: url("../../../assets/images/icon/icon-search.svg");
+                        list-style-image: var(--icon-search);
                         opacity: 0.5;
                         cursor: default;
                         transform: scale(0.85);
+                        color: var(--search-letter-color);
 
                         &:hover {
-                            background: #efefef;
+                            background: var(--search-letter-color-hover-bg);
                         }
                     }
                 }
@@ -124,7 +126,7 @@ main {
                 top: 15px;
                 height: 20px;
                 width: 20px;
-                background-image: url("../../../assets/images/icon/icon-search.svg");
+                background-image: var(--icon-search);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -143,7 +145,7 @@ main {
                 top: 15px;
                 height: 20px;
                 width: 20px;
-                background-image: url("../../../assets/images/icon/icon-search.svg");
+                background-image: var(--icon-search);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -155,7 +157,7 @@ main {
                 top: 15px;
                 height: 20px;
                 width: 20px;
-                background-image: url("../../../assets/images/icon/close.svg");
+                background-image: var(--icon-close);
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: cover;
@@ -183,7 +185,7 @@ main {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 700;
                 font-size: 16px;
-                color: $violet-color;
+                color: var(--main-letter-color);
                 text-align: center;
                 line-height: 25px;
             }
@@ -199,7 +201,7 @@ main {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 500;
                 font-size: 14px;
-                color: $violet-color;
+                color: var(--main-letter-color);
                 text-align: center;
                 line-height: 25px;
                 cursor: pointer;
@@ -211,6 +213,10 @@ main {
                 &:active {
                     color: $gray-color;
                 }
+            }
+
+            span {
+                color: var(--main-letter-color);
             }
         }
     } // -------------------- END TRENDING TERMS SECTION --------------------
@@ -235,7 +241,7 @@ main {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             font-size: 1.5625em; //25px
-            color: $violet-color;
+            color: var(--main-letter-color);
             text-align: center;
             line-height: 40px;
             margin-bottom: 38px;
@@ -314,7 +320,7 @@ main {
 
     // -------------------- START TRENDING GIFOS SECTION --------------------
     .trending-gifos-section {
-        background-color: $smoke-color;
+        background-color: var(--trending-gifos-bg-color);
         margin-top: 45px;
         padding-bottom: 82px;
 
@@ -327,7 +333,7 @@ main {
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 700;
                 font-size: 20px;
-                color: $violet-color;
+                color: var(--main-letter-color);
                 text-align: center;
                 line-height: 30px;
                 margin-bottom: 7px;
@@ -349,7 +355,7 @@ main {
                 font-family: 'Roboto', sans-serif;
                 font-weight: 400;
                 font-size: 16px;
-                color: $black-color;
+                color: var(--p-trending-color);
                 text-align: center;
                 line-height: 23px;
             }

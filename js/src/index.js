@@ -6,6 +6,7 @@ import topNavStyle from "./modules/topNavStyle.js";
 import trendingSearchTerms from "./modules/trendingSearchTerms.js";
 import searchGifs from "./modules/searchGifs.js";
 import searchAutocomplete from "./modules/searchAutocomplete.js";
+import nocturneMode from "./modules/nocturneMode.js";
 
 //-------------------------------------------------------------
 // CHANGE TOPNAVAR STYLE
@@ -62,24 +63,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
         constants.elements.CANCEL_SEARCH_ICON.style.display = "none";
         constants.elements.SEARCH_ICON.style.display = "none";
 
-        constants.elements.CANCEL_SEARCH_ICON.removeEventListener("click", () => {
-            searchGifs.clear(
-                constants.elements.SEARCH_GIFS_INPUT,
-                constants.elements.SEARCH_RESULT_SEPARATOR,
-                constants.elements.SEARCH_RESULT_TITLE,
-                constants.elements.SEARCH_TOGGLE_ICON,
-                constants.elements.CANCEL_SEARCH_ICON,
-                constants.elements.SEARCH_ICON,
-                constants.elements.SEARCH_RESULT_CONTAINER
-            );
-
-            searchAutocomplete.clear(
-                constants.elements.AUTOCOMPLETE_BOX,
-                constants.elements.SEARCH_BAR_BOTTOM_LINE
-            );
-        }, false);
     } else {
-        
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "none";
         constants.elements.CANCEL_SEARCH_ICON.style.display = "block";
         constants.elements.SEARCH_ICON.style.display = "block";
@@ -116,22 +100,6 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.elements.CANCEL_SEARCH_ICON.style.display = "none";
         constants.elements.SEARCH_ICON.style.display = "none";
 
-        constants.elements.CANCEL_SEARCH_ICON.removeEventListener("click", () => {
-            searchGifs.clear(
-                constants.elements.SEARCH_GIFS_INPUT,
-                constants.elements.SEARCH_RESULT_SEPARATOR,
-                constants.elements.SEARCH_RESULT_TITLE,
-                constants.elements.SEARCH_TOGGLE_ICON,
-                constants.elements.CANCEL_SEARCH_ICON,
-                constants.elements.SEARCH_ICON,
-                constants.elements.SEARCH_RESULT_CONTAINER
-            );
-
-            searchAutocomplete.clear(
-                constants.elements.AUTOCOMPLETE_BOX,
-                constants.elements.SEARCH_BAR_BOTTOM_LINE
-            );
-        }, false);
     } else {
         constants.elements.SEARCH_TOGGLE_ICON.style.display = "none";
         constants.elements.CANCEL_SEARCH_ICON.style.display = "block";
@@ -230,15 +198,17 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
         constants.elements.SEARCH_BAR_BOTTOM_LINE);
 }, false);
 
-// ------------------ TEST DARK MODE
-const changeBg = () => {
-    let theme = document.documentElement.getAttribute("data-theme");
+//-------------------------------------------------------------
+// DARK MODE
+//-------------------------------------------------------------
+window.addEventListener("load", () => {
+    nocturneMode.getCurrentTheme(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);
 
-    if(theme === "dark") {
-        document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
-    }
-}
+constants.elements.NOCTURNE_MODE_MOBILE.addEventListener("click", () => {
+    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);
 
-document.getElementById("nocturne-mode").addEventListener("click", changeBg, false);
+constants.elements.NOCTURNE_MODE_DESKTOP.addEventListener("click", () => {
+    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);

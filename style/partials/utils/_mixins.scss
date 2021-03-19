@@ -1,7 +1,7 @@
 @mixin loadSocialMediaIcon($url) {
     height: 20px;
     width: 20px;
-    background-image: url($url);
+    background-image: $url;
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;

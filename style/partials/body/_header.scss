@@ -4,18 +4,17 @@ header {
         justify-content: space-between;
         align-items: center;
         height: 95px;
-        background-color: $white-color;
+        background-color: var(--main-bg-color);
         width: 100%;
         position: fixed;
         top: 0;
         z-index: 999;
-        border-top: 5px solid $violet-color;
+        border-top: 5px solid var(--border-topnav-color);
         box-shadow: none;
 
         .logo-container {
             width: 48.8px;
             height: 48.8px;
-            // background-image: url(../../../assets/images/logo/logo-mobile.svg);
             background-image: var(--mobile-logo);
             background-repeat: no-repeat;
             background-size: contain;
@@ -62,7 +61,7 @@ header {
             .bar1, .bar2, .bar3 {
                 width: 15px;
                 height: 2.5px;
-                background-color: $violet-color;
+                background-color: var(--border-color);
                 margin: 2.25px 0;
                 transition: 0.4s;
             }
@@ -72,8 +71,8 @@ header {
                 top: 90px; // move 95px from the top (which is the height of the topnavbar + top border)
                 left: 0;
                 width: 100%;
-                background-color: $violet-color;
-                opacity: 0.9;
+                background-color: var(--menu-mobile-bg-color);
+                // opacity: 0.9;
                 display: flex;
                 flex-direction: column;
                 align-items: center;

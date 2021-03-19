@@ -15,6 +15,8 @@ const constants = {
 
     elements: {
         TOPNAV_CONTAINER: document.getElementById("topnav-container"),
+        NOCTURNE_MODE_MOBILE: document.getElementById("nocturne-mode-mobile"),
+        NOCTURNE_MODE_DESKTOP: document.getElementById("nocturne-mode-desktop"),
         TRENDING_TERMS_CONTAINER: document.getElementById("trending-terms-container"),
         SEARCH_BAR: document.getElementById("search-bar"),
         SEARCH_GIFS_INPUT: document.getElementById("search-gifs-input"),

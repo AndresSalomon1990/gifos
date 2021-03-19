@@ -1,6 +1,7 @@
 const searchGifs = (function() {
     const _limitToShow = 12;
     let _offset = 0;
+    let _lastSearchTerm = "";
 
     // Clear search input
     function clear(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
@@ -57,6 +58,15 @@ const searchGifs = (function() {
     async function get(url, inputElement, paramApiKey, apiKey, paramQ, paramLimit, paramOffset) {
         try {
             let searchTerm = inputElement.value;
+            
+            if(!searchTerm) return; // return nothing if the input is blank
+
+            // check if the search term change, so it restart the offset
+            if(_lastSearchTerm !== searchTerm) {
+                _lastSearchTerm = searchTerm;
+                _offset = 0;
+            }
+
             const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow + paramOffset + _offset;
             const response = await fetch(endpoint);
 
@@ -65,6 +75,7 @@ const searchGifs = (function() {
 
                 console.log(jsonResponse);
                 console.log(jsonResponse.pagination.total_count);
+
                 _offset++;
                 console.log("Offset: " + _offset);
                 

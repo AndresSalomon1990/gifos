@@ -5,17 +5,18 @@ footer {
     align-items: center;
     height: 196px;
     padding-top: 47px;
-    border-bottom: 5px solid $violet-color;
+    border-bottom: 5px solid var(--border-topnav-color);
     position: relative;
     bottom: 0;
     width: 100%;
+    background-color: var(--main-bg-color);
 
     .footer-social-container {
         h3 {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 15px;
-            color: $black-color;
+            color: var(--text-footer-color);
             letter-spacing: 0;
             text-align: center;
         }
@@ -33,26 +34,26 @@ footer {
             }
 
             .facebook-icon {
-                @include loadSocialMediaIcon("../../../assets/images/icon/icon_facebook.svg");
+                @include loadSocialMediaIcon(var(--icon-facebook-normal));
 
                 &:hover {
-                    background-image: url("../../../assets/images/icon/icon_facebook_hover.svg");
+                    background-image: var(--icon-facebook-hover);
                 }
             }
     
             .twitter-icon {
-                @include loadSocialMediaIcon("../../../assets/images/icon/icon-twitter.svg");
+                @include loadSocialMediaIcon(var(--icon-twitter-normal));
 
                 &:hover {
-                    background-image: url("../../../assets/images/icon/icon-twitter-hover.svg");
+                    background-image: var(--icon-twitter-hover);
                 }
             }
     
             .instagram-icon {
-                @include loadSocialMediaIcon("../../../assets/images/icon/icon_instagram.svg");
+                @include loadSocialMediaIcon(var(--icon-instagram-normal));
 
                 &:hover {
-                    background-image: url("../../../assets/images/icon/icon_instagram-hover.svg");
+                    background-image: var(--icon-instagram-hover);
                 }
             }
         }
@@ -65,7 +66,7 @@ footer {
             font-family: 'Roboto', sans-serif;
             font-weight: 400;
             font-size: 14px;
-            color: $black-color;
+            color: var(--text-footer-color);
             letter-spacing: 0;
             line-height: 20px;
             text-align: center;

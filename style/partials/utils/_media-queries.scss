@@ -92,7 +92,7 @@
                         }
                         
                         a {
-                            color: $violet-color;
+                            color: var(--main-letter-color);
                             font-size: 13px;
                             margin-left: 40px;
                         }
@@ -108,7 +108,7 @@
                             border-radius: 50%;
                             height: 55px;
                             width: 55px;
-                            background-image: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
+                            background-image: var(--create-gifo-button-normal);
                             background-color: #cccccc; /* Used if the image is unavailable */
                             background-position: center; /* Center the image */
                             background-repeat: no-repeat; /* Do not repeat the image */
@@ -117,11 +117,11 @@
                             margin-left: 40px;
 
                             &:hover {
-                                background-image: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
+                                background-image: var(--create-gifo-button-hover);
                             }
                     
                             &:active {
-                                background-image: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
+                                background-image: var(--create-gifo-button-active);
                                 transform: scale(0.98);
                             }
                         }
@@ -173,7 +173,6 @@
                     font-family: 'Montserrat', sans-serif;
                     font-weight: 700;
                     font-size: 16px;
-                    color: $violet-color;
                     text-align: center;
                     line-height: 25px;
                 }
@@ -346,7 +345,6 @@
 
         // -------------------- START TRENDING GIFOS SECTION --------------------
         .trending-gifos-section {
-            background-color: $smoke-color;
             margin-top: 45px;
             padding-bottom: 182px;
 
