@@ -249,6 +249,7 @@ main {
         }
 
         .search-result-container {
+            position: relative;
             display: grid;
             grid-template-columns: repeat(2, minmax(120px, 250px));
             justify-content: center;
@@ -320,6 +321,7 @@ main {
 
     // -------------------- START TRENDING GIFOS SECTION --------------------
     .trending-gifos-section {
+        position: relative;
         background-color: var(--trending-gifos-bg-color);
         margin-top: 45px;
         padding-bottom: 82px;

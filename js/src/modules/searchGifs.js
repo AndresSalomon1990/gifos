@@ -30,11 +30,11 @@ const searchGifs = (function() {
 
                 const gif = `
                     <div class="gif-container">
-                        <img src=${gifData.images.fixed_height.url} alt=${gifData.images.fixed_height.url} class="gif">
+                        <img src=${gifData.images.fixed_height.url} alt=${gifData.title} class="gif">
                         <div class="overlay"></div>
                         <div class="icon-container">
                             <i class="icon icon-fav"></i>
-                            <a href=${gifData.images.fixed_height.url} class="icon icon-download" onclick="this.click()" download="myGif.gif"></a>
+                            <i class="icon icon-download" data-url=${gifData.images.fixed_height.url} data-title=${title}></i>
                             <i class="icon icon-max"></i>
                         </div>
                         <p class="gif-user">${username}</p>
@@ -88,10 +88,36 @@ const searchGifs = (function() {
         }
     };
 
+    // transforming the url into blob so it can be downloaded
+    async function _downloadBlob(url, title) {
+        const a = document.createElement("a");
+        const response = await fetch(url);
+        const file = await response.blob();
+
+        // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+        a.download = title;
+        a.href = window.URL.createObjectURL(file);
+
+        //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+        a.dataset.downloadurl = ["application/octet-stream", a.download, a.href].join(":");
+        
+        a.click(); // autoclick on element to start download
+    }
+
+    // Event capturing for the download icon with the functionality
+    function downloadFunctionality(event, classToSearch) {
+        if (event.target.className === classToSearch) {
+            const url = event.target.getAttribute("data-url"); // get custom attribute with data from the API
+            const title = event.target.getAttribute("data-title"); // get custom attribute with data from the API
+            _downloadBlob(url, title);
+        }
+    }
+
     return {
         get,
         render,
-        clear
+        clear,
+        downloadFunctionality
     }
 
 })();

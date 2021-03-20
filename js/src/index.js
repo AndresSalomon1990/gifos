@@ -106,7 +106,6 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.elements.SEARCH_ICON.style.display = "block";
 
         constants.elements.CANCEL_SEARCH_ICON.addEventListener("click", () => {
-
             searchGifs.clear(
                 constants.elements.SEARCH_GIFS_INPUT,
                 constants.elements.SEARCH_RESULT_SEPARATOR,
@@ -127,8 +126,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
 
 // Render gifs on input change
 constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
-
-    let searchData = searchGifs.get(
+    const searchData = searchGifs.get(
         constants.url.SEARCH_URL,
         constants.elements.SEARCH_GIFS_INPUT,
         constants.queryStrings.PARAM_API_KEY,
@@ -151,14 +149,18 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     );
 }, false);
 
+// Add download functionality to the download icon
+constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
+    searchGifs.downloadFunctionality(event, "icon icon-download");
+}, true);
+
 //-------------------------------------------------------------
 // AUTOCOMPLETE SUGGESTIONS
 //-------------------------------------------------------------
 
 // Autocomplete suggestions when the user type something
 constants.elements.SEARCH_GIFS_INPUT.addEventListener("input", () => {
-
-    let searchAutocompleteData = searchAutocomplete.get(
+    const searchAutocompleteData = searchAutocomplete.get(
         constants.url.SEARCH_AUTOCOMPLETE_URL,
         constants.elements.SEARCH_GIFS_INPUT,
         constants.queryStrings.PARAM_API_KEY,
@@ -199,7 +201,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
 }, false);
 
 //-------------------------------------------------------------
-// DARK MODE
+// NOCTURNE MODE
 //-------------------------------------------------------------
 window.addEventListener("load", () => {
     nocturneMode.getCurrentTheme(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);

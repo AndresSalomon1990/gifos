@@ -16,6 +16,7 @@ const trendingSearchTerms = (function() {
             throw new Error("Request failed");
         } catch (error) {
             console.log(error);
+            return(error.message);
         }
     }
 
