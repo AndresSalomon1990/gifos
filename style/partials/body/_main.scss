@@ -240,12 +240,73 @@ main {
             @extend %centerX;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
-            font-size: 1.5625em; //25px
+            font-size: 1.5625em; // 25px
             color: var(--main-letter-color);
             text-align: center;
             line-height: 40px;
             margin-bottom: 38px;
             display: none;
+        }
+
+        .modal {
+            display: none; // Hidden by default
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            position: fixed;
+            z-index: 9999;
+            padding: 160px 28px;
+            left: 0;
+            top: 0;
+            width: 100%; // Full width
+            height: 100%; // Full height
+            overflow: auto; // Enable scroll if needed
+            background-color: var(--main-bg-color);
+
+            .close-modal-icon {
+                position: absolute;
+                top: 10%;
+                right: 28px;
+                background-image: var(--icon-close);
+                background-repeat: none;
+                background-size: contain;
+                height: 15.2px;
+                width: 15.2px;
+                cursor: pointer;
+
+                &:active {
+                    transform: scale(0.98);
+                }
+            }
+
+            .modal-img {
+                width: 100%;
+                height: 245px;
+            }
+
+            .modal-titles-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                width: 100%;
+                margin-top: 27px;
+
+                .modal-username {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 15px;
+                    color: var(--modal-letter-color);
+                    text-align: center;
+                }
+    
+                .modal-title {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: var(--modal-letter-color);
+                    text-align: center;
+                }
+            }
         }
 
         .search-result-container {
@@ -260,38 +321,39 @@ main {
                 position: relative;
                 height: 120px;
                 width: 100%;
+                overflow: hidden;
 
                 .gif {
                     height: 100%;
                     width: 100%;
                 }
-            }
 
-            .gif-user {
-                position: absolute;
-                bottom: 80px;
-                left: 18px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: 400;
-                font-size: 15px;
-                color: $white-color;
-                text-align: left;
-                opacity: 0;
-                display: none;
-            }
-
-            .gif-title {
-                position: absolute;
-                bottom: 40px;
-                left: 18px;
-                font-family: 'Roboto', sans-serif;
-                font-weight: 700;
-                font-size: 16px;
-                color: $white-color;
-                text-align: left;
-                opacity: 0;
-                height: 36px;
-                display: none;
+                .gif-user {
+                    position: absolute;
+                    bottom: 80px;
+                    left: 18px;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 15px;
+                    color: $white-color;
+                    text-align: left;
+                    opacity: 0;
+                    display: none;
+                }
+    
+                .gif-title {
+                    position: absolute;
+                    bottom: 40px;
+                    left: 18px;
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: $white-color;
+                    text-align: left;
+                    opacity: 0;
+                    height: 36px;
+                    display: none;
+                }
             }
 
             .no-results-container {

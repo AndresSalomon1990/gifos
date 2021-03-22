@@ -1,7 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
 //------------------------------------------------------------
 //RESET
 //------------------------------------------------------------
@@ -10,6 +6,10 @@ html {
     margin: 0;
     padding: 0;
     border: 0;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {

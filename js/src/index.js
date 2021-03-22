@@ -7,6 +7,7 @@ import trendingSearchTerms from "./modules/trendingSearchTerms.js";
 import searchGifs from "./modules/searchGifs.js";
 import searchAutocomplete from "./modules/searchAutocomplete.js";
 import nocturneMode from "./modules/nocturneMode.js";
+import gif from "./modules/gif.js";
 
 //-------------------------------------------------------------
 // CHANGE TOPNAVAR STYLE
@@ -149,9 +150,24 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     );
 }, false);
 
+// Add favorite functionality to the fav icon
+constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.favorite(event, "icon-fav-false", "icon-fav-true");
+}, true);
+
 // Add download functionality to the download icon
 constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
-    searchGifs.downloadFunctionality(event, "icon icon-download");
+    gif.download(event, "icon-download");
+}, true);
+
+// Add expand functionality to the expand icon
+constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.expand(event, "icon-expand", constants.elements.MODAL);
+}, true);
+
+// add close functionality to the modal X
+constants.elements.MODAL.addEventListener("click", (event) => {
+    gif.closeModal(event, "close-modal-icon", constants.elements.MODAL);
 }, true);
 
 //-------------------------------------------------------------
