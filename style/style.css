@@ -549,7 +549,20 @@ main .search-results-section .modal .modal-img {
   height: 245px;
 }
 
-main .search-results-section .modal .modal-titles-container {
+main .search-results-section .modal .modal-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  padding: 27px 0px;
+}
+
+main .search-results-section .modal .modal-footer .modal-titles-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,11 +573,9 @@ main .search-results-section .modal .modal-titles-container {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  width: 100%;
-  margin-top: 27px;
 }
 
-main .search-results-section .modal .modal-titles-container .modal-username {
+main .search-results-section .modal .modal-footer .modal-titles-container .modal-username {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 15px;
@@ -572,12 +583,116 @@ main .search-results-section .modal .modal-titles-container .modal-username {
   text-align: center;
 }
 
-main .search-results-section .modal .modal-titles-container .modal-title {
+main .search-results-section .modal .modal-footer .modal-titles-container .modal-title {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 16px;
   color: var(--modal-letter-color);
   text-align: center;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-false {
+  height: 32px;
+  width: 32px;
+  background-image: url("../../../assets/images/icon/icon-fav.svg");
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: contain;
+  /* Resize the background image to cover the entire container */
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+  margin-left: 21px;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-false:hover {
+  background-image: url("../../../assets/images/icon/icon-fav-hover.svg");
+  background-color: #FFFFFF;
+  opacity: 1;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-false:active {
+  background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+  background-color: #FFFFFF;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-true {
+  height: 32px;
+  width: 32px;
+  background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: contain;
+  /* Resize the background image to cover the entire container */
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.9;
+  margin-left: 21px;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-true:hover {
+  background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+  background-color: #FFFFFF;
+  opacity: 1;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-fav-true:active {
+  background-image: url("../../../assets/images/icon/icon-fav.svg");
+  background-color: #FFFFFF;
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-download {
+  height: 32px;
+  width: 32px;
+  background-image: url("../../../assets/images/icon/icon-download.svg");
+  background-color: #cccccc;
+  /* Used if the image is unavailable */
+  background-position: center;
+  /* Center the image */
+  background-repeat: no-repeat;
+  /* Do not repeat the image */
+  background-size: contain;
+  /* Resize the background image to cover the entire container */
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.7;
+  margin-left: 21px;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-download:hover {
+  background-image: url("../../../assets/images/icon/icon-download-hover.svg");
+  background-color: #FFFFFF;
+  opacity: 1;
+}
+
+main .search-results-section .modal .modal-footer .modal-icons-container .icon-download:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 main .search-results-section .search-result-container {
@@ -1021,34 +1136,9 @@ footer .brand-container h3 {
     min-width: 20%;
     height: 385px;
   }
-  main .search-results-section .modal .modal-titles-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+  main .search-results-section .modal .modal-footer {
     max-width: 60%;
     min-width: 20%;
-    margin-top: 27px;
-  }
-  main .search-results-section .modal .modal-titles-container .modal-username {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 15px;
-    color: var(--modal-letter-color);
-    text-align: center;
-  }
-  main .search-results-section .modal .modal-titles-container .modal-title {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--modal-letter-color);
-    text-align: center;
   }
   main .search-results-section .search-result-container {
     -ms-grid-columns: (minmax(220px, 330px))[4];

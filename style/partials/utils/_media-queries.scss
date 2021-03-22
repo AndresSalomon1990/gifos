@@ -238,30 +238,10 @@
                     min-width: 20%;
                     height: 385px;
                 }
-    
-                .modal-titles-container {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
+
+                .modal-footer {
                     max-width: 60%;
                     min-width: 20%;
-                    margin-top: 27px;
-    
-                    .modal-username {
-                        font-family: 'Roboto', sans-serif;
-                        font-weight: 400;
-                        font-size: 15px;
-                        color: var(--modal-letter-color);
-                        text-align: center;
-                    }
-        
-                    .modal-title {
-                        font-family: 'Roboto', sans-serif;
-                        font-weight: 700;
-                        font-size: 16px;
-                        color: var(--modal-letter-color);
-                        text-align: center;
-                    }
                 }
             }
 

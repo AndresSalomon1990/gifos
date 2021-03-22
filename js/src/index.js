@@ -150,6 +150,10 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     );
 }, false);
 
+//-------------------------------------------------------------
+// GIFS FUNCTIONALITY - FAV, DOWNLOAD, EXPAND
+//-------------------------------------------------------------
+
 // Add favorite functionality to the fav icon
 constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
     gif.favorite(event, "icon-fav-false", "icon-fav-true");
@@ -168,6 +172,16 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
 // add close functionality to the modal X
 constants.elements.MODAL.addEventListener("click", (event) => {
     gif.closeModal(event, "close-modal-icon", constants.elements.MODAL);
+}, true);
+
+// Add favorite functionality to the fav icon
+constants.elements.MODAL.addEventListener("click", (event) => {
+    gif.favorite(event, "icon-fav-false", "icon-fav-true");
+}, true);
+
+// Add download functionality to the download icon
+constants.elements.MODAL.addEventListener("click", (event) => {
+    gif.download(event, "icon-download");
 }, true);
 
 //-------------------------------------------------------------

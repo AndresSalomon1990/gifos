@@ -284,27 +284,91 @@ main {
                 height: 245px;
             }
 
-            .modal-titles-container {
+            .modal-footer {
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
+                justify-content: space-between;
+                align-content: center;
                 width: 100%;
-                margin-top: 27px;
+                padding: 27px 0px;
 
-                .modal-username {
-                    font-family: 'Roboto', sans-serif;
-                    font-weight: 400;
-                    font-size: 15px;
-                    color: var(--modal-letter-color);
-                    text-align: center;
-                }
+                .modal-titles-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
     
-                .modal-title {
-                    font-family: 'Roboto', sans-serif;
-                    font-weight: 700;
-                    font-size: 16px;
-                    color: var(--modal-letter-color);
-                    text-align: center;
+                    .modal-username {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        font-size: 15px;
+                        color: var(--modal-letter-color);
+                        text-align: center;
+                    }
+        
+                    .modal-title {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 700;
+                        font-size: 16px;
+                        color: var(--modal-letter-color);
+                        text-align: center;
+                    }
+                }
+
+                .modal-icons-container {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+            
+                    .icon-fav-false {
+                        @include loadGifIcon("../../../assets/images/icon/icon-fav.svg");
+                        opacity: 0.7;
+                        margin-left: 21px;
+                
+                        &:hover {
+                            background-image: url("../../../assets/images/icon/icon-fav-hover.svg");
+                            background-color: #FFFFFF;
+                            opacity: 1;
+                        }
+                
+                        &:active {
+                            background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+                            background-color: #FFFFFF;
+                            transform: scale(0.98);
+                        }
+                    }
+
+                    .icon-fav-true {
+                        @include loadGifIcon("../../../assets/images/icon/icon-fav-active.svg");
+                        opacity: 0.9;
+                        margin-left: 21px;
+                
+                        &:hover {
+                            background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+                            background-color: #FFFFFF;
+                            opacity: 1;
+                        }
+                
+                        &:active {
+                            background-image: url("../../../assets/images/icon/icon-fav.svg");
+                            background-color: #FFFFFF;
+                            transform: scale(0.98);
+                        }
+                    }
+
+                    .icon-download {
+                        @include loadGifIcon("../../../assets/images/icon/icon-download.svg");
+                        opacity: 0.7;
+                        margin-left: 21px;
+                
+                        &:hover {
+                            background-image: url("../../../assets/images/icon/icon-download-hover.svg");
+                            background-color: #FFFFFF;
+                            opacity: 1;
+                        }
+
+                        &:active {
+                            transform: scale(0.98);
+                        }
+                    }
                 }
             }
         }
