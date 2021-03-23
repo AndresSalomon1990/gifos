@@ -42,7 +42,13 @@ const searchGifs = (function() {
                 if (isFavorite) {
                     gif = `
                     <div class="gif-container">
-                        <img src=${gifData.images.fixed_height.url} alt=${gifData.title} class="gif">
+                        <img src=${gifData.images.fixed_height.url}
+                            alt=${gifData.title}
+                            class="gif"
+                            data-gif-url=${gifData.images.fixed_height.url}
+                            data-gif-username=${username}
+                            data-gif-title=${title}
+                            data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
                             <i class="icon-fav-true"
@@ -65,7 +71,13 @@ const searchGifs = (function() {
                 } else {
                     gif = `
                     <div class="gif-container">
-                        <img src=${gifData.images.fixed_height.url} alt=${gifData.title} class="gif">
+                        <img src=${gifData.images.fixed_height.url}
+                            alt=${gifData.title}
+                            class="gif"
+                            data-gif-url=${gifData.images.fixed_height.url}
+                            data-gif-username=${username}
+                            data-gif-title=${title}
+                            data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
                             <i class="icon-fav-false"
@@ -133,8 +145,6 @@ const searchGifs = (function() {
             console.log(error);
         }
     };
-
-    
 
     return {
         get,

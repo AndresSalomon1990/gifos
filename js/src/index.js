@@ -164,10 +164,34 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
     gif.download(event, "icon-download");
 }, true);
 
-// Add expand functionality to the expand icon
+// Add expand functionality to the expand icon - or to the gif itself for mobile
 constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
-    gif.expand(event, "icon-expand", constants.elements.MODAL);
+    gif.expand(
+        event,
+        "icon-expand",
+        constants.elements.MODAL,
+        "data-expand-url",
+        "data-expand-username",
+        "data-expand-title",
+        "data-expand-id"
+    );
 }, true);
+
+constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.expand(
+        event,
+        "gif",
+        constants.elements.MODAL,
+        "data-gif-url",
+        "data-gif-username",
+        "data-gif-title",
+        "data-gif-id"
+    );
+}, true);
+
+//-------------------------------------------------------------
+// MODAL FUNCTIONALITY - FAV, DOWNLOAD
+//-------------------------------------------------------------
 
 // add close functionality to the modal X
 constants.elements.MODAL.addEventListener("click", (event) => {

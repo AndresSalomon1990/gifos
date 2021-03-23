@@ -42,7 +42,7 @@ const gif = (function() {
         a.download = title;
         a.href = window.URL.createObjectURL(file);
 
-        //store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+        // store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
         a.dataset.downloadurl = ["application/octet-stream", a.download, a.href].join(":");
         
         a.click(); // autoclick on element to start download
@@ -52,7 +52,7 @@ const gif = (function() {
     function download(event, classToSearch) {
         if (event.target.className === classToSearch) {
             const url = event.target.getAttribute("data-download-url"); // get custom attribute with data from the API
-            const title = event.target.getAttribute("data-download-title"); // get custom attribute with data from the API
+            const title = event.target.getAttribute("data-download-title");
             _downloadBlob(url, title);
         }
     }
@@ -65,12 +65,12 @@ const gif = (function() {
     }
 
     // Event capturing for the expand icon with the functionality
-    function expand(event, classToSearch, modal) {
+    function expand(event, classToSearch, modal, attrUrl, attrTitle, attrUsername, attrId) {
         if (event.target.className === classToSearch) {
-            const url = event.target.getAttribute("data-expand-url"); // get custom attribute with data from the API
-            const title = event.target.getAttribute("data-expand-title");
-            const username = event.target.getAttribute("data-expand-username");
-            const id = event.target.getAttribute("data-expand-id");
+            const url = event.target.getAttribute(attrUrl); // get custom attribute with data from the API
+            const title = event.target.getAttribute(attrTitle);
+            const username = event.target.getAttribute(attrUsername);
+            const id = event.target.getAttribute(attrId);
 
             let modalHtml = "";
             const isFavorite = _isFavorite(id);
