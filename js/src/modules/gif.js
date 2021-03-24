@@ -35,7 +35,7 @@ const gif = (function() {
     // transform the url into blob so it can be downloaded
     async function _downloadBlob(url, title) {
         const a = document.createElement("a");
-        const response = await fetch(url);
+        const response = await fetch(url); // HTTP response by the browser
         const file = await response.blob();
 
         // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
