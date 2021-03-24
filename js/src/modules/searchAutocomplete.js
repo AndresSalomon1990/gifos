@@ -45,8 +45,8 @@ const searchAutocomplete = (function() {
         if (event.target.className === classToSearch) {
             inputElement.value = event.target.innerHTML;
 
-            const changeEvent = new Event("change");
-            inputElement.dispatchEvent(changeEvent);
+            const searchEvent = new Event("search");
+            inputElement.dispatchEvent(searchEvent);
         }
     }
 

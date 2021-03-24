@@ -74,7 +74,6 @@ const gif = (function() {
 
             let modalHtml = "";
             const isFavorite = _isFavorite(id);
-            console.log(isFavorite);
 
             if (isFavorite) {
                 modalHtml = `

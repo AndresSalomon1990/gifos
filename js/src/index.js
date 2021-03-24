@@ -77,7 +77,8 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("keyup", () => {
                 constants.elements.SEARCH_TOGGLE_ICON,
                 constants.elements.CANCEL_SEARCH_ICON,
                 constants.elements.SEARCH_ICON,
-                constants.elements.SEARCH_RESULT_CONTAINER
+                constants.elements.SEARCH_RESULT_CONTAINER,
+                constants.elements.SHOW_MORE_HOME
             );
 
             searchAutocomplete.clear(
@@ -114,7 +115,8 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
                 constants.elements.SEARCH_TOGGLE_ICON,
                 constants.elements.CANCEL_SEARCH_ICON,
                 constants.elements.SEARCH_ICON,
-                constants.elements.SEARCH_RESULT_CONTAINER
+                constants.elements.SEARCH_RESULT_CONTAINER,
+                constants.elements.SHOW_MORE_HOME
             );
 
             searchAutocomplete.clear(
@@ -125,11 +127,13 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
     }
 }, false);
 
-// Render gifs on input change
-constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
+// Render gifs on input SEARCH
+constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
     const searchData = searchGifs.get(
         constants.url.SEARCH_URL,
         constants.elements.SEARCH_GIFS_INPUT,
+        constants.elements.SEARCH_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_HOME,
         constants.queryStrings.PARAM_API_KEY,
         constants.queryStrings.API_KEY,
         constants.queryStrings.PARAM_Q,
@@ -146,7 +150,8 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("change", () => {
         constants.elements.SEARCH_GIFS_INPUT,
         constants.elements.SEARCH_RESULT_SEPARATOR,
         constants.elements.SEARCH_RESULT_TITLE,
-        constants.elements.SEARCH_RESULT_CONTAINER
+        constants.elements.SEARCH_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_HOME
     );
 }, false);
 
@@ -253,6 +258,34 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
         constants.elements.AUTOCOMPLETE_BOX,
         constants.elements.SEARCH_BAR_BOTTOM_LINE);
 }, false);
+
+//-------------------------------------------------------------
+// SHOW MORE
+//-------------------------------------------------------------
+constants.elements.SHOW_MORE_HOME.addEventListener("click", () => {
+    searchGifs.showMore(constants.elements.SHOW_MORE_HOME);
+    
+    const searchData = searchGifs.get(
+        constants.url.SEARCH_URL,
+        constants.elements.SEARCH_GIFS_INPUT,
+        constants.elements.SEARCH_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_HOME,
+        constants.queryStrings.PARAM_API_KEY,
+        constants.queryStrings.API_KEY,
+        constants.queryStrings.PARAM_Q,
+        constants.queryStrings.PARAM_LIMIT,
+        constants.queryStrings.PARAM_OFFSET
+    );
+
+    searchGifs.render(
+        searchData,
+        constants.elements.SEARCH_GIFS_INPUT,
+        constants.elements.SEARCH_RESULT_SEPARATOR,
+        constants.elements.SEARCH_RESULT_TITLE,
+        constants.elements.SEARCH_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_HOME
+    );
+}, true);
 
 //-------------------------------------------------------------
 // NOCTURNE MODE

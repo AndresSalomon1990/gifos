@@ -29,7 +29,8 @@ const constants = {
         SEARCH_RESULT_TITLE: document.getElementById("search-result-title"),
         SEARCH_RESULT_CONTAINER: document.getElementById("search-result-container"),
         NO_RESULTS_CONTAINER: document.getElementById("no-results-container"),
-        MODAL: document.getElementById("modal")
+        MODAL: document.getElementById("modal"),
+        SHOW_MORE_HOME: document.getElementById("show-more-home")
     }
 }
 

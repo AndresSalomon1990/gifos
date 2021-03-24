@@ -443,6 +443,48 @@ main {
                 }
             }
         }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            margin: 39px 0px;
+
+            .show-more-home {
+                width: 127px;
+                height: 50px;
+                border: 1px solid var(--border-color);
+                border-radius: 25px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                background-color: var(--show-more-bttn-bg);
+                color: var(--show-more-bttn-color);
+                letter-spacing: 0;
+                text-align: center;
+                display: none;
+    
+                &:hover {
+                    color: var(--show-more-bttn-hover-color);
+                    background-color: var(--show-more-bttn-hover-bg);
+                    cursor: pointer;
+                }
+                
+                &:active {
+                    transform: scale(0.98);
+                }
+    
+                &:focus {
+                    outline: none;
+                }
+
+                &:disabled {
+                    color: red;
+                    border: 1px solid red;
+                }
+            }
+        }
     } // -------------------- END SEARCH RESULTS SECTION --------------------
 
     // -------------------- START TRENDING GIFOS SECTION --------------------

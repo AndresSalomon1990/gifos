@@ -44,6 +44,9 @@ const trendingSearchTerms = (function() {
 
             const changeEvent = new Event("change");
             inputElement.dispatchEvent(changeEvent);
+
+            const searchEvent = new Event("search");
+            inputElement.dispatchEvent(searchEvent);
         }
     }
 

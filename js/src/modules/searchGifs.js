@@ -1,10 +1,12 @@
 const searchGifs = (function() {
-    const _limitToShow = 12;
+    let _limitToShow = 12;
     let _offset = 0;
     let _lastSearchTerm = "";
+    let _paginationTotalCount;
+    let _currentPage = 1;
 
     // Clear search input
-    function clear(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer) {
+    function clear(inputElement, searchResultSeparator, searchResultTitle, searchToggleIcon, cancelSearchIcon, searchIcon, searchResultContainer, showMoreHome) {
         inputElement.value = "";
         searchResultSeparator.style.display = "none";
         searchResultTitle.style.display = "none";
@@ -12,6 +14,7 @@ const searchGifs = (function() {
         cancelSearchIcon.style.display = "none";
         searchIcon.style.display = "none";
         searchResultContainer.innerHTML = "";
+        showMoreHome.style.display = "none";
     }
 
     // check if the gif is a favorite
@@ -22,9 +25,8 @@ const searchGifs = (function() {
     }
     
     // Render API data
-    async function render(apiData, inputElement, searchResultSeparator, searchResultTitle, containerElement) { 
+    async function render(apiData, inputElement, searchResultSeparator, searchResultTitle, containerElement, showMoreHome) { 
         const searchResults = await apiData;
-        containerElement.innerHTML = "";
         searchResultTitle.innerHTML = inputElement.value;
         searchResultSeparator.style.display = "block";
         searchResultTitle.style.display = "block";
@@ -36,8 +38,6 @@ const searchGifs = (function() {
                 let title = gifData.title || "sin-definir";
                 let gif = "";
                 let isFavorite = _isFavorite(gifData.id);
-
-                isFavorite ? console.log(true) : console.log(false);
 
                 if (isFavorite) {
                     gif = `
@@ -100,6 +100,7 @@ const searchGifs = (function() {
                 }
 
                 containerElement.insertAdjacentHTML("beforeend", gif);
+                showMoreHome.style.display = "block";
             });
         } else {
             const noResults = `
@@ -113,16 +114,20 @@ const searchGifs = (function() {
     };
 
     // Get API data
-    async function get(url, inputElement, paramApiKey, apiKey, paramQ, paramLimit, paramOffset) {
+    async function get(url, inputElement, containerElement, showMoreHome, paramApiKey, apiKey, paramQ, paramLimit, paramOffset) {
         try {
             let searchTerm = inputElement.value;
             
             if(!searchTerm) return; // return nothing if the input is blank
 
-            // check if the search term change, so it restart the offset
+            // check if the search term change, so it restart the variables and clear the search container
             if(_lastSearchTerm !== searchTerm) {
                 _lastSearchTerm = searchTerm;
+                containerElement.innerHTML = "";
+                _limitToShow = 12;
                 _offset = 0;
+                _currentPage = 1;
+                showMoreHome.disabled = false;
             }
 
             const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow + paramOffset + _offset;
@@ -131,11 +136,11 @@ const searchGifs = (function() {
             if(response.ok) {
                 const jsonResponse = await response.json();
 
+                _paginationTotalCount = jsonResponse.pagination.total_count;
+                
                 console.log(jsonResponse);
-                console.log(jsonResponse.pagination.total_count);
-
-                _offset++;
-                console.log("Offset: " + _offset);
+                console.log("Total items: " + _paginationTotalCount);
+                console.log("Offset search: " + _offset);
                 
                 return jsonResponse;
             };
@@ -143,13 +148,31 @@ const searchGifs = (function() {
             throw new Error("Request failed");
         } catch (error) {
             console.log(error);
+            alert(error.message);
         }
     };
+
+    function showMore(showMoreHome) {
+        _currentPage++;
+
+        const totalPages = Math.ceil(_paginationTotalCount / _limitToShow);
+
+        if (_currentPage >= totalPages) {
+            _offset += _limitToShow;
+            _limitToShow += (_paginationTotalCount - _offset);
+            console.log("Offset show more: " + _offset);
+            showMoreHome.disabled = true;
+        } else {
+            _offset += _limitToShow;
+            showMoreHome.disabled = false;
+        }
+    }
 
     return {
         get,
         render,
-        clear
+        clear,
+        showMore
     }
 
 })();
