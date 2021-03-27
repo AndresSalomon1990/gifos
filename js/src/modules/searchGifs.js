@@ -34,7 +34,7 @@ const searchGifs = (function() {
         if (searchResults.data.length > 0) {
             searchResults.data
             .forEach(gifData => {
-                let username = gifData.username  || "sin-definir";
+                let username = gifData.username || "sin-definir";
                 let title = gifData.title || "sin-definir";
                 let gif = "";
                 let isFavorite = _isFavorite(gifData.id);
@@ -47,7 +47,7 @@ const searchGifs = (function() {
                             class="gif"
                             data-gif-url=${gifData.images.fixed_height.url}
                             data-gif-username=${username}
-                            data-gif-title=${title}
+                            data-gif-title=${gifData.title}
                             data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
@@ -56,17 +56,17 @@ const searchGifs = (function() {
                                 title="Favorito"></i>
                             <i class="icon-download"
                                 data-download-url=${gifData.images.fixed_height.url}
-                                data-download-title=${title}
+                                data-download-title=${gifData.title}
                                 title="Descargar"></i>
                             <i class="icon-expand"
                                 data-expand-url=${gifData.images.fixed_height.url}
                                 data-expand-username=${username}
-                                data-expand-title=${title}
+                                data-expand-title=${gifData.title}
                                 data-expand-id=${gifData.id}
                                 title="Expandir"></i>
                         </div>
                         <p class="gif-user">${username}</p>
-                        <p class="gif-title">${title}</p>
+                        <p class="gif-title">${gifData.title}</p>
                     </div>`;
                 } else {
                     gif = `
@@ -76,7 +76,7 @@ const searchGifs = (function() {
                             class="gif"
                             data-gif-url=${gifData.images.fixed_height.url}
                             data-gif-username=${username}
-                            data-gif-title=${title}
+                            data-gif-title=${gifData.title}
                             data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
@@ -85,17 +85,17 @@ const searchGifs = (function() {
                                 title="Favorito"></i>
                             <i class="icon-download"
                                 data-download-url=${gifData.images.fixed_height.url}
-                                data-download-title=${title}
+                                data-download-title=${gifData.title}
                                 title="Descargar"></i>
                             <i class="icon-expand"
                                 data-expand-url=${gifData.images.fixed_height.url}
                                 data-expand-username=${username}
-                                data-expand-title=${title}
+                                data-expand-title=${gifData.title}
                                 data-expand-id=${gifData.id}
                                 title="Expandir"></i>
                         </div>
                         <p class="gif-user">${username}</p>
-                        <p class="gif-title">${title}</p>
+                        <p class="gif-title">${gifData.title}</p>
                     </div>`;
                 }
 
@@ -137,10 +137,6 @@ const searchGifs = (function() {
                 const jsonResponse = await response.json();
 
                 _paginationTotalCount = jsonResponse.pagination.total_count;
-                
-                console.log(jsonResponse);
-                console.log("Total items: " + _paginationTotalCount);
-                console.log("Offset search: " + _offset);
                 
                 return jsonResponse;
             };

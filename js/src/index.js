@@ -3,10 +3,11 @@
 //-------------------------------------------------------------
 import constants from "../helper/constants.js";
 import topNavStyle from "./modules/topNavStyle.js";
+import nocturneMode from "./modules/nocturneMode.js";
 import trendingSearchTerms from "./modules/trendingSearchTerms.js";
 import searchGifs from "./modules/searchGifs.js";
 import searchAutocomplete from "./modules/searchAutocomplete.js";
-import nocturneMode from "./modules/nocturneMode.js";
+import trendingGifs from "./modules/trendingGifs.js";
 import gif from "./modules/gif.js";
 
 //-------------------------------------------------------------
@@ -28,12 +29,30 @@ window.addEventListener("resize", () => {
 }, false);
 
 //-------------------------------------------------------------
+// NOCTURNE MODE
+//-------------------------------------------------------------
+window.addEventListener("load", () => {
+    nocturneMode.getCurrentTheme(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);
+
+constants.elements.NOCTURNE_MODE_MOBILE.addEventListener("click", () => {
+    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);
+
+constants.elements.NOCTURNE_MODE_DESKTOP.addEventListener("click", () => {
+    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+}, false);
+
+//-------------------------------------------------------------
 // TRENDING TERMS
 //-------------------------------------------------------------
 const trendingTermsData = trendingSearchTerms.get(
     constants.url.TRENDING_SEARCH_TERMS_URL,
     constants.queryStrings.PARAM_API_KEY,
     constants.queryStrings.API_KEY);
+
+// Render trending search terms
+trendingSearchTerms.render(trendingTermsData, constants.elements.TRENDING_TERMS_CONTAINER);
 
 // Add click functionality to the terms so they can fill the input
 constants.elements.TRENDING_TERMS_CONTAINER.addEventListener("click", (event) => {
@@ -43,9 +62,6 @@ constants.elements.TRENDING_TERMS_CONTAINER.addEventListener("click", (event) =>
         "trending-search-term"
     );
 }, true);
-
-// Render trending search terms
-trendingSearchTerms.render(trendingTermsData, constants.elements.TRENDING_TERMS_CONTAINER);
 
 //-------------------------------------------------------------
 // SEARCH BAR
@@ -141,10 +157,6 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
         constants.queryStrings.PARAM_OFFSET
     );
 
-    // searchData
-    // .then(data => console.log(data.data))
-    // .catch(error => console.log(error.message));
-
     searchGifs.render(
         searchData,
         constants.elements.SEARCH_GIFS_INPUT,
@@ -156,7 +168,7 @@ constants.elements.SEARCH_GIFS_INPUT.addEventListener("search", () => {
 }, false);
 
 //-------------------------------------------------------------
-// GIFS FUNCTIONALITY - FAV, DOWNLOAD, EXPAND
+// SEARCHED GIFS FUNCTIONALITY - FAV, DOWNLOAD, EXPAND
 //-------------------------------------------------------------
 
 // Add favorite functionality to the fav icon
@@ -176,8 +188,8 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
         "icon-expand",
         constants.elements.MODAL,
         "data-expand-url",
-        "data-expand-username",
         "data-expand-title",
+        "data-expand-username",
         "data-expand-id"
     );
 }, true);
@@ -188,8 +200,8 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
         "gif",
         constants.elements.MODAL,
         "data-gif-url",
+        "data-expand-title",
         "data-gif-username",
-        "data-gif-title",
         "data-gif-id"
     );
 }, true);
@@ -288,16 +300,63 @@ constants.elements.SHOW_MORE_HOME.addEventListener("click", () => {
 }, true);
 
 //-------------------------------------------------------------
-// NOCTURNE MODE
+// TRENDING GIFS
 //-------------------------------------------------------------
-window.addEventListener("load", () => {
-    nocturneMode.getCurrentTheme(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+
+const trendingGifsData = trendingGifs.get(
+    constants.url.TRENDING_GIFS_URL,
+    constants.queryStrings.PARAM_API_KEY,
+    constants.queryStrings.API_KEY,
+    constants.queryStrings.PARAM_LIMIT
+);
+
+// Render trending search gifs
+trendingGifs.render(trendingGifsData, constants.elements.TRENDING_GIFOS_SLIDER);
+
+// Add functionality to the next and prev buttons for the slider
+constants.elements.PREV_BUTTON.addEventListener("click", () => {
+    trendingGifs.scrollToRight(constants.elements.TRENDING_GIFOS_SLIDER);
 }, false);
 
-constants.elements.NOCTURNE_MODE_MOBILE.addEventListener("click", () => {
-    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
+constants.elements.NEXT_BUTTON.addEventListener("click", () => {
+    trendingGifs.scrollToLeft(constants.elements.TRENDING_GIFOS_SLIDER);
 }, false);
 
-constants.elements.NOCTURNE_MODE_DESKTOP.addEventListener("click", () => {
-    nocturneMode.change(constants.elements.NOCTURNE_MODE_MOBILE, constants.elements.NOCTURNE_MODE_DESKTOP);
-}, false);
+//-------------------------------------------------------------
+// TRENDING GIFS FUNCTIONALITY - FAV, DOWNLOAD, EXPAND
+//-------------------------------------------------------------
+
+// Add favorite functionality to the fav icon
+constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
+    gif.favorite(event, "icon-fav-false", "icon-fav-true");
+}, true);
+
+// Add download functionality to the download icon
+constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
+    gif.download(event, "icon-download");
+}, true);
+
+// Add expand functionality to the expand icon - or to the gif itself for mobile
+constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
+    gif.expand(
+        event,
+        "icon-expand",
+        constants.elements.MODAL,
+        "data-expand-url",
+        "data-expand-title",
+        "data-expand-username",
+        "data-expand-id"
+    );
+}, true);
+
+constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
+    gif.expand(
+        event,
+        "gif",
+        constants.elements.MODAL,
+        "data-gif-url",
+        "data-expand-title",
+        "data-gif-username",
+        "data-gif-id"
+    );
+}, true);

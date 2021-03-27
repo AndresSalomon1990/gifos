@@ -10,7 +10,8 @@ const constants = {
     url: {
         TRENDING_SEARCH_TERMS_URL: "https://api.giphy.com/v1/trending/searches?",
         SEARCH_URL: "https://api.giphy.com/v1/gifs/search?",
-        SEARCH_AUTOCOMPLETE_URL: "https://api.giphy.com/v1/gifs/search/tags?"
+        SEARCH_AUTOCOMPLETE_URL: "https://api.giphy.com/v1/gifs/search/tags?",
+        TRENDING_GIFS_URL: "https://api.giphy.com/v1/gifs/trending?"
     },
 
     elements: {
@@ -30,7 +31,10 @@ const constants = {
         SEARCH_RESULT_CONTAINER: document.getElementById("search-result-container"),
         NO_RESULTS_CONTAINER: document.getElementById("no-results-container"),
         MODAL: document.getElementById("modal"),
-        SHOW_MORE_HOME: document.getElementById("show-more-home")
+        SHOW_MORE_HOME: document.getElementById("show-more-home"),
+        TRENDING_GIFOS_SLIDER: document.getElementById("trending-gifos-slider"),
+        PREV_BUTTON: document.getElementById("prev-button"),
+        NEXT_BUTTON: document.getElementById("next-button")
     }
 }
 

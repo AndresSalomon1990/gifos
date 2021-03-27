@@ -393,29 +393,10 @@ main {
                 }
 
                 .gif-user {
-                    position: absolute;
-                    bottom: 80px;
-                    left: 18px;
-                    font-family: 'Roboto', sans-serif;
-                    font-weight: 400;
-                    font-size: 15px;
-                    color: $white-color;
-                    text-align: left;
-                    opacity: 0;
                     display: none;
                 }
     
                 .gif-title {
-                    position: absolute;
-                    bottom: 40px;
-                    left: 18px;
-                    font-family: 'Roboto', sans-serif;
-                    font-weight: 700;
-                    font-size: 16px;
-                    color: $white-color;
-                    text-align: left;
-                    opacity: 0;
-                    height: 36px;
                     display: none;
                 }
             }
@@ -487,6 +468,132 @@ main {
         }
     } // -------------------- END SEARCH RESULTS SECTION --------------------
 
+    // -------------------- START MODAL --------------------
+    .modal {
+        display: none; // Hidden by default
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+        position: fixed;
+        z-index: 9999;
+        padding: 160px 28px;
+        left: 0;
+        top: 0;
+        width: 100%; // Full width
+        height: 100%; // Full height
+        overflow: auto; // Enable scroll if needed
+        background-color: var(--main-bg-color);
+
+        .close-modal-icon {
+            position: absolute;
+            top: 10%;
+            right: 28px;
+            background-image: var(--icon-close);
+            background-repeat: none;
+            background-size: contain;
+            height: 15.2px;
+            width: 15.2px;
+            cursor: pointer;
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 245px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            width: 100%;
+            padding: 27px 0px;
+
+            .modal-titles-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                .modal-username {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 400;
+                    font-size: 15px;
+                    color: var(--modal-letter-color);
+                    text-align: center;
+                }
+    
+                .modal-title {
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: var(--modal-letter-color);
+                    text-align: center;
+                }
+            }
+
+            .modal-icons-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+        
+                .icon-fav-false {
+                    @include loadGifIcon("../../../assets/images/icon/icon-fav.svg");
+                    opacity: 0.7;
+                    margin-left: 21px;
+            
+                    &:hover {
+                        background-image: url("../../../assets/images/icon/icon-fav-hover.svg");
+                        background-color: #FFFFFF;
+                        opacity: 1;
+                    }
+            
+                    &:active {
+                        background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+                        background-color: #FFFFFF;
+                        transform: scale(0.98);
+                    }
+                }
+
+                .icon-fav-true {
+                    @include loadGifIcon("../../../assets/images/icon/icon-fav-active.svg");
+                    opacity: 0.9;
+                    margin-left: 21px;
+            
+                    &:hover {
+                        background-image: url("../../../assets/images/icon/icon-fav-active.svg");
+                        background-color: #FFFFFF;
+                        opacity: 1;
+                    }
+            
+                    &:active {
+                        background-image: url("../../../assets/images/icon/icon-fav.svg");
+                        background-color: #FFFFFF;
+                        transform: scale(0.98);
+                    }
+                }
+
+                .icon-download {
+                    @include loadGifIcon("../../../assets/images/icon/icon-download.svg");
+                    opacity: 0.7;
+                    margin-left: 21px;
+            
+                    &:hover {
+                        background-image: url("../../../assets/images/icon/icon-download-hover.svg");
+                        background-color: #FFFFFF;
+                        opacity: 1;
+                    }
+
+                    &:active {
+                        transform: scale(0.98);
+                    }
+                }
+            }
+        }
+    } // -------------------- END MODAL --------------------
+
     // -------------------- START TRENDING GIFOS SECTION --------------------
     .trending-gifos-section {
         position: relative;
@@ -532,7 +639,52 @@ main {
         }
 
         .trending-gifos-container {
-            display: flex;
+            position: relative;
+            margin-top: 32px;
+
+            .trending-gifos-slider {
+                white-space: nowrap;
+                overflow-x: auto;
+                padding: 10px;
+                width: 100%;
+
+                -ms-overflow-style: none;  // hide scrollbar IE and Edge
+                scrollbar-width: none;  // hide scrollbar Firefox
+
+                &::-webkit-scrollbar {
+                    display: none; // hide scrollbar Chrome, Safari, Opera
+                }
+                
+                .gif-container {
+                    display: inline-block;
+                    position: relative;
+                    height: 187px;
+                    width: 243px;
+                    overflow: hidden;
+                    margin-right: 22px;
+    
+                    .gif {
+                        height: 100%;
+                        width: 100%;
+                    }
+    
+                    .gif-user {
+                        display: none;
+                    }
+        
+                    .gif-title {
+                        display: none;
+                    }
+                }
+            }
+
+            .prev-button {
+                display: none;
+            }
+
+            .next-button {
+                display: none;
+            }
         }
     } // -------------------- END TRENDING GIFOS SECTION --------------------
 }
