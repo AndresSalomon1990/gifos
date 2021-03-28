@@ -475,7 +475,7 @@ main {
         flex-direction: column;
         position: fixed;
         z-index: 9999;
-        padding: 160px 28px;
+        padding: 160px 28px 50px 28px;
         left: 0;
         top: 0;
         width: 100%; // Full width
@@ -521,7 +521,7 @@ main {
                     font-weight: 400;
                     font-size: 15px;
                     color: var(--modal-letter-color);
-                    text-align: center;
+                    text-align: left;
                 }
     
                 .modal-title {
@@ -529,7 +529,7 @@ main {
                     font-weight: 700;
                     font-size: 16px;
                     color: var(--modal-letter-color);
-                    text-align: center;
+                    text-align: left;
                 }
             }
 

@@ -97,6 +97,19 @@ constants.elements.FAVORITES_RESULT_CONTAINER.addEventListener("click", (event) 
 }, true);
 
 //-------------------------------------------------------------
+// SHOW MORE
+//-------------------------------------------------------------
+constants.elements.SHOW_MORE_FAVORITES.addEventListener("click", () => {
+    favorites.showMore(constants.elements.SHOW_MORE_FAVORITES);
+
+    favorites.render(
+        favGifs,
+        constants.elements.FAVORITES_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_FAVORITES
+    )
+}, true);
+
+//-------------------------------------------------------------
 // MODAL FUNCTIONALITY - FAV, DOWNLOAD
 //-------------------------------------------------------------
 
@@ -172,7 +185,7 @@ constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
         "gif",
         constants.elements.MODAL,
         "data-gif-url",
-        "data-expand-title",
+        "data-gif-title",
         "data-gif-username",
         "data-gif-id"
     );

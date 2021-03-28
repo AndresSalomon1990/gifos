@@ -802,7 +802,7 @@ main .modal {
           flex-direction: column;
   position: fixed;
   z-index: 9999;
-  padding: 160px 28px;
+  padding: 160px 28px 50px 28px;
   left: 0;
   top: 0;
   width: 100%;
@@ -864,7 +864,7 @@ main .modal .modal-footer .modal-titles-container .modal-username {
   font-weight: 400;
   font-size: 15px;
   color: var(--modal-letter-color);
-  text-align: center;
+  text-align: left;
 }
 
 main .modal .modal-footer .modal-titles-container .modal-title {
@@ -872,7 +872,7 @@ main .modal .modal-footer .modal-titles-container .modal-title {
   font-weight: 700;
   font-size: 16px;
   color: var(--modal-letter-color);
-  text-align: center;
+  text-align: left;
 }
 
 main .modal .modal-footer .modal-icons-container {
@@ -1500,6 +1500,7 @@ footer .brand-container h3 {
     text-align: left;
     opacity: 0;
     height: 36px;
+    width: 80%;
     display: block;
   }
   main .search-results-section .search-result-container .gif-container:hover .overlay {
@@ -1696,6 +1697,7 @@ footer .brand-container h3 {
     text-align: left;
     opacity: 0;
     height: 36px;
+    width: 80%;
     display: block;
   }
   main .favorites-search-section .favorites-result-container .gif-container:hover .overlay {
@@ -1727,7 +1729,7 @@ footer .brand-container h3 {
             flex-direction: column;
     position: fixed;
     z-index: 9999;
-    padding: 160px 0px;
+    padding: 160px 0px 50px 0px;
     left: 0;
     top: 0;
     width: 100%;
@@ -1738,7 +1740,7 @@ footer .brand-container h3 {
   main .modal .close-modal-icon {
     position: absolute;
     top: 10%;
-    right: 20%;
+    right: 10%;
     background-image: var(--icon-close);
     background-repeat: none;
     background-size: contain;
@@ -1968,6 +1970,7 @@ footer .brand-container h3 {
     text-align: left;
     opacity: 0;
     height: 36px;
+    width: 80%;
     display: block;
   }
   main .trending-gifos-section .trending-gifos-container .trending-gifos-slider .gif-container:hover .overlay {
@@ -2001,8 +2004,8 @@ footer .brand-container h3 {
   }
   main .trending-gifos-section .trending-gifos-container .next-button {
     display: block;
-    height: 41px;
-    width: 41px;
+    height: 42px;
+    width: 42px;
     margin-left: 25px;
     background-image: var(--next-button);
     background-repeat: no-repeat;

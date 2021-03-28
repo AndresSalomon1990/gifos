@@ -319,6 +319,7 @@
                         text-align: left;
                         opacity: 0;
                         height: 36px;
+                        width: 80%;
                         display: block;
                     }
     
@@ -488,6 +489,7 @@
                         text-align: left;
                         opacity: 0;
                         height: 36px;
+                        width: 80%;
                         display: block;
                     }
     
@@ -525,7 +527,7 @@
             flex-direction: column;
             position: fixed;
             z-index: 9999;
-            padding: 160px 0px;
+            padding: 160px 0px 50px 0px;
             left: 0;
             top: 0;
             width: 100%; // Full width
@@ -536,7 +538,7 @@
             .close-modal-icon {
                 position: absolute;
                 top: 10%;
-                right: 20%;
+                right: 10%;
                 background-image: var(--icon-close);
                 background-repeat: none;
                 background-size: contain;
@@ -731,6 +733,7 @@
                             text-align: left;
                             opacity: 0;
                             height: 36px;
+                            width: 80%;
                             display: block;
                         }
         
@@ -776,8 +779,8 @@
     
                 .next-button {
                     display: block;
-                    height: 41px;
-                    width: 41px;
+                    height: 42px;
+                    width: 42px;
                     margin-left: 25px;
                     background-image: var(--next-button);
                     background-repeat: no-repeat;

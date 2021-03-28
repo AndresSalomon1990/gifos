@@ -200,7 +200,7 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
         "gif",
         constants.elements.MODAL,
         "data-gif-url",
-        "data-expand-title",
+        "data-gif-title",
         "data-gif-username",
         "data-gif-id"
     );
@@ -355,7 +355,7 @@ constants.elements.TRENDING_GIFOS_SLIDER.addEventListener("click", (event) => {
         "gif",
         constants.elements.MODAL,
         "data-gif-url",
-        "data-expand-title",
+        "data-gif-title",
         "data-gif-username",
         "data-gif-id"
     );

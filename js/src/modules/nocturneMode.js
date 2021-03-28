@@ -31,7 +31,7 @@ const nocturneMode = (function() {
             }
         }
 
-        if(_currentTheme === "dark") {
+        if (_currentTheme === "dark") {
             document.documentElement.setAttribute('data-theme', 'light');
             nocturneModeMobile.innerHTML = "Modo Nocturno";
             nocturneModeDesktop.innerHTML = "MODO NOCTURNO";

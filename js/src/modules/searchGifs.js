@@ -2,7 +2,7 @@ const searchGifs = (function() {
     let _limitToShow = 12;
     let _offset = 0;
     let _lastSearchTerm = "";
-    let _paginationTotalCount;
+    let _totalCount;
     let _currentPage = 1;
 
     // Clear search input
@@ -33,7 +33,7 @@ const searchGifs = (function() {
 
         if (searchResults.data.length > 0) {
             searchResults.data
-            .forEach(gifData => {
+            .forEach (gifData => {
                 let username = gifData.username || "sin-definir";
                 let title = gifData.title || "sin-definir";
                 title = title.split(" ").join("-");
@@ -119,10 +119,10 @@ const searchGifs = (function() {
         try {
             let searchTerm = inputElement.value;
             
-            if(!searchTerm) return; // return nothing if the input is blank
+            if (!searchTerm) return; // return nothing if the input is blank
 
             // check if the search term change, so it restart the variables and clear the search container
-            if(_lastSearchTerm !== searchTerm) {
+            if (_lastSearchTerm !== searchTerm) {
                 _lastSearchTerm = searchTerm;
                 containerElement.innerHTML = "";
                 _limitToShow = 12;
@@ -134,10 +134,10 @@ const searchGifs = (function() {
             const endpoint = url + paramApiKey + apiKey + paramQ + searchTerm + paramLimit + _limitToShow + paramOffset + _offset;
             const response = await fetch(endpoint);
 
-            if(response.ok) {
+            if (response.ok) {
                 const jsonResponse = await response.json();
 
-                _paginationTotalCount = jsonResponse.pagination.total_count;
+                _totalCount = jsonResponse.pagination.total_count;
                 
                 return jsonResponse;
             };
@@ -152,17 +152,17 @@ const searchGifs = (function() {
     function showMore(showMoreButton) {
         _currentPage++;
 
-        const totalPages = Math.ceil(_paginationTotalCount / _limitToShow);
+        const totalPages = Math.ceil(_totalCount / _limitToShow);
 
         if (_currentPage >= totalPages) {
             _offset += _limitToShow;
-            _limitToShow += (_paginationTotalCount - _offset);
+            _limitToShow += (_totalCount - _offset);
             showMoreButton.disabled = true;
         } else {
             _offset += _limitToShow;
             showMoreButton.disabled = false;
         }
-    }
+    };
 
     return {
         get,

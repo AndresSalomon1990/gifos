@@ -1,5 +1,5 @@
 const trendingGifs = (function(){
-    const _limitToShow = 10;
+    const _limitToShow = 12;
 
     async function get(url, paramApiKey, apiKey, paramLimit) {
         try {
@@ -33,6 +33,7 @@ const trendingGifs = (function(){
         for (i; i < _limitToShow; i++) {
             let username = trendingResults.data[i].username || "sin-definir";
             let title = trendingResults.data[i].title || "sin-definir";
+            title = title.split(" ").join("-");
             let gif = "";
             let isFavorite = _isFavorite(trendingResults.data[i].id);
 
@@ -40,7 +41,7 @@ const trendingGifs = (function(){
                 gif = `
                 <div class="gif-container">
                     <img src=${trendingResults.data[i].images.fixed_height.url}
-                        alt=${trendingResults.data[i].title}
+                        alt=${title}
                         class="gif"
                         data-gif-url=${trendingResults.data[i].images.fixed_height.url}
                         data-gif-username=${username}
@@ -69,7 +70,7 @@ const trendingGifs = (function(){
                 gif = `
                 <div class="gif-container">
                     <img src=${trendingResults.data[i].images.fixed_height.url}
-                        alt=${trendingResults.data[i].title}
+                        alt=${title}
                         class="gif"
                         data-gif-url=${trendingResults.data[i].images.fixed_height.url}
                         data-gif-username=${username}

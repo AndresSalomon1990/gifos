@@ -69,7 +69,6 @@ const gif = (function() {
         if (event.target.className === classToSearch) {
             const url = event.target.getAttribute(attrUrl); // get custom attribute with data from the API
             const title = event.target.getAttribute(attrTitle);
-            console.log(title);
             const username = event.target.getAttribute(attrUsername);
             const id = event.target.getAttribute(attrId);
 

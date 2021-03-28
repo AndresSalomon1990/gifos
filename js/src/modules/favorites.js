@@ -1,6 +1,8 @@
 const favorites = (function() {
-    let _paginationTotalCount;
+    let _totalCount;
     let _currentPage = 1;
+    let _offset = 0;
+    let _limitToShow = 12;
 
     async function get(url, paramApiKey, apiKey, paramIds) {
         let favGifs = localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [];
@@ -29,10 +31,11 @@ const favorites = (function() {
 
     async function render(apiData, containerElement, showMoreFavorites) {
         const favGifs = await apiData;
-        containerElement.innerHTML = "";
 
-        if(favGifs) {
-            favGifs.data
+        if (favGifs) {
+            _totalCount = favGifs.data.length;
+
+            favGifs.data.slice(_offset, (_offset + 12))
             .forEach(gifData => {
                 let username = gifData.username || "sin-definir";
                 let title = gifData.title || "sin-definir";
@@ -83,12 +86,24 @@ const favorites = (function() {
     };
 
     function showMore(showMoreButton) {
+        _currentPage++;
 
-    }
+        const totalPages = Math.ceil(_totalCount / _limitToShow);
+
+        if (_currentPage >= totalPages) {
+            _offset += _limitToShow;
+            _limitToShow += (_totalCount - _offset);
+            showMoreButton.disabled = true;
+        } else {
+            _offset += _limitToShow;
+            showMoreButton.disabled = false;
+        }
+    };
 
     return {
         get,
-        render
+        render,
+        showMore
     }
 })();
 

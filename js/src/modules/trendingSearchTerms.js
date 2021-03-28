@@ -7,7 +7,7 @@ const trendingSearchTerms = (function() {
 
             const response = await fetch(endpoint);
 
-            if(response.ok) {
+            if (response.ok) {
                 const jsonResponse = await response.json();
 
                 return jsonResponse;
