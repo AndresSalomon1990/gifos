@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos</title>
 
+    <link rel="shortcut icon" href="./assets/images/logo/logo-mobile.svg" type="image/x-icon">
+
     <link rel="stylesheet" href="../style/style.css">
     <script src="https://kit.fontawesome.com/64517a6b26.js" crossorigin="anonymous"></script>
 </head>
@@ -44,6 +46,23 @@
 
     <!-- START MAIN -->
     <main>
+        <section class="favorites-search-section">
+            <div class="favorites-title-container">
+                <img src="../assets/images/icon/icon-favoritos.svg" alt="Favoritos">
+                <h1>Favoritos</h1>
+            </div>
+            <div class="favorites-result-container" id="favorites-result-container">
+                <!-- Results from the search -->
+            </div>
+            <div class="button-container">
+                <button type="button" class="show-more-favorites" id="show-more-favorites">VER MÁS</button>
+            </div>
+        </section>
+
+        <div class="modal" id="modal">
+            <!-- Space to attach the gif -->
+        </div>
+
         <section class="trending-gifos-section">
             <div class="trending-gifos-title-container">
                 <h2>Trending GIFOS</h2>
@@ -51,7 +70,11 @@
                 <p class="last-gifos-desktop">Mirá los últimos GIFOS de nuestra comunidad.</p>
             </div>
             <div class="trending-gifos-container">
-                <!-- Trending gifos results -->
+                <div class="prev-button" id="prev-button"></div>
+                <div class="trending-gifos-slider" id="trending-gifos-slider">
+                        <!-- Trending gifos results -->
+                </div>
+                <div class="next-button" id="next-button"></div>
             </div>
         </section>
     </main>

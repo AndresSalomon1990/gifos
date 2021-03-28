@@ -36,6 +36,7 @@ const searchGifs = (function() {
             .forEach(gifData => {
                 let username = gifData.username || "sin-definir";
                 let title = gifData.title || "sin-definir";
+                title = title.split(" ").join("-");
                 let gif = "";
                 let isFavorite = _isFavorite(gifData.id);
 
@@ -43,11 +44,11 @@ const searchGifs = (function() {
                     gif = `
                     <div class="gif-container">
                         <img src=${gifData.images.fixed_height.url}
-                            alt=${gifData.title}
+                            alt=${title}
                             class="gif"
                             data-gif-url=${gifData.images.fixed_height.url}
                             data-gif-username=${username}
-                            data-gif-title=${gifData.title}
+                            data-gif-title=${title}
                             data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
@@ -56,27 +57,27 @@ const searchGifs = (function() {
                                 title="Favorito"></i>
                             <i class="icon-download"
                                 data-download-url=${gifData.images.fixed_height.url}
-                                data-download-title=${gifData.title}
+                                data-download-title=${title}
                                 title="Descargar"></i>
                             <i class="icon-expand"
                                 data-expand-url=${gifData.images.fixed_height.url}
                                 data-expand-username=${username}
-                                data-expand-title=${gifData.title}
+                                data-expand-title=${title}
                                 data-expand-id=${gifData.id}
                                 title="Expandir"></i>
                         </div>
                         <p class="gif-user">${username}</p>
-                        <p class="gif-title">${gifData.title}</p>
+                        <p class="gif-title">${title}</p>
                     </div>`;
                 } else {
                     gif = `
                     <div class="gif-container">
                         <img src=${gifData.images.fixed_height.url}
-                            alt=${gifData.title}
+                            alt=${title}
                             class="gif"
                             data-gif-url=${gifData.images.fixed_height.url}
                             data-gif-username=${username}
-                            data-gif-title=${gifData.title}
+                            data-gif-title=${title}
                             data-gif-id=${gifData.id}>
                         <div class="overlay"></div>
                         <div class="icon-container">
@@ -85,17 +86,17 @@ const searchGifs = (function() {
                                 title="Favorito"></i>
                             <i class="icon-download"
                                 data-download-url=${gifData.images.fixed_height.url}
-                                data-download-title=${gifData.title}
+                                data-download-title=${title}
                                 title="Descargar"></i>
                             <i class="icon-expand"
                                 data-expand-url=${gifData.images.fixed_height.url}
                                 data-expand-username=${username}
-                                data-expand-title=${gifData.title}
+                                data-expand-title=${title}
                                 data-expand-id=${gifData.id}
                                 title="Expandir"></i>
                         </div>
                         <p class="gif-user">${username}</p>
-                        <p class="gif-title">${gifData.title}</p>
+                        <p class="gif-title">${title}</p>
                     </div>`;
                 }
 
@@ -148,7 +149,7 @@ const searchGifs = (function() {
         }
     };
 
-    function showMore(showMoreHome) {
+    function showMore(showMoreButton) {
         _currentPage++;
 
         const totalPages = Math.ceil(_paginationTotalCount / _limitToShow);
@@ -156,11 +157,10 @@ const searchGifs = (function() {
         if (_currentPage >= totalPages) {
             _offset += _limitToShow;
             _limitToShow += (_paginationTotalCount - _offset);
-            console.log("Offset show more: " + _offset);
-            showMoreHome.disabled = true;
+            showMoreButton.disabled = true;
         } else {
             _offset += _limitToShow;
-            showMoreHome.disabled = false;
+            showMoreButton.disabled = false;
         }
     }
 

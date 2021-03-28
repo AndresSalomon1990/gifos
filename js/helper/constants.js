@@ -4,14 +4,16 @@ const constants = {
         API_KEY: "h9rU0t10h8b8FDT82SNaRvOa7VISl1Io",
         PARAM_LIMIT: "&limit=",
         PARAM_Q: "&q=",
-        PARAM_OFFSET: "&offset="
+        PARAM_OFFSET: "&offset=",
+        PARAM_IDS: "&ids="
     },
 
     url: {
         TRENDING_SEARCH_TERMS_URL: "https://api.giphy.com/v1/trending/searches?",
         SEARCH_URL: "https://api.giphy.com/v1/gifs/search?",
         SEARCH_AUTOCOMPLETE_URL: "https://api.giphy.com/v1/gifs/search/tags?",
-        TRENDING_GIFS_URL: "https://api.giphy.com/v1/gifs/trending?"
+        TRENDING_GIFS_URL: "https://api.giphy.com/v1/gifs/trending?",
+        GIFS_BY_ID_URL: "https://api.giphy.com/v1/gifs?"
     },
 
     elements: {
@@ -34,7 +36,9 @@ const constants = {
         SHOW_MORE_HOME: document.getElementById("show-more-home"),
         TRENDING_GIFOS_SLIDER: document.getElementById("trending-gifos-slider"),
         PREV_BUTTON: document.getElementById("prev-button"),
-        NEXT_BUTTON: document.getElementById("next-button")
+        NEXT_BUTTON: document.getElementById("next-button"),
+        FAVORITES_RESULT_CONTAINER: document.getElementById("favorites-result-container"),
+        SHOW_MORE_FAVORITES: document.getElementById("show-more-favorites")
     }
 }
 
