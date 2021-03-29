@@ -113,7 +113,7 @@ constants.elements.SHOW_MORE_FAVORITES.addEventListener("click", () => {
 // MODAL FUNCTIONALITY - FAV, DOWNLOAD
 //-------------------------------------------------------------
 
-// add close functionality to the modal X
+// Add close functionality to the modal X
 constants.elements.MODAL.addEventListener("click", (event) => {
     gif.closeModal(event, "close-modal-icon", constants.elements.MODAL);
 }, true);
@@ -127,7 +127,6 @@ constants.elements.MODAL.addEventListener("click", (event) => {
 constants.elements.MODAL.addEventListener("click", (event) => {
     gif.download(event, "icon-download");
 }, true);
-
 
 //-------------------------------------------------------------
 // TRENDING GIFS

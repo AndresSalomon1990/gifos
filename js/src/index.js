@@ -210,7 +210,7 @@ constants.elements.SEARCH_RESULT_CONTAINER.addEventListener("click", (event) => 
 // MODAL FUNCTIONALITY - FAV, DOWNLOAD
 //-------------------------------------------------------------
 
-// add close functionality to the modal X
+// Add close functionality to the modal X
 constants.elements.MODAL.addEventListener("click", (event) => {
     gif.closeModal(event, "close-modal-icon", constants.elements.MODAL);
 }, true);

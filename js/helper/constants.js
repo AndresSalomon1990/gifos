@@ -38,7 +38,9 @@ const constants = {
         PREV_BUTTON: document.getElementById("prev-button"),
         NEXT_BUTTON: document.getElementById("next-button"),
         FAVORITES_RESULT_CONTAINER: document.getElementById("favorites-result-container"),
-        SHOW_MORE_FAVORITES: document.getElementById("show-more-favorites")
+        SHOW_MORE_FAVORITES: document.getElementById("show-more-favorites"),
+        MY_GIFOS_RESULT_CONTAINER: document.getElementById("my-gifos-result-container"),
+        SHOW_MORE_MY_GIFOS: document.getElementById("show-more-my-gifos")
     }
 }
 

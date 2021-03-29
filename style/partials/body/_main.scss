@@ -467,6 +467,130 @@ main {
         }
     } // -------------------- END FAVORITES SECTION --------------------
 
+    // -------------------- START MY GIFOS SECTION --------------------
+    .my-gifos-search-section {
+        padding-top: 107px;
+        
+        .my-gifos-title-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            flex-direction: column;
+
+            img {
+                height: 21px;
+                width: 28px;
+                margin-bottom: 7px;
+            }
+
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 20px;
+                color: var(--main-letter-color);
+                text-align: center;
+                line-height: 30px;
+                margin-bottom: 46px;
+            }
+        }
+
+        .my-gifos-result-container {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(120px, 250px));
+            justify-content: center;
+            gap: 25px;
+            padding: 0 20px;
+
+            .gif-container {
+                position: relative;
+                height: 120px;
+                width: 100%;
+                overflow: hidden;
+
+                .gif {
+                    height: 100%;
+                    width: 100%;
+                }
+
+                .gif-user {
+                    display: none;
+                }
+    
+                .gif-title {
+                    display: none;
+                }
+            }
+
+            .no-results-container {
+                margin-top: 100px;
+                margin-bottom: 150px;
+                grid-column: 1 / span 2;
+                justify-content: stretch;
+                align-content: stretch;
+
+                img {
+                    height: 150px;
+                    width: 100%;
+                }
+
+                p {
+                    font-family: 'Montserrat', sans-serif;
+                    font-weight: 700;
+                    font-size: 22px;
+                    color: $green-color;
+                    text-align: center;
+                    line-height: 25px;
+                    margin-top: 30px;
+                }
+            }
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            width: 100%;
+            margin: 78px 0px;
+
+            .show-more-my-gifos {
+                width: 127px;
+                height: 50px;
+                border: 1px solid var(--border-color);
+                border-radius: 25px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 13px;
+                background-color: var(--show-more-bttn-bg);
+                color: var(--show-more-bttn-color);
+                letter-spacing: 0;
+                text-align: center;
+                display: none;
+    
+                &:hover {
+                    color: var(--show-more-bttn-hover-color);
+                    background-color: var(--show-more-bttn-hover-bg);
+                    cursor: pointer;
+                }
+                
+                &:active {
+                    transform: scale(0.98);
+                }
+    
+                &:focus {
+                    outline: none;
+                }
+
+                &:disabled {
+                    color: red;
+                    border: 1px solid red;
+                }
+            }
+        }
+    } // -------------------- END MY GIFOS SECTION --------------------
+
     // -------------------- START MODAL --------------------
     .modal {
         display: none; // Hidden by default
