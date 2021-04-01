@@ -591,6 +591,158 @@ main {
         }
     } // -------------------- END MY GIFOS SECTION --------------------
 
+    // -------------------- START CREATE GIFO SECTION --------------------
+    .recording-section {
+        padding-top: 107px;
+        display: flex;
+        flex-direction: row;
+        min-height: 80vh;
+
+        .camera-column {
+            display: none;
+        }
+
+        .recording-column {
+            display: flex;
+            flex-direction: column;
+            flex: 100%;
+            max-width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding: 0 22px;
+
+            .recording-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                height: 390px;
+                width: 100%;
+                border: 1px solid var(--border-color);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+                .corner {
+                    position: absolute;
+                    height: 25px;
+                    width: 25px;
+                }
+    
+                .top-left {
+                    border-top: 1px solid $green-color;
+                    border-left: 1px solid $green-color;
+                    top: 20px;
+                    left: 20px;
+                }
+    
+                .top-right {
+                    border-top: 1px solid $green-color;
+                    border-right: 1px solid $green-color;
+                    top: 20px;
+                    right: 20px;
+                }
+    
+                .bottom-left {
+                    border-bottom: 1px solid $green-color;
+                    border-left: 1px solid $green-color;
+                    bottom: 20px;
+                    left: 20px;
+                }
+    
+                .bottom-right {
+                    border-bottom: 1px solid $green-color;
+                    border-right: 1px solid $green-color;
+                    bottom: 20px;
+                    right: 20px;
+                }
+    
+                .recording-video-container {
+                    height: 82%;
+                    width: 70%;
+                    border: 1px solid black;
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+
+                    .create-gif-title {
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 700;
+                        font-size: 25px;
+                        color: var(--main-letter-color);
+                        text-align: center;
+                        line-height: 35px;
+
+                        span {
+                            color: $green-color;
+                        }
+                    }
+
+                    .create-gif-message {
+                        font-family: 'Roboto', sans-serif;
+                        font-weight: 400;
+                        font-size: 16px;
+                        color: var(--text-footer-color);
+                        text-align: center;
+                        line-height: 29px;
+                    }
+                }
+            }
+    
+            .steps-container {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                margin-top: 24px;
+    
+                .step {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 32px;
+                    width: 32px;
+                    border-radius: 50%;
+                    border: 1px solid var(--border-color);
+                    background-color: var(--step-bg);
+                    color: var(--step-color);
+                    font-family: 'Roboto', sans-serif;
+                    font-weight: 600;
+                    font-size: 18px;
+                    text-align: center;
+                    margin-left: 26px;
+                }
+    
+                .active {
+                    background-color: var(--step-active-bg);
+                    color: var(--step-active-color);
+                }
+            }
+        }
+
+        .tape-column {
+            display: none;
+        }
+    }
+
+    .bottom-line-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 100%;
+        padding: 0px 22px;
+        margin-top: 20px;
+
+        .bottom-line {
+            width: 93%;
+            height: 7px;
+            border-radius: 10px;
+            background-color: var(--border-color);
+        }
+    }
+
+    
+    // -------------------- END CREATE GIFO SECTION --------------------
+
     // -------------------- START MODAL --------------------
     .modal {
         display: none; // Hidden by default

@@ -705,6 +705,79 @@
             }
         } // -------------------- END MY GIFOS SECTION --------------------
 
+            // -------------------- START CREATE GIFO SECTION --------------------
+    .recording-section {
+        padding-left: 22px;
+        padding-right: 22px;
+
+        .camera-column {
+            display: flex;
+            flex: 20%;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+
+            .camera-container {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-items: center;
+    
+                .camera-body {
+                    height: 162px;
+                    width: 123px;
+                    background-image: var(--camera-body);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+    
+                .camera-light {
+                    height: 140px;
+                    width: 91px;
+                    background-image: var(--camera-light);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center;
+                }
+            }
+        }
+
+        .recording-column {
+            flex: 60%;
+            padding: 0;
+
+            .recording-container {
+                height: 390px;
+                width: 100%;
+            }
+        }
+
+        .tape-column {
+            display: flex;
+            flex-direction: column;
+            flex: 20%;
+            justify-content: flex-end;
+            align-items: center;
+
+            .tape-img {
+                background-image: var(--tape);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 142px;
+                height: 88px;
+            }
+        }
+    }
+
+    .bottom-line-container {
+        .bottom-line {
+            width: 70%;
+        }
+    }
+    // -------------------- END CREATE GIFO SECTION --------------------
+
         // -------------------- START MODAL --------------------
         .modal {
             display: none; // Hidden by default

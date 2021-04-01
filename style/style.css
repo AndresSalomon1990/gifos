@@ -18,8 +18,12 @@
   --show-more-bttn-color: #572EE5;
   --show-more-bttn-hover-bg: #572EE5;
   --show-more-bttn-hover-color: #FFFFFF;
-  --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
-  --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
+  --step-bg: #FFFFFF;
+  --step-color: #572EE5;
+  --step-active-bg: #572EE5;
+  --step-active-color: #FFFFFF;
+  --mobile-logo: url("../../../assets/images/logo/logo-mobile.svg");
+  --desktop-logo: url("../../../assets/images/logo/logo-desktop.svg");
   --create-gifo-button-normal: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
   --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
   --create-gifo-button-active: url("./../../../assets/images/cta/CTA-crear-gifo-active.svg");
@@ -29,6 +33,9 @@
   --prev-button-hover: url("../../../assets/images/button/button-slider-left-hover.svg");
   --next-button: url("../../../assets/images/button/Button-Slider-right.svg");
   --next-button-hover: url("../../../assets/images/button/Button-Slider-right-hover.svg");
+  --camera-body: url("../../../assets/images/element/camara.svg");
+  --camera-light: url("../../../assets/images/element/element-luz-camara.svg");
+  --tape: url("../../../assets/images/element/pelicula.svg");
   --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
   --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_hover.svg");
   --icon-twitter-normal: url("../../../assets/images/icon/icon-twitter.svg");
@@ -53,8 +60,12 @@
   --show-more-bttn-color: #FFFFFF;
   --show-more-bttn-hover-bg: #FFFFFF;
   --show-more-bttn-hover-color: #37383C;
-  --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
-  --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
+  --step-bg: #37383C;
+  --step-color: #FFFFFF;
+  --step-active-bg: #FFFFFF;
+  --step-active-color: #37383C;
+  --mobile-logo: url("../../../assets/images/logo/logo-mobile-modo-noct.svg");
+  --desktop-logo: url("../../../assets/images/logo/Logo-modo-noc.svg");
   --create-gifo-button-normal: url("../../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
   --create-gifo-button-hover: url("../../../assets/images/cta/CTA-crear-gifo-modo-noc.svg");
   --create-gifo-button-active: url("../../../../assets/images/cta/CTA-crear-gifo-active-modo-noc.svg");
@@ -64,6 +75,9 @@
   --prev-button-hover: url("../../../assets/images/button/button-slider-left-hover.svg");
   --next-button: url("../../../assets/images/button/button-slider-right-md-noct.svg");
   --next-button-hover: url("../../../assets/images/button/Button-Slider-right-hover.svg");
+  --camera-body: url("../../../assets/images/element/camara-modo-noc.svg");
+  --camera-light: url("../../../assets/images/element/element-luz-camara.svg");
+  --tape: url("../../../assets/images/element/pelicula-modo-noc.svg");
   --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
   --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_noc.svg");
   --icon-twitter-normal: url("../../../assets/images/icon/icon-tw-normal.svg");
@@ -144,7 +158,7 @@ header .topnav-container .search-bar-container {
 }
 
 header .topnav-container nav {
-  padding-right: 30px;
+  padding-right: 22px;
 }
 
 header .topnav-container nav input {
@@ -936,6 +950,202 @@ main .my-gifos-search-section .button-container .show-more-my-gifos:focus {
 main .my-gifos-search-section .button-container .show-more-my-gifos:disabled {
   color: red;
   border: 1px solid red;
+}
+
+main .recording-section {
+  padding-top: 107px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  min-height: 80vh;
+}
+
+main .recording-section .camera-column {
+  display: none;
+}
+
+main .recording-section .recording-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  max-width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 22px;
+}
+
+main .recording-section .recording-column .recording-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 390px;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main .recording-section .recording-column .recording-container .corner {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+}
+
+main .recording-section .recording-column .recording-container .top-left {
+  border-top: 1px solid #5ED7C6;
+  border-left: 1px solid #5ED7C6;
+  top: 20px;
+  left: 20px;
+}
+
+main .recording-section .recording-column .recording-container .top-right {
+  border-top: 1px solid #5ED7C6;
+  border-right: 1px solid #5ED7C6;
+  top: 20px;
+  right: 20px;
+}
+
+main .recording-section .recording-column .recording-container .bottom-left {
+  border-bottom: 1px solid #5ED7C6;
+  border-left: 1px solid #5ED7C6;
+  bottom: 20px;
+  left: 20px;
+}
+
+main .recording-section .recording-column .recording-container .bottom-right {
+  border-bottom: 1px solid #5ED7C6;
+  border-right: 1px solid #5ED7C6;
+  bottom: 20px;
+  right: 20px;
+}
+
+main .recording-section .recording-column .recording-container .recording-video-container {
+  height: 82%;
+  width: 70%;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main .recording-section .recording-column .recording-container .recording-video-container .create-gif-title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: var(--main-letter-color);
+  text-align: center;
+  line-height: 35px;
+}
+
+main .recording-section .recording-column .recording-container .recording-video-container .create-gif-title span {
+  color: #5ED7C6;
+}
+
+main .recording-section .recording-column .recording-container .recording-video-container .create-gif-message {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--text-footer-color);
+  text-align: center;
+  line-height: 29px;
+}
+
+main .recording-section .recording-column .steps-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 24px;
+}
+
+main .recording-section .recording-column .steps-container .step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border-color);
+  background-color: var(--step-bg);
+  color: var(--step-color);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  margin-left: 26px;
+}
+
+main .recording-section .recording-column .steps-container .active {
+  background-color: var(--step-active-bg);
+  color: var(--step-active-color);
+}
+
+main .recording-section .tape-column {
+  display: none;
+}
+
+main .bottom-line-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  padding: 0px 22px;
+  margin-top: 20px;
+}
+
+main .bottom-line-container .bottom-line {
+  width: 93%;
+  height: 7px;
+  border-radius: 10px;
+  background-color: var(--border-color);
 }
 
 main .modal {
@@ -2074,6 +2284,94 @@ footer .brand-container h3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 5;
     grid-column: 1 / span 5;
+  }
+  main .recording-section {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  main .recording-section .camera-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 20%;
+        -ms-flex: 20%;
+            flex: 20%;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .recording-section .camera-column .camera-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+  }
+  main .recording-section .camera-column .camera-container .camera-body {
+    height: 162px;
+    width: 123px;
+    background-image: var(--camera-body);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  main .recording-section .camera-column .camera-container .camera-light {
+    height: 140px;
+    width: 91px;
+    background-image: var(--camera-light);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  main .recording-section .recording-column {
+    -webkit-box-flex: 60%;
+        -ms-flex: 60%;
+            flex: 60%;
+    padding: 0;
+  }
+  main .recording-section .recording-column .recording-container {
+    height: 390px;
+    width: 100%;
+  }
+  main .recording-section .tape-column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-flex: 20%;
+        -ms-flex: 20%;
+            flex: 20%;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  main .recording-section .tape-column .tape-img {
+    background-image: var(--tape);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 142px;
+    height: 88px;
+  }
+  main .bottom-line-container .bottom-line {
+    width: 70%;
   }
   main .modal {
     display: none;

@@ -14,9 +14,13 @@
     --show-more-bttn-color: #572EE5;
     --show-more-bttn-hover-bg: #572EE5;
     --show-more-bttn-hover-color: #FFFFFF;
+    --step-bg: #FFFFFF;
+    --step-color: #572EE5;
+    --step-active-bg: #572EE5;
+    --step-active-color: #FFFFFF;
 
-    --mobile-logo: url(../../../assets/images/logo/logo-mobile.svg);
-    --desktop-logo: url(../../../assets/images/logo/logo-desktop.svg);
+    --mobile-logo: url("../../../assets/images/logo/logo-mobile.svg");
+    --desktop-logo: url("../../../assets/images/logo/logo-desktop.svg");
 
     --create-gifo-button-normal: url("../../../assets/images/cta/CTA-button-crear-gifo.svg");
     --create-gifo-button-hover: url("./../../../assets/images/cta/CTA-crear-gifo-hover.svg");
@@ -29,6 +33,10 @@
     --prev-button-hover: url("../../../assets/images/button/button-slider-left-hover.svg");
     --next-button: url("../../../assets/images/button/Button-Slider-right.svg");
     --next-button-hover: url("../../../assets/images/button/Button-Slider-right-hover.svg");
+
+    --camera-body: url("../../../assets/images/element/camara.svg");
+    --camera-light: url("../../../assets/images/element/element-luz-camara.svg");
+    --tape: url("../../../assets/images/element/pelicula.svg");
 
     --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
     --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_hover.svg");
@@ -54,9 +62,13 @@
     --show-more-bttn-color: #FFFFFF;
     --show-more-bttn-hover-bg: #FFFFFF;
     --show-more-bttn-hover-color: #37383C;
+    --step-bg: #37383C;
+    --step-color: #FFFFFF;
+    --step-active-bg: #FFFFFF;
+    --step-active-color: #37383C;
 
-    --mobile-logo: url(../../../assets/images/logo/logo-mobile-modo-noct.svg);
-    --desktop-logo: url(../../../assets/images/logo/Logo-modo-noc.svg);
+    --mobile-logo: url("../../../assets/images/logo/logo-mobile-modo-noct.svg");
+    --desktop-logo: url("../../../assets/images/logo/Logo-modo-noc.svg");
 
     --create-gifo-button-normal: url("../../../../assets/images/cta/CTA-crear-gifo-hover-modo-noc.svg");
     --create-gifo-button-hover: url("../../../assets/images/cta/CTA-crear-gifo-modo-noc.svg");
@@ -69,6 +81,10 @@
     --prev-button-hover: url("../../../assets/images/button/button-slider-left-hover.svg");
     --next-button: url("../../../assets/images/button/button-slider-right-md-noct.svg");
     --next-button-hover: url("../../../assets/images/button/Button-Slider-right-hover.svg");
+
+    --camera-body: url("../../../assets/images/element/camara-modo-noc.svg");
+    --camera-light: url("../../../assets/images/element/element-luz-camara.svg");
+    --tape: url("../../../assets/images/element/pelicula-modo-noc.svg");
 
     --icon-facebook-normal: url("../../../assets/images/icon/icon_facebook.svg");
     --icon-facebook-hover: url("../../../assets/images/icon/icon_facebook_noc.svg");
