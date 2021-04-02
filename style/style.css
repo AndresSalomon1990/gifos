@@ -961,7 +961,6 @@ main .recording-section {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  min-height: 80vh;
 }
 
 main .recording-section .camera-column {
@@ -1052,6 +1051,9 @@ main .recording-section .recording-column .recording-container .recording-video-
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -1061,7 +1063,7 @@ main .recording-section .recording-column .recording-container .recording-video-
 main .recording-section .recording-column .recording-container .recording-video-container .create-gif-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 22px;
   color: var(--main-letter-color);
   text-align: center;
   line-height: 35px;
@@ -1074,25 +1076,36 @@ main .recording-section .recording-column .recording-container .recording-video-
 main .recording-section .recording-column .recording-container .recording-video-container .create-gif-message {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--text-footer-color);
   text-align: center;
   line-height: 29px;
 }
 
-main .recording-section .recording-column .steps-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+main .recording-section .recording-column .recording-container .recording-video-container .canvas-container {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+main .recording-section .recording-column .recording-state-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   margin-top: 24px;
 }
 
-main .recording-section .recording-column .steps-container .step {
+main .recording-section .recording-column .recording-state-container .steps-container {
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1102,6 +1115,18 @@ main .recording-section .recording-column .steps-container .step {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+main .recording-section .recording-column .recording-state-container .steps-container .step {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 32px;
   width: 32px;
   border-radius: 50%;
@@ -1112,12 +1137,70 @@ main .recording-section .recording-column .steps-container .step {
   font-weight: 600;
   font-size: 18px;
   text-align: center;
-  margin-left: 26px;
 }
 
-main .recording-section .recording-column .steps-container .active {
+main .recording-section .recording-column .recording-state-container .steps-container #step-1 {
+  margin-right: 15px;
+}
+
+main .recording-section .recording-column .recording-state-container .steps-container #step-2 {
+  margin-right: 15px;
+}
+
+main .recording-section .recording-column .recording-state-container .steps-container .active {
   background-color: var(--step-active-bg);
   color: var(--step-active-color);
+}
+
+main .recording-section .recording-column .recording-state-container .timer {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  margin-left: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--main-letter-color);
+  letter-spacing: 0;
+  text-align: center;
+  line-height: 22px;
+  display: none;
+}
+
+main .recording-section .recording-column .recording-state-container .repeat-caption {
+  -ms-grid-column: 3;
+      grid-column-start: 3;
+  margin-left: auto;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--main-letter-color);
+  letter-spacing: 0;
+  text-align: center;
+  cursor: pointer;
+  display: none;
+}
+
+main .recording-section .recording-column .recording-state-container .repeat-caption::after {
+  background: none repeat scroll 0 0 transparent;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #5ED7C6;
+  -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+main .recording-section .recording-column .recording-state-container .repeat-caption:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+main .recording-section .recording-column .recording-state-container .repeat-caption:active {
+  color: #9CAFC3;
 }
 
 main .recording-section .tape-column {
@@ -1138,14 +1221,75 @@ main .bottom-line-container {
       -ms-flex: 100%;
           flex: 100%;
   padding: 0px 22px;
-  margin-top: 20px;
+  margin: 20px 0px;
 }
 
 main .bottom-line-container .bottom-line {
-  width: 93%;
+  width: 100%;
   height: 7px;
   border-radius: 10px;
   background-color: var(--border-color);
+}
+
+main .record-button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  padding-bottom: 10px;
+}
+
+main .record-button-container .button {
+  width: 127px;
+  height: 50px;
+  border: 1px solid var(--border-color);
+  border-radius: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  background-color: var(--show-more-bttn-bg);
+  color: var(--show-more-bttn-color);
+  letter-spacing: 0;
+  text-align: center;
+}
+
+main .record-button-container .button:hover {
+  color: var(--show-more-bttn-hover-color);
+  background-color: var(--show-more-bttn-hover-bg);
+  cursor: pointer;
+}
+
+main .record-button-container .button:active {
+  -webkit-transform: scale(0.98);
+          transform: scale(0.98);
+}
+
+main .record-button-container .button:focus {
+  outline: none;
+}
+
+main .record-button-container .start-button {
+  display: block;
+}
+
+main .record-button-container .record-button {
+  display: none;
+}
+
+main .record-button-container .stop-button {
+  display: none;
+}
+
+main .record-button-container .upload-button {
+  display: none;
 }
 
 main .modal {
@@ -1575,6 +1719,31 @@ footer .brand-container h3 {
     -ms-grid-column: 1;
     -ms-grid-column-span: 3;
     grid-column: 1 / span 3;
+  }
+  main .recording-section .recording-column {
+    -webkit-box-flex: 60%;
+        -ms-flex: 60%;
+            flex: 60%;
+    padding: 0px 22px;
+  }
+  main .recording-section .recording-column .recording-container {
+    height: 390px;
+    width: 100%;
+  }
+  main .recording-section .recording-column .recording-container .recording-video-container .create-gif-title {
+    font-size: 25px;
+  }
+  main .recording-section .recording-column .recording-container .recording-video-container .create-gif-message {
+    font-size: 16px;
+  }
+  main .recording-section .recording-column .recording-state-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  main .recording-section .recording-column .recording-state-container .steps-container {
+    -ms-grid-column: 2;
+        grid-column-start: 2;
   }
 }
 
@@ -2343,6 +2512,17 @@ footer .brand-container h3 {
   main .recording-section .recording-column .recording-container {
     height: 390px;
     width: 100%;
+  }
+  main .recording-section .recording-column .recording-container .recording-video-container .create-gif-title {
+    font-size: 25px;
+  }
+  main .recording-section .recording-column .recording-container .recording-video-container .create-gif-message {
+    font-size: 16px;
+  }
+  main .recording-section .recording-column .recording-state-container {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   main .recording-section .tape-column {
     display: -webkit-box;

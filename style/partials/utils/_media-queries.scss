@@ -47,6 +47,37 @@
                 }
             }
         } // -------------------- END FAVORITES SECTION --------------------
+        
+        // -------------------- START CREATE GIFO SECTION --------------------
+        .recording-section {
+            .recording-column {
+                flex: 60%;
+                padding: 0px 22px;
+    
+                .recording-container {
+                    height: 390px;
+                    width: 100%;
+    
+                    .recording-video-container {
+                        .create-gif-title {
+                            font-size: 25px;
+                        }
+        
+                        .create-gif-message {
+                            font-size: 16px;
+                        }
+                    }
+                }
+    
+                .recording-state-container {
+                    justify-content: center;
+    
+                    .steps-container {
+                        grid-column-start: 2;
+                    }
+                }
+            }
+        } // -------------------- END CREATE GIFO SECTION --------------------
     }
 }
 
@@ -750,6 +781,20 @@
             .recording-container {
                 height: 390px;
                 width: 100%;
+
+                .recording-video-container {
+                    .create-gif-title {
+                        font-size: 25px;
+                    }
+    
+                    .create-gif-message {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            .recording-state-container {
+                justify-content: center;
             }
         }
 

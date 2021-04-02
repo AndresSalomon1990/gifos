@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="../style/style.css">
     <script src="https://kit.fontawesome.com/64517a6b26.js" crossorigin="anonymous"></script>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 </head>
 <body>
     <!-- START HEADER -->
@@ -56,8 +57,8 @@
         <div class="recording-section">
             <div class="camera-column">
                 <div class="camera-container">
-                    <div class="camera-body"></div>
-                    <div class="camera-light"></div>
+                    <div class="camera-body" aria-label="Camera body"></div>
+                    <div class="camera-light" aria-label="Camera light"></div>
                 </div>
             </div>
             <div class="recording-column">
@@ -69,24 +70,36 @@
     
                     <div class="recording-video-container">
                         <!-- Recording gif -->
-                        <p class="create-gif-title">Aquí podrás <br> crear tus propios <span>GIFOS</span></p>
-                        <p class="create-gif-message">¡Crea tu GIFO en sólo 3 pasos!<br>(sólo necesitas una cámara para grabar un video)</p>
+                        <p class="create-gif-title" id="create-gif-title">Aquí podrás <br> crear tus propios <span>GIFOS</span></p>
+                        <p class="create-gif-message" id="create-gif-message">¡Crea tu GIFO en sólo 3 pasos!<br>(sólo necesitas una cámara para grabar un video)</p>
+                        <canvas class="canvas-container" id="canvas-container">
+                            <video class="record-video" id="record-video"></video>
+                        </canvas>
                     </div>
                 </div>
-                <div class="steps-container">
-                    <div class="step active" id="step-1">1</div>
-                    <div class="step" id="step-2">2</div>
-                    <div class="step" id="step-3">3</div>
-    
-                    <div class="timer"></div>
+                <div class="recording-state-container">
+                    <div class="steps-container">
+                        <div class="step" id="step-1">1</div>
+                        <div class="step" id="step-2">2</div>
+                        <div class="step" id="step-3">3</div>
+                    </div>
+                    
+                    <p class="timer" id="timer">00:00:00</p>
+                    <p class="repeat-caption" id="repeat-caption">REPETIR CAPTURA</p>
                 </div>
             </div>
             <div class="tape-column">
-                <div class="tape-img"></div>
+                <div class="tape-img" aria-label="Tape image"></div>
             </div>
         </div>
         <div class="bottom-line-container">
             <div class="bottom-line"></div>
+        </div>
+        <div class="record-button-container">
+            <button type="button" class="button start-button" id="start-button">COMENZAR</button>
+            <button type="button" class="button record-button" id="record-button">GRABAR</button>
+            <button type="button" class="button stop-button" id="stop-button">FINALIZAR</button>
+            <button type="button" class="button upload-button" id="upload-button">SUBIR GIFO</button>
         </div>
     </main>
     <!-- END MAIN -->

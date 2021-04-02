@@ -40,7 +40,20 @@ const constants = {
         FAVORITES_RESULT_CONTAINER: document.getElementById("favorites-result-container"),
         SHOW_MORE_FAVORITES: document.getElementById("show-more-favorites"),
         MY_GIFOS_RESULT_CONTAINER: document.getElementById("my-gifos-result-container"),
-        SHOW_MORE_MY_GIFOS: document.getElementById("show-more-my-gifos")
+        SHOW_MORE_MY_GIFOS: document.getElementById("show-more-my-gifos"),
+        CREATE_GIF_TITLE: document.getElementById("create-gif-title"),
+        CREATE_GIF_MESSAGE: document.getElementById("create-gif-message"),
+        RECORD_VIDEO: document.getElementById("record-video"),
+        CANVAS_CONTAINER: document.getElementById("canvas-container"),
+        STEP_1: document.getElementById("step-1"),
+        STEP_2: document.getElementById("step-2"),
+        STEP_3: document.getElementById("step-3"),
+        TIMER: document.getElementById("timer"),
+        REPEAT_CAPTION: document.getElementById("repeat-caption"),
+        START_BUTTON: document.getElementById("start-button"),
+        RECORD_BUTTON: document.getElementById("record-button"),
+        STOP_BUTTON: document.getElementById("stop-button"),
+        UPLOAD_BUTTON: document.getElementById("upload-button")
     }
 }
 
