@@ -1,17 +1,17 @@
-const favorites = (function() {
+const myGifos = (function() {
     let _totalCount;
     let _currentPage = 1;
     let _offset = 0;
     let _limitToShow = 12;
 
     async function get(url, paramApiKey, apiKey, paramIds) {
-        let favGifs = localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [];
+        let myGifos = localStorage.getItem("myGifos") ? JSON.parse(localStorage.getItem("myGifos")) : [];
         
-        if (favGifs.length > 0) {
+        if (myGifos.length > 0) {
             try {
-                favGifs = favGifs.join(",");
+                myGifos = myGifos.join(",");
 
-                const endpoint = url + paramApiKey + apiKey + paramIds + favGifs;
+                const endpoint = url + paramApiKey + apiKey + paramIds + myGifos;
                 const response = await fetch(endpoint);
 
                 if(response.ok) {
@@ -24,20 +24,20 @@ const favorites = (function() {
                 throw new Error("Request failed");
             } catch (error) {
                 console.log(error);
-                alert(error.message);
+                // alert(error.message);
             }
         } else {
             return;
         }
     };
 
-    async function render(apiData, containerElement, showMoreFavorites) {
-        const favGifs = await apiData;
+    async function render(apiData, containerElement, showMoreMyGifos) {
+        const gifos = await apiData;
 
-        if (favGifs) {
-            _totalCount = favGifs.data.length;
+        if (gifos) {
+            _totalCount = gifos.data.length;
 
-            favGifs.data.slice(_offset, (_offset + 12))
+            gifos.data.slice(_offset, (_offset + 12))
             .forEach(gifData => {
                 let username = gifData.username || "sin-definir";
                 let title = gifData.title || "sin-definir";
@@ -55,9 +55,9 @@ const favorites = (function() {
                         data-gif-id=${gifData.id}>
                     <div class="overlay"></div>
                     <div class="icon-container">
-                        <i class="icon-fav-true"
-                            data-fav-id=${gifData.id}
-                            title="Favorito"></i>
+                        <i class="icon-delete"
+                            data-delete-id=${gifData.id}
+                            title="Borrar"></i>
                         <i class="icon-download"
                             data-download-url=${gifData.images.fixed_height.url}
                             data-download-title=${title}
@@ -74,13 +74,13 @@ const favorites = (function() {
                 </div>`;
 
                 containerElement.insertAdjacentHTML("beforeend", gif);
-                showMoreFavorites.style.display = "block";
+                showMoreMyGifos.style.display = "block";
             });
         } else {
             const noResults = `
                 <div class="no-results-container">
-                    <img src="../../../assets/images/icon/icon-fav-sin-contenido.svg" alt="Sin favoritos">
-                    <p>¡Guarda tu primer GIFO en Favoritos para que se muestre aquí!</p>
+                    <img src="../../../assets/images/icon/icon-mis-gifos-sin-contenido.svg" alt="Sin gifos">
+                    <p>¡Anímate a crear tu primer GIFO!</p>
                 </div>`;
 
                 containerElement.innerHTML = noResults;
@@ -109,4 +109,4 @@ const favorites = (function() {
     }
 })();
 
-export default favorites;
+export default myGifos;

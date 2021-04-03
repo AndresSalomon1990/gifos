@@ -1,12 +1,13 @@
 const gif = (function() {
     let _favGifs;
+    let _myGifos;
 
     // check if the gif is a favorite
     function _isFavorite(id) {
         _favGifs = localStorage.getItem("favorites") ? JSON.parse(localStorage.getItem("favorites")) : [];
 
         return _favGifs.includes(id) ? true : false;
-    }
+    };
 
     // Event capturing for the favorite icon with the functionality
     function favorite(event, classToAdd, classToRemove) {
@@ -30,7 +31,7 @@ const gif = (function() {
 
             event.target.className = classToAdd;
         }
-    }
+    };
 
     // transform the url into blob so it can be downloaded
     async function _downloadBlob(url, title) {
@@ -46,7 +47,7 @@ const gif = (function() {
         a.dataset.downloadurl = ["application/octet-stream", a.download, a.href].join(":");
         
         a.click(); // autoclick on element to start download
-    }
+    };
 
     // Event capturing for the download icon with the functionality
     function download(event, classToSearch) {
@@ -55,14 +56,14 @@ const gif = (function() {
             const title = event.target.getAttribute("data-download-title");
             _downloadBlob(url, title);
         }
-    }
+    };
 
     function closeModal(event, classToSearch, modal) {
         if (event.target.className === classToSearch) {
             modal.style.display="none";
             modal.innerHTML = "";
         }
-    }
+    };
 
     // Event capturing for the expand icon with the functionality
     function expand(event, classToSearch, modal, attrUrl, attrTitle, attrUsername, attrId) {
@@ -123,13 +124,67 @@ const gif = (function() {
             
             modal.style.display="flex";
         }
-    }
+    };
+
+    // Event capturing for the expand icon of myGifos with the functionality
+    function expandMyGifo(event, classToSearch, modal, attrUrl, attrTitle, attrUsername, attrId) {
+        if (event.target.className === classToSearch) {
+            const url = event.target.getAttribute(attrUrl); // get custom attribute with data from the API
+            const title = event.target.getAttribute(attrTitle);
+            const username = event.target.getAttribute(attrUsername);
+            const id = event.target.getAttribute(attrId);
+
+            let modalHtml = "";
+
+            modalHtml = `
+                <i class="close-modal-icon"></i>
+                <img src=${url}
+                    alt=${title}
+                    class="modal-img">
+                <div class="modal-footer">
+                    <div class="modal-titles-container">
+                        <p class="modal-username">${username}</p>
+                        <p class="modal-title">${title}</p>
+                    </div>
+                    <div class="modal-icons-container">
+                        <i class="icon-delete"
+                            data-delete-id=${id}
+                            title="Delete"></i>
+                        <i class="icon-download"
+                            data-download-url=${url}
+                            data-download-title=${title}
+                            title="Descargar"></i>
+                    </div>
+                </div>`;
+            
+            modal.insertAdjacentHTML("beforeend", modalHtml);
+            
+            modal.style.display="flex";
+        }
+    };
+
+    function deleteMyGifo(event, classToSearch) {
+        if (event.target.className === classToSearch) {
+            const id = event.target.getAttribute("data-delete-id"); // get custom attribute
+            _myGifos = localStorage.getItem("myGifos") ? JSON.parse(localStorage.getItem("myGifos")) : [];
+
+            const index = _myGifos.indexOf(id);
+
+            _myGifos.splice(index, 1);
+
+            localStorage.setItem("myGifos", JSON.stringify(_myGifos));
+
+            location.reload();
+        }
+    };
 
     return {
         favorite,
         download,
         expand,
-        closeModal
+        closeModal,
+        expandMyGifo,
+        deleteMyGifo
     }
 })();
 

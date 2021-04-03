@@ -4,7 +4,7 @@
 import constants from "../../helper/constants.js";
 import topNavStyle from "../modules/topNavStyle.js";
 import nocturneMode from "../modules/nocturneMode.js";
-// import myGifos from "../modules/myGifos.js";
+import myGifos from "../modules/myGifos.js";
 import trendingGifs from "../modules/trendingGifs.js";
 import gif from "../modules/gif.js";
 
@@ -42,6 +42,74 @@ constants.elements.NOCTURNE_MODE_DESKTOP.addEventListener("click", () => {
 }, false);
 
 //-------------------------------------------------------------
+// MY GIFOS
+//-------------------------------------------------------------
+const myGifosData = myGifos.get(
+    constants.url.GIFS_BY_ID_URL,
+    constants.queryStrings.PARAM_API_KEY,
+    constants.queryStrings.API_KEY,
+    constants.queryStrings.PARAM_IDS
+);
+
+myGifos.render(
+    myGifosData,
+    constants.elements.MY_GIFOS_RESULT_CONTAINER,
+    constants.elements.SHOW_MORE_MY_GIFOS
+)
+
+//-------------------------------------------------------------
+// MY GIFOS FUNCTIONALITY - FAV, DOWNLOAD, EXPAND
+//-------------------------------------------------------------
+
+// Add favorite functionality to the trash icon
+constants.elements.MY_GIFOS_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.deleteMyGifo(event, "icon-delete");
+}, true);
+
+// Add download functionality to the download icon
+constants.elements.MY_GIFOS_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.download(event, "icon-download");
+}, true);
+
+// Add expand functionality to the expand icon - or to the gif itself for mobile
+constants.elements.MY_GIFOS_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.expandMyGifo(
+        event,
+        "icon-expand",
+        constants.elements.MODAL,
+        "data-expand-url",
+        "data-expand-title",
+        "data-expand-username",
+        "data-expand-id"
+    );
+}, true);
+
+constants.elements.MY_GIFOS_RESULT_CONTAINER.addEventListener("click", (event) => {
+    gif.expandMyGifo(
+        event,
+        "gif",
+        constants.elements.MODAL,
+        "data-gif-url",
+        "data-gif-title",
+        "data-gif-username",
+        "data-gif-id"
+    );
+}, true);
+
+//-------------------------------------------------------------
+// SHOW MORE
+//-------------------------------------------------------------
+constants.elements.SHOW_MORE_MY_GIFOS.addEventListener("click", () => {
+    myGifos.showMore(constants.elements.SHOW_MORE_MY_GIFOS);
+
+    myGifos.render(
+        myGifosData,
+        constants.elements.MY_GIFOS_RESULT_CONTAINER,
+        constants.elements.SHOW_MORE_MY_GIFOS
+    )
+}, true);
+
+//-------------------------------------------------------------
 // MODAL FUNCTIONALITY - FAV, DOWNLOAD
 //-------------------------------------------------------------
 
@@ -50,9 +118,9 @@ constants.elements.MODAL.addEventListener("click", (event) => {
     gif.closeModal(event, "close-modal-icon", constants.elements.MODAL);
 }, true);
 
-// Add favorite functionality to the fav icon
+// Add delete functionality to the trash icon
 constants.elements.MODAL.addEventListener("click", (event) => {
-    gif.favorite(event, "icon-fav-false", "icon-fav-true");
+    gif.deleteMyGifo(event, "icon-delete");
 }, true);
 
 // Add download functionality to the download icon
