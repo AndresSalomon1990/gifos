@@ -264,11 +264,7 @@ const recordRTC = (function() {
 
     function _copyToClipboard(text) {
         const dummy = document.createElement("textarea");
-        // to avoid breaking orgain page when copying more words
-        // cant copy when adding below this code
-        // dummy.style.display = 'none'
         document.body.appendChild(dummy);
-        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea".
         dummy.value = text;
         dummy.select();
         dummy.setSelectionRange(0, 99999); // for mobile devices
