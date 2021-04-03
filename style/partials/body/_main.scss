@@ -657,9 +657,9 @@ main {
                 }
     
                 .recording-video-container {
+                    position: relative;
                     height: 82%;
                     width: 70%;
-                    border: 1px solid black;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -690,6 +690,68 @@ main {
                     .canvas-container {
                         width: 100%;
                         height: 100%;
+                        display: none;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+
+                    .upload-overlay {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        height: 100%;
+                        width: 100%;
+                        opacity: 0.6;
+                        transition: .2s ease;
+                        background-color: $violet-color;
+                        display: none;
+                    }
+
+                    .upload-loader {
+                        position: absolute;
+                        top: 40%;
+                        background-image: url("../../../assets/images/cta/loader.svg");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        height: 24px;
+                        width: 24px;
+                        animation: spin 2s linear infinite;
+                        display: none;
+                    }
+
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+
+                    .upload-ok {
+                        position: absolute;
+                        @extend %centerX;
+                        top: 40%;
+                        background-image: url("../../../assets/images/cta/ok.svg");
+                        background-position: center;
+                        background-repeat: no-repeat;
+                        background-size: contain;
+                        height: 24px;
+                        width: 24px;
+                        display: none;
+                    }
+
+                    .upload-message {
+                        position: absolute;
+                        @extend %centerX;
+                        top: 50%;
+                        font-family: 'Montserrat', sans-serif;
+                        font-weight: 700;
+                        font-size: 15px;
+                        color: $white-color;
+                        text-align: center;
                         display: none;
                     }
                 }

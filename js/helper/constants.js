@@ -13,7 +13,8 @@ const constants = {
         SEARCH_URL: "https://api.giphy.com/v1/gifs/search?",
         SEARCH_AUTOCOMPLETE_URL: "https://api.giphy.com/v1/gifs/search/tags?",
         TRENDING_GIFS_URL: "https://api.giphy.com/v1/gifs/trending?",
-        GIFS_BY_ID_URL: "https://api.giphy.com/v1/gifs?"
+        GIFS_BY_ID_URL: "https://api.giphy.com/v1/gifs?",
+        UPLOAD_URL: "https://upload.giphy.com/v1/gifs?"
     },
 
     elements: {
@@ -43,6 +44,7 @@ const constants = {
         SHOW_MORE_MY_GIFOS: document.getElementById("show-more-my-gifos"),
         CREATE_GIF_TITLE: document.getElementById("create-gif-title"),
         CREATE_GIF_MESSAGE: document.getElementById("create-gif-message"),
+        RECORDING_VIDEO_CONTAINER: document.getElementById("recording-video-container"),
         RECORD_VIDEO: document.getElementById("record-video"),
         CANVAS_CONTAINER: document.getElementById("canvas-container"),
         STEP_1: document.getElementById("step-1"),
@@ -53,7 +55,11 @@ const constants = {
         START_BUTTON: document.getElementById("start-button"),
         RECORD_BUTTON: document.getElementById("record-button"),
         STOP_BUTTON: document.getElementById("stop-button"),
-        UPLOAD_BUTTON: document.getElementById("upload-button")
+        UPLOAD_BUTTON: document.getElementById("upload-button"),
+        UPLOAD_OVERLAY: document.getElementById("upload-overlay"),
+        UPLOAD_LOADER: document.getElementById("upload-loader"),
+        UPLOAD_OK: document.getElementById("upload-ok"),
+        UPLOAD_MESSAGE: document.getElementById("upload-message")
     }
 }
 

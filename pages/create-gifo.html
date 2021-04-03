@@ -68,13 +68,17 @@
                     <div class="corner bottom-left"></div>
                     <div class="corner bottom-right"></div>
     
-                    <div class="recording-video-container">
+                    <div class="recording-video-container" id="recording-video-container">
                         <!-- Recording gif -->
                         <p class="create-gif-title" id="create-gif-title">Aquí podrás <br> crear tus propios <span>GIFOS</span></p>
                         <p class="create-gif-message" id="create-gif-message">¡Crea tu GIFO en sólo 3 pasos!<br>(sólo necesitas una cámara para grabar un video)</p>
                         <canvas class="canvas-container" id="canvas-container">
                             <video class="record-video" id="record-video"></video>
                         </canvas>
+                        <div class="upload-overlay" id="upload-overlay"></div>
+                        <div class="upload-loader" id="upload-loader"></div>
+                        <div class="upload-ok" id="upload-ok"></div>
+                        <p class="upload-message" id="upload-message">Estamos subiendo tu GIFO</p>
                     </div>
                 </div>
                 <div class="recording-state-container">
