@@ -17,6 +17,8 @@ const favorites = (function() {
                 if(response.ok) {
                     const jsonResponse = await response.json();
 
+                    console.log(jsonResponse);
+
                     return jsonResponse;
                 };
                 throw new Error("Request failed");

@@ -13,6 +13,7 @@ const constants = {
         SEARCH_URL: "https://api.giphy.com/v1/gifs/search?",
         SEARCH_AUTOCOMPLETE_URL: "https://api.giphy.com/v1/gifs/search/tags?",
         TRENDING_GIFS_URL: "https://api.giphy.com/v1/gifs/trending?",
+        GIF_BY_ID_URL: "https://api.giphy.com/v1/gifs/",
         GIFS_BY_ID_URL: "https://api.giphy.com/v1/gifs?",
         UPLOAD_URL: "https://upload.giphy.com/v1/gifs?"
     },
@@ -56,6 +57,7 @@ const constants = {
         RECORD_BUTTON: document.getElementById("record-button"),
         STOP_BUTTON: document.getElementById("stop-button"),
         UPLOAD_BUTTON: document.getElementById("upload-button"),
+        RESET_BUTTON: document.getElementById("reset-button"),
         UPLOAD_OVERLAY: document.getElementById("upload-overlay"),
         UPLOAD_LOADER: document.getElementById("upload-loader"),
         UPLOAD_OK: document.getElementById("upload-ok"),

@@ -31,6 +31,31 @@ const recordRTC = (function() {
 
         return _myGifos.includes(id) ? true : false;
     }
+
+    function _toHHMMSS(time) {
+        let hours = Math.floor(time / 3600);
+        let minutes = Math.floor((time - hours * 3600) / 60);
+        let seconds = time - hours * 3600 - minutes * 60;
+
+        hours = `${hours}`.padStart(2, '0');
+        minutes = `${minutes}`.padStart(2, '0');
+        seconds = `${seconds}`.padStart(2, '0');
+
+        return hours + ':' + minutes + ':' + seconds;
+    }
+
+    function _showTime(timerContainer) {
+        _time += 1;
+        timerContainer.innerHTML = _toHHMMSS(_time);
+    }
+
+    function _addToMyGifos(id) {
+        if (_isInMyGifos(id)) return;
+
+        _myGifos.push(id);
+
+        localStorage.setItem("myGifos", JSON.stringify(_myGifos));
+    };
     
     // ask for permissions
     async function start(event, createGifTitle, createGifMessage, startButton, recordButton, video, canvas, step1, step2) {
@@ -74,30 +99,13 @@ const recordRTC = (function() {
 
             _canvasStream = canvas.captureStream(120);
 
-            _recorder = new RecordRTCPromisesHandler(_canvasStream, _config);
+            _recorder = RecordRTC(_canvasStream, _config);
 
         } catch (error) {
             console.log(error.message);
             alert(error.message);
         }
     };
-
-    function _toHHMMSS(time) {
-        let hours = Math.floor(time / 3600);
-        let minutes = Math.floor((time - hours * 3600) / 60);
-        let seconds = time - hours * 3600 - minutes * 60;
-
-        hours = `${hours}`.padStart(2, '0');
-        minutes = `${minutes}`.padStart(2, '0');
-        seconds = `${seconds}`.padStart(2, '0');
-
-        return hours + ':' + minutes + ':' + seconds;
-    }
-
-    function _showTime(timerContainer) {
-        _time += 1;
-        timerContainer.innerHTML = _toHHMMSS(_time);
-    }
 
     // start recording
     function record(recordButton, stopButton, timerContainer) {
@@ -106,6 +114,7 @@ const recordRTC = (function() {
         timerContainer.style.display = "block";
 
         _recorder.startRecording();
+
         _interval = setInterval(() => {
             _showTime(timerContainer)
         }, 1000);
@@ -144,7 +153,7 @@ const recordRTC = (function() {
     };
 
     // upload gif
-    async function upload(uploadOverlay, uploadLoader, uploadOk, uploadMessage, step2, step3, uploadButton, repeatCaption, url, paramApiKey, apiKey) {
+    async function upload(uploadOverlay, uploadLoader, uploadOk, uploadMessage, step2, step3, uploadButton, resetButton, repeatCaption, url, paramApiKey, apiKey, recordingVideoContainer) {
         try {
             const endpoint = url + paramApiKey + apiKey;
 
@@ -168,13 +177,21 @@ const recordRTC = (function() {
                 uploadLoader.style.display = "none";
                 uploadOk.style.display = "block";
                 uploadMessage.innerHTML = "GIFO subido con éxito";
+                resetButton.style.display = "block";
 
-                console.log(jsonResponse);
+                _addToMyGifos(jsonResponse.data.id);
 
-                let myGifoId = jsonResponse.data.id
-			    console.log(myGifoId);
+                const buttons = `
+                    <div class="icon-container">
+                        <i class="icon-download"
+                            data-download-id=${jsonResponse.data.id}></i>
+                        <i class="icon-link"
+                            data-link-id=${jsonResponse.data.id}></i>
+                    </div>`;
 
-                return jsonResponse;
+                recordingVideoContainer.insertAdjacentHTML("beforeend", buttons);
+
+                return;
             }
 
             throw new Error("Request failed");
@@ -184,8 +201,8 @@ const recordRTC = (function() {
         }
     };
 
-    function repeatCaption(canvas, repeatCaption, uploadButton, recordButton) {
-        _recorder.clearRecordedData();
+    function repeatCaption(canvas, repeatCaption, uploadButton, recordButton, timerContainer) {
+        _recorder.reset();
         
         document.getElementById("recorded-gif").remove();
 
@@ -195,7 +212,95 @@ const recordRTC = (function() {
         recordButton.style.display = "block";
 
         clearInterval(_interval);
+        _time = 0;
         timerContainer.innerHTML = "00:00:00";
+    };
+
+    function reset() {
+        location.reload();
+    };
+
+    // transform the url into blob so it can be downloaded
+    async function _downloadBlob(url) {
+        const a = document.createElement("a");
+        const response = await fetch(url); // HTTP response by the browser
+        const file = await response.blob();
+
+        // use download attribute https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#Attributes
+        a.download = "my-gif";
+        a.href = window.URL.createObjectURL(file);
+
+        // store download url in javascript https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes#JavaScript_access
+        a.dataset.downloadurl = ["application/octet-stream", a.download, a.href].join(":");
+        
+        a.click(); // autoclick on element to start download
+    };
+
+    // Event capturing for the download icon with the functionality
+    async function download(event, classToSearch, url, paramApiKey, apiKey) {
+        if (event.target.className === classToSearch) {
+            try {
+                const id = event.target.getAttribute("data-download-id"); // get custom attribute
+                const endpoint = url + id + "?" + paramApiKey + apiKey;
+                const response = await fetch(endpoint);
+
+                if (response.ok) {
+                    const jsonResponse = await response.json();
+
+                    const urlToDownload = jsonResponse.data.images.fixed_height.url;
+
+                    _downloadBlob(urlToDownload);
+
+                    return;
+                }
+
+                throw new Error("Request failed");
+            } catch (error) {
+                console.log(error.message);
+                alert(error.message);
+            }
+        }
+    };
+
+    function _copyToClipboard(text) {
+        const dummy = document.createElement("textarea");
+        // to avoid breaking orgain page when copying more words
+        // cant copy when adding below this code
+        // dummy.style.display = 'none'
+        document.body.appendChild(dummy);
+        //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea".
+        dummy.value = text;
+        dummy.select();
+        dummy.setSelectionRange(0, 99999); // for mobile devices
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        alert("Link copiado!");
+    }
+
+    // Event capturing for the copy link icon with the functionality
+    async function copyLink(event, classToSearch, url, paramApiKey, apiKey) {
+        if (event.target.className === classToSearch) {
+            try {
+                const id = event.target.getAttribute("data-link-id"); // get custom attribute
+                const endpoint = url + id + "?" + paramApiKey + apiKey;
+                const response = await fetch(endpoint);
+
+                if (response.ok) {
+                    const jsonResponse = await response.json();
+
+                    const urlToCopy = jsonResponse.data.url;
+
+                    _copyToClipboard(urlToCopy);
+
+                    return;
+                }
+
+                throw new Error("Request failed");
+            } catch (error) {
+                console.log(error.message);
+                alert(error.message);
+            }
+        }
     };
 
     return {
@@ -203,7 +308,10 @@ const recordRTC = (function() {
         record,
         stop,
         upload,
-        repeatCaption
+        repeatCaption,
+        reset,
+        download,
+        copyLink
     }
 })();
 

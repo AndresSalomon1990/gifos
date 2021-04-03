@@ -74,7 +74,8 @@ constants.elements.REPEAT_CAPTION.addEventListener("click", () => {
         constants.elements.CANVAS_CONTAINER,
         constants.elements.REPEAT_CAPTION,
         constants.elements.UPLOAD_BUTTON,
-        constants.elements.RECORD_BUTTON
+        constants.elements.RECORD_BUTTON,
+        constants.elements.TIMER
     );
 }, false);
 
@@ -104,9 +105,39 @@ constants.elements.UPLOAD_BUTTON.addEventListener("click", () => {
         constants.elements.STEP_2,
         constants.elements.STEP_3,
         constants.elements.UPLOAD_BUTTON,
+        constants.elements.RESET_BUTTON,
         constants.elements.REPEAT_CAPTION,
         constants.url.UPLOAD_URL,
         constants.queryStrings.PARAM_API_KEY,
-        constants.queryStrings.API_KEY
+        constants.queryStrings.API_KEY,
+        constants.elements.RECORDING_VIDEO_CONTAINER
     );
 }, false);
+
+//-------------------------------------------------------------
+// RELOAD
+//-------------------------------------------------------------
+constants.elements.RESET_BUTTON.addEventListener("click", recordRTC.reset, false);
+
+//-------------------------------------------------------------
+// RECORDED GIF FUNCTIONALITY - DOWNLOAD, LINK
+//-------------------------------------------------------------
+constants.elements.RECORDING_VIDEO_CONTAINER.addEventListener("click", (event) => {
+    recordRTC.download(
+        event,
+        "icon-download",
+        constants.url.GIF_BY_ID_URL,
+        constants.queryStrings.PARAM_API_KEY,
+        constants.queryStrings.API_KEY
+    );
+}, true);
+
+constants.elements.RECORDING_VIDEO_CONTAINER.addEventListener("click", (event) => {
+    recordRTC.copyLink(
+        event,
+        "icon-link",
+        constants.url.GIF_BY_ID_URL,
+        constants.queryStrings.PARAM_API_KEY,
+        constants.queryStrings.API_KEY
+    );
+}, true);
